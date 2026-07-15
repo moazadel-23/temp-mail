@@ -1,5 +1,5 @@
 /* ========================================
-   FakeMail - Complete Working Version
+   BaridTemp - Complete Working Version
    ======================================== */
 
 const PASS = 'TMX_temp_2026!';
@@ -91,6 +91,14 @@ function toast(msg, type = 'info') {
 async function getDomains() {
     const d = await callAPI('/domains');
     S.domains = (d['hydra:member'] || []).filter(x => x.isActive);
+    // Prioritize .com domains by placing them at the beginning of the list
+    S.domains.sort((a, b) => {
+        const aIsCom = a.domain.toLowerCase().endsWith('.com');
+        const bIsCom = b.domain.toLowerCase().endsWith('.com');
+        if (aIsCom && !bIsCom) return -1;
+        if (!aIsCom && bIsCom) return 1;
+        return 0;
+    });
     return S.domains;
 }
 

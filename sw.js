@@ -1,4 +1,4 @@
-const CACHE_NAME = 'fakemail-v1';
+const CACHE_NAME = 'baridtemp-v2';
 const urlsToCache = [
     '/',
     '/index.html',

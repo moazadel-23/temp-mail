@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    const ADMIN_EMAIL = 'admin@tempmailx.local';
+    const ADMIN_EMAIL = 'admin@baridtemp.local';
     const ADMIN_PASSWORD = 'TMX-Admin-2026!';
     const AUTH_KEY = 'tmx_admin_auth';
     let currentEditingArticle = null;
@@ -19,16 +19,7 @@
     function isAuthed() { return sessionStorage.getItem(AUTH_KEY) === 'true'; }
 
     function showApp() {
-        $('#loginView').hidden = true;
-        $('#dashboardView').hidden = false;
         renderAll();
-    }
-
-    function showLogin() {
-        $('#loginView').hidden = false;
-        $('#dashboardView').hidden = true;
-        $('#loginEmail').value = ADMIN_EMAIL;
-        $('#loginPassword').value = ADMIN_PASSWORD;
     }
 
     function textValue(value) { return window.TMXContent.getText(value, 'en'); }
@@ -85,8 +76,8 @@
     }
 
     function fillSectionSample() {
-        $('#sectionTitle').value = 'Why users choose TempMailX';
-        $('#sectionId').value = 'why-users-choose-tempmailx';
+        $('#sectionTitle').value = 'Why users choose BaridTemp';
+        $('#sectionId').value = 'why-users-choose-baridtemp';
         $('#sectionTag').value = 'Use cases';
         $('#sectionIcon').value = 'fas fa-user-check';
         $('#sectionShowHeader').checked = true;
@@ -150,8 +141,8 @@
     function fillPageSample() {
         $('#pageTitle').value = 'Privacy Center';
         $('#pageSlug').value = 'privacy-center';
-        $('#pageSummary').value = 'How TempMailX helps users reduce spam and protect their identity online.';
-        $('#pageBody').value = '<h2>Who is TempMailX for?</h2><p>TempMailX is for people who need a quick inbox for signups, OTP previews, downloads, trials, and product testing without exposing their primary email address.</p><h2>Why use it?</h2><p>Temporary email reduces spam, limits tracking, and gives developers a fast way to test email-based workflows. Use it for low-risk, short-term tasks, not for banking, work accounts, or services you need to recover later.</p>';
+        $('#pageSummary').value = 'How BaridTemp helps users reduce spam and protect their identity online.';
+        $('#pageBody').value = '<h2>Who is BaridTemp for?</h2><p>BaridTemp is for people who need a quick inbox for signups, OTP previews, downloads, trials, and product testing without exposing their primary email address.</p><h2>Why use it?</h2><p>Temporary email reduces spam, limits tracking, and gives developers a fast way to test email-based workflows. Use it for low-risk, short-term tasks, not for banking, work accounts, or services you need to recover later.</p>';
         $('#pageShowHeader').checked = true;
     }
 
@@ -174,6 +165,96 @@
         renderAll();
     }
 
+    function compressImage(file, callback) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const img = new Image();
+            img.onload = function () {
+                const canvas = document.createElement('canvas');
+                const MAX_WIDTH = 800;
+                const MAX_HEIGHT = 600;
+                let width = img.width;
+                let height = img.height;
+
+                if (width > height) {
+                    if (width > MAX_WIDTH) {
+                        height *= MAX_WIDTH / width;
+                        width = MAX_WIDTH;
+                    }
+                } else {
+                    if (height > MAX_HEIGHT) {
+                        width *= MAX_HEIGHT / height;
+                        height = MAX_HEIGHT;
+                    }
+                }
+
+                canvas.width = width;
+                canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, width, height);
+
+                // Compress to JPEG with 0.7 quality to keep size low for localStorage
+                const dataUrl = canvas.toDataURL('image/jpeg', 0.7);
+                callback(dataUrl);
+            };
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+
+    function generateImageId() {
+        const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+        let id = '';
+        for (let i = 0; i < 5; i++) {
+            id += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        return 'img_' + id;
+    }
+
+    function saveLocalImage(id, dataUrl) {
+        let stored = {};
+        try { stored = JSON.parse(localStorage.getItem('tmx_uploaded_images')) || {}; } catch(e) {}
+        stored[id] = dataUrl;
+        localStorage.setItem('tmx_uploaded_images', JSON.stringify(stored));
+    }
+
+    function getLocalImage(id) {
+        if (!id) return '';
+        if (id.startsWith('data:') || id.startsWith('http') || id.includes('/')) return id;
+        try {
+            const stored = JSON.parse(localStorage.getItem('tmx_uploaded_images')) || {};
+            return stored[id] || id;
+        } catch (e) {
+            return id;
+        }
+    }
+
+    function updateImagePreview() {
+        const val = $('#articleImage').value.trim();
+        const container = $('#imagePreviewContainer');
+        const preview = $('#imagePreview');
+        const info = $('#imagePreviewInfo');
+        
+        if (!container || !preview || !info) return;
+
+        if (val) {
+            const actualSrc = getLocalImage(val);
+            preview.src = actualSrc;
+            container.style.display = 'flex';
+            if (val.startsWith('img_')) {
+                info.textContent = 'Uploaded image (' + val + ')';
+            } else if (val.startsWith('data:image')) {
+                info.textContent = 'Base64 image (' + Math.round(val.length / 1024) + ' KB)';
+            } else {
+                info.textContent = 'External URL image';
+            }
+        } else {
+            container.style.display = 'none';
+            preview.src = '';
+            info.textContent = '';
+        }
+    }
+
     function clearArticleForm() {
         $('#articleEditIndex').value = '';
         $('#articleTitle').value = '';
@@ -182,8 +263,12 @@
         $('#articleExcerpt').value = '';
         $('#articleContent').value = '';
         $('#articleEditorLang').value = 'en';
+        $('#articleAuthor').value = '';
+        $('#articleDate').value = '';
+        $('#articleReadTime').value = '';
         currentEditingArticle = null;
         currentEditorLang = 'en';
+        updateImagePreview();
     }
 
     function renderArticles() {
@@ -206,9 +291,13 @@
         const contentVal = typeof currentEditingArticle.content === 'object' 
             ? (currentEditingArticle.content[lang] || '') 
             : (lang === 'en' ? (currentEditingArticle.content || '') : '');
+        const readTimeVal = typeof currentEditingArticle.readTime === 'object'
+            ? (currentEditingArticle.readTime[lang] || '')
+            : (lang === 'en' ? (currentEditingArticle.readTime || '') : '');
         $('#articleTitle').value = titleVal;
         $('#articleExcerpt').value = excerptVal;
         $('#articleContent').value = contentVal;
+        $('#articleReadTime').value = readTimeVal;
     }
 
     function saveArticleLangFields(lang) {
@@ -218,9 +307,13 @@
         if (typeof currentEditingArticle.title !== 'object') currentEditingArticle.title = { en: currentEditingArticle.title || '' };
         if (typeof currentEditingArticle.excerpt !== 'object') currentEditingArticle.excerpt = { en: currentEditingArticle.excerpt || '' };
         if (typeof currentEditingArticle.content !== 'object') currentEditingArticle.content = { en: currentEditingArticle.content || '' };
+        if (typeof currentEditingArticle.readTime !== 'object') {
+            currentEditingArticle.readTime = { en: currentEditingArticle.readTime || '', ar: '' };
+        }
         currentEditingArticle.title[lang] = $('#articleTitle').value.trim();
         currentEditingArticle.excerpt[lang] = $('#articleExcerpt').value.trim();
         currentEditingArticle.content[lang] = $('#articleContent').value.trim();
+        currentEditingArticle.readTime[lang] = $('#articleReadTime').value.trim();
     }
 
     function handleArticleEditorLangChange() {
@@ -242,9 +335,30 @@
         if (!contentEn && !contentAr) { setStatus('#articleStatus', 'Please enter some article content.'); return; }
         currentEditingArticle.category = $('#articleCategory').value;
         currentEditingArticle.image = $('#articleImage').value.trim() || 'img/1.png';
-        currentEditingArticle.date = currentEditingArticle.date || new Date().toISOString().slice(0, 10);
+        currentEditingArticle.author = $('#articleAuthor').value.trim() || 'BaridTemp Team';
+        currentEditingArticle.date = $('#articleDate').value || new Date().toISOString().slice(0, 10);
         currentEditingArticle.lastModified = Date.now();
-        currentEditingArticle.readTime = currentEditingArticle.readTime || { en: '6 min read', ar: '6 دقائق قراءة' };
+
+        // Calculate dynamic read time if fields are empty
+        const customEn = currentEditingArticle.readTime.en ? currentEditingArticle.readTime.en.trim() : '';
+        const customAr = currentEditingArticle.readTime.ar ? currentEditingArticle.readTime.ar.trim() : '';
+
+        if (!customEn || !customAr) {
+            const enWords = (currentEditingArticle.content.en || '').replace(/<[^>]*>/g, ' ').trim().split(/\s+/).filter(Boolean).length;
+            const arWords = (currentEditingArticle.content.ar || '').replace(/<[^>]*>/g, ' ').trim().split(/\s+/).filter(Boolean).length;
+            
+            const enMin = Math.max(1, Math.round(enWords / 200));
+            const arMin = Math.max(1, Math.round(arWords / 200));
+
+            let arReadText = '';
+            if (arMin === 1) arReadText = 'دقيقة واحدة قراءة';
+            else if (arMin === 2) arReadText = 'دقيقتان قراءة';
+            else if (arMin >= 3 && arMin <= 10) arReadText = 'قراءة في ' + arMin + ' دقائق';
+            else arReadText = 'قراءة في ' + arMin + ' دقيقة';
+
+            if (!customEn) currentEditingArticle.readTime.en = enMin + ' min read';
+            if (!customAr) currentEditingArticle.readTime.ar = arReadText;
+        }
         const articles = window.TMXContent.getArticles();
         const editIndex = $('#articleEditIndex').value;
         if (editIndex !== '') articles[Number(editIndex)] = currentEditingArticle; else articles.unshift(currentEditingArticle);
@@ -271,7 +385,10 @@
         $('#articleEditIndex').value = String(index);
         $('#articleCategory').value = currentEditingArticle.category || 'privacy';
         $('#articleImage').value = currentEditingArticle.image || '';
+        $('#articleAuthor').value = currentEditingArticle.author || '';
+        $('#articleDate').value = currentEditingArticle.date || '';
         loadArticleLangFields('en');
+        updateImagePreview();
         setStatus('#articleStatus', 'Editing article #' + (index + 1));
     }
 
@@ -308,6 +425,24 @@
         setStatus('#stripeStatus', 'Stripe placeholders restored.');
     }
 
+    function loadVisitorCount() {
+        const el = $('#visitorCount');
+        if (!el) return;
+        fetch('https://api.counterapi.dev/v1/TEMPMailX/visits')
+            .then(res => res.json())
+            .then(data => {
+                if (data && typeof data.count === 'number') {
+                    el.textContent = Number(data.count).toLocaleString();
+                } else {
+                    el.textContent = '0';
+                }
+            })
+            .catch(err => {
+                console.error('Failed to load visitor count:', err);
+                el.textContent = 'Error';
+            });
+    }
+
     function renderAll() {
         seedArticlesIfNeeded();
         refreshCounts();
@@ -315,16 +450,64 @@
         renderPages();
         renderArticles();
         loadStripeForm();
+        loadVisitorCount();
     }
 
     function bindEvents() {
-        $('#fillLogin').addEventListener('click', function () { $('#loginEmail').value = ADMIN_EMAIL; $('#loginPassword').value = ADMIN_PASSWORD; });
-        $('#loginForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-            if ($('#loginEmail').value.trim() === ADMIN_EMAIL && $('#loginPassword').value === ADMIN_PASSWORD) { sessionStorage.setItem(AUTH_KEY, 'true'); showApp(); }
-            else setStatus('#loginStatus', 'Wrong email or password.');
+        $('#logoutBtn').addEventListener('click', function () { 
+            sessionStorage.removeItem(AUTH_KEY); 
+            window.location.replace('admin-login.html'); 
         });
-        $('#logoutBtn').addEventListener('click', function () { sessionStorage.removeItem(AUTH_KEY); showLogin(); });
+        $('#articleImageFile')?.addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            compressImage(file, function (dataUrl) {
+                const id = generateImageId();
+                saveLocalImage(id, dataUrl);
+                $('#articleImage').value = id;
+                updateImagePreview();
+            });
+        });
+        $('#removeImageBtn')?.addEventListener('click', function () {
+            $('#articleImage').value = '';
+            $('#articleImageFile').value = '';
+            updateImagePreview();
+        });
+        $('#articleImage')?.addEventListener('input', updateImagePreview);
+
+        $('#articleBodyImageFile')?.addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            compressImage(file, function (dataUrl) {
+                const textarea = $('#articleContent');
+                if (!textarea) return;
+                const id = generateImageId();
+                saveLocalImage(id, dataUrl);
+
+                const startPos = textarea.selectionStart;
+                const endPos = textarea.selectionEnd;
+                const text = textarea.value;
+                const imgTag = '<img src="' + id + '" alt="Uploaded Image">';
+                
+                // Copy to clipboard as a backup convenience
+                navigator.clipboard.writeText(imgTag).catch(err => {
+                    console.error('Failed to copy to clipboard:', err);
+                });
+
+                // Insert at cursor
+                textarea.value = text.substring(0, startPos) + imgTag + text.substring(endPos);
+                textarea.dispatchEvent(new Event('input'));
+                
+                // Restore focus and place cursor right after the inserted tag
+                textarea.focus();
+                const newCursorPos = startPos + imgTag.length;
+                textarea.setSelectionRange(newCursorPos, newCursorPos);
+
+                e.target.value = '';
+                setStatus('#articleStatus', 'Image uploaded as ' + id + ' (inserted at cursor and copied to clipboard).', true);
+            });
+        });
+
         $$('.admin-tab').forEach(function (tab) { tab.addEventListener('click', function () { $$('.admin-tab').forEach(function (item) { item.classList.remove('active'); }); $$('.admin-panel').forEach(function (item) { item.classList.remove('active'); }); tab.classList.add('active'); $('#panel-' + tab.dataset.tab).classList.add('active'); }); });
         $('#sectionForm').addEventListener('submit', saveSection);
         $('#sectionSample').addEventListener('click', fillSectionSample);
@@ -355,5 +538,12 @@
         });
     }
 
-    document.addEventListener('DOMContentLoaded', function () { bindEvents(); if (isAuthed()) showApp(); else showLogin(); });
+    document.addEventListener('DOMContentLoaded', function () { 
+        bindEvents(); 
+        if (isAuthed()) {
+            showApp(); 
+        } else {
+            window.location.replace('admin-login.html');
+        }
+    });
 })();

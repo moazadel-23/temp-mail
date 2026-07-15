@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaridTemp Admin - Login</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css?v=14">
+    <style>
+        body.admin-body {
+            background: var(--bg);
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            font-family: 'Inter', sans-serif;
+        }
+        .admin-login-card {
+            background: var(--bg2);
+            border: 1px solid var(--brd);
+            border-radius: 20px;
+            box-shadow: var(--sh3);
+            width: min(460px, 100%);
+            padding: 36px;
+            animation: cardFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .login-brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+        .login-brand .logo-ico {
+            width: 44px;
+            height: 44px;
+            background: var(--grad);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.25rem;
+        }
+        .login-brand h1 {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--tx);
+        }
+        .login-brand p {
+            color: var(--tx2);
+            font-size: 0.8rem;
+            margin-top: 2px;
+        }
+        .credential-box {
+            background: var(--bg3);
+            border: 1px solid var(--brd);
+            border-radius: 14px;
+            padding: 16px;
+            margin-bottom: 24px;
+        }
+        .credential-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            font-size: 0.84rem;
+            color: var(--tx2);
+        }
+        .credential-row:not(:last-child) {
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed var(--brd);
+        }
+        .credential-row code {
+            color: var(--tx);
+            font-weight: 800;
+            background: rgba(124, 58, 237, 0.08);
+            padding: 2px 6px;
+            border-radius: 6px;
+            font-family: monospace;
+        }
+        .admin-form {
+            display: grid;
+            gap: 16px;
+        }
+        .admin-label {
+            display: grid;
+            gap: 8px;
+            color: var(--tx2);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .admin-input {
+            width: 100%;
+            background: var(--bg3);
+            border: 1px solid var(--brd);
+            border-radius: 12px;
+            color: var(--tx);
+            padding: 12px 14px;
+            font: inherit;
+            font-size: 0.92rem;
+            outline: none;
+            transition: all 0.2s;
+        }
+        .admin-input:focus {
+            border-color: var(--pri);
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+        }
+        .admin-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border-radius: 12px;
+            padding: 12px 16px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            border: 1px solid var(--brd);
+            background: var(--bg3);
+            color: var(--tx);
+            cursor: pointer;
+            transition: var(--tr);
+        }
+        .admin-btn:hover {
+            border-color: var(--pri);
+            color: var(--pri);
+        }
+        .admin-btn.primary {
+            border: 0;
+            background: var(--grad);
+            color: #fff;
+        }
+        .admin-btn.primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+        }
+        .status-line {
+            min-height: 22px;
+            color: var(--err);
+            font-size: 0.84rem;
+            font-weight: 600;
+            text-align: center;
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 16px;
+        }
+        .back-link a {
+            color: var(--tx3);
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: var(--tr);
+        }
+        .back-link a:hover {
+            color: var(--pri);
+        }
+        @keyframes cardFadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="admin-body" data-theme="dark">
+
+    <main class="admin-login-card">
+        <div class="login-brand">
+            <div class="logo-ico"><i class="fas fa-user-shield"></i></div>
+            <div>
+                <h1>BaridTemp Admin</h1>
+                <p>Hidden dashboard. Authenticate to access settings.</p>
+            </div>
+        </div>
+
+        <div class="credential-box">
+            <div class="credential-row">
+                <span>Admin email</span>
+                <code>admin@baridtemp.local</code>
+            </div>
+            <div class="credential-row">
+                <span>Password</span>
+                <code>TMX-Admin-2026!</code>
+            </div>
+        </div>
+
+        <form class="admin-form" id="loginForm">
+            <label class="admin-label">
+                Email
+                <input class="admin-input" id="loginEmail" type="email" autocomplete="username" required>
+            </label>
+            <label class="admin-label">
+                Password
+                <input class="admin-input" id="loginPassword" type="password" autocomplete="current-password" required>
+            </label>
+            
+            <button class="admin-btn primary" type="submit">
+                <i class="fas fa-right-to-bracket"></i> Login
+            </button>
+            <button class="admin-btn" type="button" id="fillLogin">
+                <i class="fas fa-wand-magic-sparkles"></i> Fill default login
+            </button>
+            
+            <div class="status-line" id="loginStatus"></div>
+        </form>
+
+        <div class="back-link">
+            <a href="index.html"><i class="fas fa-arrow-left"></i> Return to site homepage</a>
+        </div>
+    </main>
+
+    <script>
+        const ADMIN_EMAIL = 'admin@baridtemp.local';
+        const ADMIN_PASSWORD = 'TMX-Admin-2026!';
+        const AUTH_KEY = 'tmx_admin_auth';
+
+        // Check if already authed, redirect directly
+        if (sessionStorage.getItem(AUTH_KEY) === 'true') {
+            window.location.replace('admin-dashboard.html');
+        }
+
+        const loginForm = document.getElementById('loginForm');
+        const loginEmail = document.getElementById('loginEmail');
+        const loginPassword = document.getElementById('loginPassword');
+        const loginStatus = document.getElementById('loginStatus');
+        const fillLogin = document.getElementById('fillLogin');
+
+        fillLogin.addEventListener('click', () => {
+            loginEmail.value = ADMIN_EMAIL;
+            loginPassword.value = ADMIN_PASSWORD;
+        });
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (loginEmail.value.trim() === ADMIN_EMAIL && loginPassword.value === ADMIN_PASSWORD) {
+                sessionStorage.setItem(AUTH_KEY, 'true');
+                loginStatus.style.color = 'var(--ok)';
+                loginStatus.textContent = 'Success! Redirecting...';
+                setTimeout(() => {
+                    window.location.href = 'admin-dashboard.html';
+                }, 800);
+            } else {
+                loginStatus.style.color = 'var(--err)';
+                loginStatus.textContent = 'Wrong email or password.';
+            }
+        });
+
+        // Set theme
+        const saved = localStorage.getItem('tmx_theme') || 'dark';
+        document.body.setAttribute('data-theme', saved);
+    </script>
+</body>
+</html>

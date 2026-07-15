@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FakeMail - Blog</title>
-    <meta name="description" content="Tips, guides, and insights about email privacy, security, and online safety from the FakeMail team.">
+    <title>BaridTemp - Blog</title>
+    <meta name="description" content="Tips, guides, and insights about email privacy, security, and online safety from the BaridTemp team.">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="FakeMail - Blog & Articles">
+    <meta property="og:title" content="BaridTemp - Blog & Articles">
     <meta property="og:description" content="Tips, guides, and insights about email privacy, security, and online safety.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://fakemail.com/blog.html">
-    <meta property="og:site_name" content="FakeMail">
+    <meta property="og:url" content="https://baridtemp.com/blog.html">
+    <meta property="og:site_name" content="BaridTemp">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="FakeMail - Blog & Articles">
+    <meta name="twitter:title" content="BaridTemp - Blog & Articles">
     <meta name="twitter:description" content="Tips, guides, and insights about email privacy, security, and online safety.">
-    <link rel="canonical" href="https://fakemail.com/blog.html">
+    <link rel="canonical" href="https://baridtemp.com/blog.html">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -54,11 +54,24 @@
         .blog-list-wrap{position:relative}
         .related-section{margin-top:50px;padding-top:40px;border-top:1px solid var(--brd)}
         .related-title{font-size:1.4rem;font-weight:800;margin-bottom:24px}
-        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+        .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+        .related-card{background:var(--bg2);border:1px solid var(--brd);border-radius:14px;overflow:hidden;cursor:pointer;transition:var(--tr);display:flex;flex-direction:column;height:100%}
+        .related-card:hover{transform:translateY(-4px);border-color:var(--pri);box-shadow:var(--sh2)}
+        .related-card-img{height:110px;background-position:center;background-size:cover;background-repeat:no-repeat;display:grid;place-items:center;border-bottom:1px solid var(--brd)}
+        .related-card-body{padding:12px;display:flex;flex-direction:column;flex:1}
+        .related-card h4{font-size:0.85rem;font-weight:800;line-height:1.4;margin:0 0 8px 0;color:var(--tx);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;flex:1}
+        .related-card-meta{display:flex;align-items:center;justify-content:space-between;font-size:0.72rem;color:var(--tx3);margin-top:auto}
+        .related-card-meta i{margin-right:4px}
+        [dir="rtl"] .related-card-meta i{margin-right:0;margin-left:4px}
         @media(max-width:768px){
             .blog-grid{grid-template-columns:1fr}
             .blog-hero h1{font-size:1.8rem}
-            .related-grid{grid-template-columns:1fr}
+            .related-grid{grid-template-columns:1fr;gap:12px}
+            .related-card{flex-direction:row;height:90px}
+            .related-card-img{width:100px;height:100%;border-bottom:none;border-right:1px solid var(--brd);flex-shrink:0}
+            [dir="rtl"] .related-card-img{border-right:none;border-left:1px solid var(--brd)}
+            .related-card-body{padding:10px 12px}
+            .related-card h4{font-size:0.8rem;margin-bottom:4px}
             .article-view{padding:90px 16px 60px}
             .article-view h1{font-size:1.6rem}
             .article-banner{height:200px;border-radius:var(--r2);margin-bottom:20px}
@@ -72,7 +85,7 @@
         <div class="wrap header-inner">
             <a href="index.html" class="logo">
                 <div class="logo-ico"><i class="fas fa-paper-plane"></i></div>
-                <span>Fake<span class="logo-p">Mail</span></span>
+                <span>Barid<span class="logo-p">Temp</span></span>
             </a>
             <nav class="nav" id="mainNav">
                 <a href="index.html" data-i18n="nav_home">Home</a>
@@ -125,7 +138,7 @@
                 <div>
                     <a href="index.html" class="logo" style="margin-bottom:14px">
                         <div class="logo-ico"><i class="fas fa-paper-plane"></i></div>
-                        <span>Fake<span class="logo-p">Mail</span></span>
+                        <span>Barid<span class="logo-p">Temp</span></span>
                     </a>
                     <p style="color:var(--tx3);font-size:.85rem;line-height:1.7;max-width:280px">Free temporary email service. Protect your privacy, avoid spam, and keep your real inbox clean.</p>
                 </div>
@@ -149,7 +162,7 @@
                 </div>
             </div>
             <div class="foot-bottom">
-                <span>&copy; 2026 FakeMail. All rights reserved.</span>
+                <span>&copy; 2026 BaridTemp. All rights reserved.</span>
             </div>
         </div>
     </footer>
@@ -204,8 +217,32 @@
 
         const catIcons = { privacy: 'fas fa-shield-halved', guide: 'fas fa-book-open', news: 'fas fa-newspaper', tips: 'fas fa-lightbulb', security: 'fas fa-lock' };
 
+        function getReadTime(a) {
+            if (a.readTime) {
+                const val = typeof a.readTime === 'object' ? (a.readTime[currentLang] || a.readTime.en) : a.readTime;
+                if (val) return val;
+            }
+            
+            // Dynamic fallback calculation based on content length
+            const content = typeof a.content === 'object' ? (a.content[currentLang] || a.content.en || '') : (a.content || '');
+            const cleanText = content.replace(/<[^>]*>/g, ' ').trim();
+            const words = cleanText.split(/\s+/).filter(Boolean).length;
+            const min = Math.max(1, Math.round(words / 200));
+            
+            if (currentLang === 'ar') {
+                if (min === 1) return 'دقيقة واحدة قراءة';
+                if (min === 2) return 'دقيقتان قراءة';
+                if (min >= 3 && min <= 10) return 'قراءة في ' + min + ' دقائق';
+                return 'قراءة في ' + min + ' دقيقة';
+            }
+            return min + ' min read';
+        }
+
         function getImgUrl(url, lastModified) {
             if (!url) return '';
+            if (url.startsWith('img_')) {
+                return typeof resolveLocalImage === 'function' ? resolveLocalImage(url) : url;
+            }
             if (url.startsWith('data:')) return url;
             return url + (url.includes('?') ? '&' : '?') + 't=' + (lastModified || '');
         }
@@ -221,7 +258,7 @@
                 // Bilingual support
                 const titleVal = typeof a.title === 'object' ? (a.title[currentLang] || a.title.en) : a.title;
                 const excerptVal = typeof a.excerpt === 'object' ? (a.excerpt[currentLang] || a.excerpt.en) : a.excerpt;
-                const readTimeVal = typeof a.readTime === 'object' ? (a.readTime[currentLang] || a.readTime.en) : a.readTime;
+                const readTimeVal = getReadTime(a);
                 const catLabel = typeof t === 'function' ? t(a.category) : a.category;
 
                 return '<div class="blog-card" onclick="openArticle(' + arts.indexOf(a) + ')">' +
@@ -231,7 +268,7 @@
                 '<h3>' + esc(titleVal) + '</h3>' +
                 '<p class="excerpt">' + esc(excerptVal) + '</p>' +
                 '<div class="blog-card-meta">' +
-                '<span><i class="fas fa-user"></i>' + esc(a.author || 'FakeMail Team') + '</span>' +
+                '<span><i class="fas fa-user"></i>' + esc(a.author || 'BaridTemp Team') + '</span>' +
                 '<span><i class="fas fa-calendar"></i>' + a.date + '</span>' +
                 '<span><i class="fas fa-clock"></i>' + readTimeVal + '</span>' +
                 '</div></div></div>';
@@ -268,22 +305,21 @@
             relatedGrid.innerHTML = related.map(a => {
                 const globalIdx = arts.indexOf(a);
                 const bgStyle = a.image ? 'background-image: url(\'' + getImgUrl(a.image, a.lastModified) + '\'); background-position: center; background-size: cover; background-repeat: no-repeat;' : 'background: linear-gradient(135deg,rgba(124,58,237,.15),rgba(59,130,246,.15))';
-                const icoHtml = a.image ? '' : '<i class="' + (catIcons[a.category] || 'fas fa-newspaper') + '"></i>';
+                const icoHtml = a.image ? '' : '<i class="' + (catIcons[a.category] || 'fas fa-newspaper') + '" style="font-size:1.5rem;opacity:0.4;color:var(--pri)"></i>';
                 
                 // Bilingual support
                 const titleVal = typeof a.title === 'object' ? (a.title[currentLang] || a.title.en) : a.title;
-                const excerptVal = typeof a.excerpt === 'object' ? (a.excerpt[currentLang] || a.excerpt.en) : a.excerpt;
                 const catLabel = typeof t === 'function' ? t(a.category) : a.category;
+                const readTimeVal = getReadTime(a);
 
-                return '<div class="blog-card" onclick="openArticle(' + globalIdx + ')">' +
-                '<div class="blog-card-img" style="' + bgStyle + '">' + icoHtml + '</div>' +
-                '<div class="blog-card-body">' +
-                '<span class="blog-card-cat cat-' + a.category + '">' + catLabel + '</span>' +
-                '<h3>' + esc(titleVal) + '</h3>' +
-                '<p class="excerpt">' + esc(excerptVal) + '</p>' +
-                '<div class="blog-card-meta">' +
-                '<span><i class="fas fa-user"></i>' + esc(a.author || 'FakeMail Team') + '</span>' +
+                return '<div class="related-card" onclick="openArticle(' + globalIdx + ')">' +
+                '<div class="related-card-img" style="' + bgStyle + '">' + icoHtml + '</div>' +
+                '<div class="related-card-body">' +
+                '<span class="blog-card-cat cat-' + a.category + '" style="margin-bottom:6px;display:inline-block">' + catLabel + '</span>' +
+                '<h4>' + esc(titleVal) + '</h4>' +
+                '<div class="related-card-meta">' +
                 '<span><i class="fas fa-calendar"></i>' + a.date + '</span>' +
+                '<span><i class="fas fa-clock"></i>' + readTimeVal + '</span>' +
                 '</div></div></div>';
             }).join('');
         }
@@ -302,16 +338,24 @@
 
             // Bilingual support
             const titleVal = typeof a.title === 'object' ? (a.title[currentLang] || a.title.en) : a.title;
-            const contentVal = typeof a.content === 'object' ? (a.content[currentLang] || a.content.en) : a.content;
-            const readTimeVal = typeof a.readTime === 'object' ? (a.readTime[currentLang] || a.readTime.en) : a.readTime;
+            let contentVal = typeof a.content === 'object' ? (a.content[currentLang] || a.content.en) : a.content;
+            const readTimeVal = getReadTime(a);
             const catLabel = typeof t === 'function' ? t(a.category) : a.category;
+
+            // Resolve any short image IDs in the article content HTML
+            if (typeof resolveLocalImage === 'function' && contentVal) {
+                contentVal = contentVal.replace(/src="img_([a-zA-Z0-9]+)"/g, function(match, id) {
+                    const resolved = resolveLocalImage('img_' + id);
+                    return resolved ? 'src="' + resolved + '"' : match;
+                });
+            }
 
             document.getElementById('articleContent').innerHTML =
                 bannerHtml +
                 '<span class="blog-card-cat cat-' + a.category + '" style="margin-bottom:16px;display:inline-block">' + catLabel + '</span>' +
                 '<h1>' + esc(titleVal) + '</h1>' +
                 '<div class="article-meta">' +
-                '<span><i class="fas fa-user"></i>' + esc(a.author || 'FakeMail Team') + '</span>' +
+                '<span><i class="fas fa-user"></i>' + esc(a.author || 'BaridTemp Team') + '</span>' +
                 '<span><i class="fas fa-calendar"></i>' + a.date + '</span>' +
                 '<span><i class="fas fa-clock"></i>' + readTimeVal + '</span>' +
                 '</div>' +

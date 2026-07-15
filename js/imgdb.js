@@ -1,10 +1,10 @@
 /* ========================================
-   FakeMail - IndexedDB Image Storage
+   BaridTemp - IndexedDB Image Storage
    ======================================== */
 
 const ImgDB = {
     db: null,
-    DB_NAME: 'FakeMailImages',
+    DB_NAME: 'BaridTempImages',
     STORE: 'images',
     VERSION: 1,
 

@@ -1,5 +1,5 @@
 /* ========================================
-   FakeMail - Complete CSS
+   BaridTemp - Complete CSS
    ======================================== */
 
 :root{
@@ -193,9 +193,82 @@ img{max-width:100%}
 /* Email List */
 .email-list{flex:1;overflow-y:auto}
 .list-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:360px;color:var(--tx3)}
-.list-empty i{font-size:3.5rem;opacity:.2;margin-bottom:14px}
-.list-empty h3{font-size:1.1rem;color:var(--tx2);margin-bottom:6px}
+.list-empty h3{font-size:1.15rem;color:var(--tx2);margin-bottom:2px;font-weight:750}
 .list-empty p{font-size:.85rem}
+
+/* Empty Inbox Loader Animation */
+.empty-inbox-loader {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.circle-animation {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    animation: spin-clockwise 4s linear infinite;
+}
+.circle-dashed {
+    width: 100%;
+    height: 100%;
+    border: 2px dashed rgba(124, 58, 237, 0.15);
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.circle-animation .arrow {
+    position: absolute;
+    font-size: 0.68rem;
+    color: rgba(124, 58, 237, 0.5);
+    width: 12px;
+    height: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.circle-animation .arrow-top {
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.circle-animation .arrow-bottom {
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.envelope-center {
+    position: absolute;
+    background: var(--bg2);
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--sh2);
+    border: 1px solid var(--brd);
+    z-index: 2;
+    animation: float-envelope 3s ease-in-out infinite;
+}
+.envelope-center i {
+    font-size: 1.25rem !important;
+    opacity: 0.75 !important;
+    color: var(--pri) !important;
+    margin: 0 !important;
+}
+@keyframes spin-clockwise {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+@keyframes float-envelope {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
 
 .email-item{display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--brd2);cursor:pointer;transition:var(--tr);position:relative;animation:fadeIn .3s ease}
 .email-item:hover{background:rgba(124,58,237,.04)}
@@ -468,6 +541,16 @@ kbd{display:inline-block;padding:2px 7px;background:var(--bg3);border:1px solid 
     display: block;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+}
+
+/* ===== ARTICLE IMAGES RESPONSIVENESS ===== */
+.article-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--r2);
+    margin: 24px auto;
+    display: block;
+    box-shadow: var(--sh1);
 }
 
 @media(max-width:768px){
