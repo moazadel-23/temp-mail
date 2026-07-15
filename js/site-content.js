@@ -38,6 +38,9 @@
 
     function writeJson(key, value) {
         localStorage.setItem(key, JSON.stringify(value));
+        if (window.TMXSupabase && typeof window.TMXSupabase.upsertJson === 'function') {
+            window.TMXSupabase.upsertJson(key, value).catch(function () {});
+        }
     }
 
     function esc(value) {
@@ -170,6 +173,12 @@
         }
         document.title = page.title + ' - BaridTemp';
         root.innerHTML = '<section class="page-hero"><div class="wrap"><span class="tag">' + esc(page.badge || 'BaridTemp') + '</span><h1>' + esc(page.title) + '</h1>' + (page.summary ? '<p>' + esc(page.summary) + '</p>' : '') + '</div></section><section class="page-content-section"><div class="wrap"><article class="page-content">' + (page.body || '') + '</article></div></section>';
+    }
+
+    function syncSupabaseForKey(key, value) {
+        if (window.TMXSupabase && typeof window.TMXSupabase.upsertJson === 'function') {
+            window.TMXSupabase.upsertJson(key, value).catch(function () {});
+        }
     }
 
     function applyStripeSettings() {

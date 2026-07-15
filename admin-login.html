@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css?v=14">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
     <style>
         body.admin-body {
             background: var(--bg);
@@ -218,7 +220,11 @@
         const ADMIN_PASSWORD = 'TMX-Admin-2026!';
         const AUTH_KEY = 'tmx_admin_auth';
 
-        // Check if already authed, redirect directly
+        window.TMX_SUPABASE_CONFIG = window.TMX_SUPABASE_CONFIG || {
+            url: localStorage.getItem('tmx_supabase_url') || '',
+            anonKey: localStorage.getItem('tmx_supabase_anon') || ''
+        };
+
         if (sessionStorage.getItem(AUTH_KEY) === 'true') {
             window.location.replace('admin-dashboard.html');
         }
@@ -234,9 +240,27 @@
             loginPassword.value = ADMIN_PASSWORD;
         });
 
-        loginForm.addEventListener('submit', (e) => {
+        loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            if (loginEmail.value.trim() === ADMIN_EMAIL && loginPassword.value === ADMIN_PASSWORD) {
+            const email = loginEmail.value.trim();
+            const password = loginPassword.value;
+
+            if (window.TMXSupabase && window.TMXSupabase.isEnabled()) {
+                loginStatus.style.color = 'var(--tx2)';
+                loginStatus.textContent = 'Authenticating with Supabase...';
+                const result = await window.TMXSupabase.signIn(email, password);
+                if (result.ok) {
+                    sessionStorage.setItem(AUTH_KEY, 'true');
+                    loginStatus.style.color = 'var(--ok)';
+                    loginStatus.textContent = 'Success! Redirecting...';
+                    setTimeout(() => {
+                        window.location.href = 'admin-dashboard.html';
+                    }, 800);
+                    return;
+                }
+            }
+
+            if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
                 sessionStorage.setItem(AUTH_KEY, 'true');
                 loginStatus.style.color = 'var(--ok)';
                 loginStatus.textContent = 'Success! Redirecting...';
@@ -249,7 +273,6 @@
             }
         });
 
-        // Set theme
         const saved = localStorage.getItem('tmx_theme') || 'dark';
         document.body.setAttribute('data-theme', saved);
     </script>
