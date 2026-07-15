@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FakeMail - Premium Plans</title>
+    <meta name="description" content="Upgrade to FakeMail Premium for unlimited emails, custom domains, priority delivery, and API access.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="FakeMail - Premium Plans">
+    <meta property="og:description" content="Upgrade for unlimited emails, custom domains, priority delivery, and API access.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fakemail.com/premium.html">
+    <meta property="og:site_name" content="FakeMail">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="FakeMail - Premium Plans">
+    <meta name="twitter:description" content="Upgrade for unlimited emails, custom domains, priority delivery, and API access.">
+    <link rel="canonical" href="https://fakemail.com/premium.html">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css?v=14">
+    <style>
+        .pre-hero{text-align:center;padding:120px 0 60px;position:relative;overflow:hidden}
+        .pre-hero::before{content:'';position:absolute;top:-50%;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(124,58,237,.12),transparent 70%);pointer-events:none}
+        .pre-hero h1{font-size:2.8rem;font-weight:900;margin-bottom:16px;background:linear-gradient(135deg,var(--tx),var(--pri),var(--sec));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .pre-hero p{color:var(--tx2);font-size:1.1rem;max-width:520px;margin:0 auto 32px;line-height:1.7}
+        .pre-toggle{display:inline-flex;align-items:center;gap:12px;background:var(--bg2);border:1px solid var(--brd);border-radius:50px;padding:6px}
+        .pre-toggle button{padding:10px 24px;border-radius:50px;border:none;font-size:.88rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit;background:transparent;color:var(--tx2)}
+        .pre-toggle button.active{background:var(--grad);color:#fff}
+        .pre-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1000px;margin:0 auto;padding:0 20px 80px}
+        .pre-card{background:var(--bg2);border:1px solid var(--brd);border-radius:var(--r3);padding:36px 28px;position:relative;transition:all .3s}
+        .pre-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.2)}
+        .pre-card.featured{border-color:var(--pri);box-shadow:0 0 40px rgba(124,58,237,.1)}
+        .pre-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--grad);color:#fff;padding:4px 18px;border-radius:50px;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+        .pre-card h3{font-size:1.2rem;font-weight:800;margin-bottom:6px}
+        .pre-card .desc{color:var(--tx3);font-size:.82rem;margin-bottom:20px}
+        .pre-price{margin-bottom:24px}
+        .pre-price .amount{font-size:2.5rem;font-weight:900;color:var(--tx)}
+        .pre-price .period{color:var(--tx3);font-size:.85rem}
+        .pre-price .currency{font-size:1rem;font-weight:600;vertical-align:super;margin-right:2px}
+        .pre-features{list-style:none;margin-bottom:28px}
+        .pre-features li{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--brd);font-size:.85rem;color:var(--tx2)}
+        .pre-features li:last-child{border-bottom:none}
+        .pre-features li i{color:var(--grn);font-size:.82rem;width:18px;text-align:center}
+        .pre-features li.disabled{color:var(--tx3);opacity:.5}
+        .pre-features li.disabled i{color:var(--tx3)}
+        .pre-btn{width:100%;padding:14px;border-radius:var(--r);font-size:.9rem;font-weight:700;cursor:pointer;transition:all .2s;border:none;font-family:inherit}
+        .pre-btn.primary{background:var(--grad);color:#fff}
+        .pre-btn.primary:hover{box-shadow:0 8px 25px rgba(124,58,237,.3);transform:translateY(-2px)}
+        .pre-btn.secondary{background:var(--bg3);color:var(--tx);border:1px solid var(--brd)}
+        .pre-btn.secondary:hover{border-color:var(--pri);color:var(--pri)}
+        .pre-faq{max-width:700px;margin:0 auto;padding:0 20px 80px}
+        .pre-faq h2{text-align:center;font-size:1.8rem;font-weight:800;margin-bottom:40px}
+        .faq-item{background:var(--bg2);border:1px solid var(--brd);border-radius:var(--r2);margin-bottom:12px;overflow:hidden}
+        .faq-q{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;cursor:pointer;transition:all .2s;font-weight:600;font-size:.9rem}
+        .faq-q:hover{background:rgba(124,58,237,.04)}
+        .faq-q i{transition:transform .3s;color:var(--tx3)}
+        .faq-item.open .faq-q i{transform:rotate(180deg)}
+        .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+        .faq-item.open .faq-a{max-height:300px}
+        .faq-a-inner{padding:0 20px 18px;color:var(--tx2);font-size:.88rem;line-height:1.7}
+        .trust-bar{display:flex;align-items:center;justify-content:center;gap:40px;padding:40px 20px;flex-wrap:wrap}
+        .trust-item{display:flex;align-items:center;gap:8px;color:var(--tx3);font-size:.82rem}
+        .trust-item i{color:var(--grn);font-size:1rem}
+        .guarantee{text-align:center;padding:40px 20px 80px}
+        .guarantee-box{display:inline-flex;align-items:center;gap:16px;background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.15);border-radius:var(--r3);padding:20px 32px}
+        .guarantee-box i{font-size:2rem;color:var(--grn)}
+        .guarantee-box .g-text h4{font-size:.95rem;font-weight:700;margin-bottom:2px}
+        .guarantee-box .g-text p{color:var(--tx3);font-size:.82rem}
+        @media(max-width:768px){
+            .pre-hero h1{font-size:2rem}
+            .pre-grid{grid-template-columns:1fr;max-width:400px}
+            .pre-card.featured{order:-1}
+        }
+    </style>
+</head>
+<body data-theme="dark">
+    <!-- Header -->
+    <header class="header">
+        <div class="wrap header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-ico"><i class="fas fa-paper-plane"></i></div>
+                <span>Temp<span class="logo-p">Mail</span>X</span>
+            </a>
+            <nav class="nav" id="mainNav">
+                <a href="index.html" data-i18n="nav_home">Home</a>
+                <a href="index.html#inbox" data-i18n="nav_inbox">Inbox</a>
+                <a href="blog.html" data-i18n="nav_blog">Blog</a>
+                <a href="premium.html" class="active" data-i18n="nav_premium">Premium</a>
+            </nav>
+            <div class="header-right">
+                <div class="lang-switcher" id="langSwitcher"></div>
+                <button class="theme-btn" id="themeBtn"><i class="fas fa-moon"></i></button>
+                <button class="menu-btn" id="menuBtn"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="pre-hero">
+        <div class="wrap">
+            <h1>Upgrade to Premium</h1>
+            <p>Unlock the full power of FakeMail with unlimited emails, custom domains, priority delivery, and much more.</p>
+            <div class="pre-toggle">
+                <button class="active" onclick="setBilling('monthly', this)">Monthly</button>
+                <button onclick="setBilling('yearly', this)">Yearly <span style="color:var(--grn);font-size:.75rem;margin-left:4px">Save 20%</span></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <section>
+        <div class="pre-grid">
+            <!-- Free -->
+            <div class="pre-card">
+                <h3>Free</h3>
+                <p class="desc">Perfect for casual use</p>
+                <div class="pre-price">
+                    <span class="currency">$</span><span class="amount" data-monthly="0" data-yearly="0">0</span>
+                    <span class="period">/ forever</span>
+                </div>
+                <ul class="pre-features">
+                    <li><i class="fas fa-check"></i> 1 email at a time</li>
+                    <li><i class="fas fa-check"></i> 10-minute expiration</li>
+                    <li><i class="fas fa-check"></i> Shared public domains</li>
+                    <li><i class="fas fa-check"></i> Auto-refresh inbox</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Custom domains</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Extended expiration</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Priority delivery</li>
+                    <li class="disabled"><i class="fas fa-times"></i> API access</li>
+                </ul>
+                <button class="pre-btn secondary" onclick="window.location.href='index.html'">Get Started Free</button>
+            </div>
+
+            <!-- Pro -->
+            <div class="pre-card featured">
+                <div class="pre-badge">Most Popular</div>
+                <h3>Pro</h3>
+                <p class="desc">For power users who need more</p>
+                <div class="pre-price">
+                    <span class="currency">$</span><span class="amount" data-monthly="9.99" data-yearly="7.99">9.99</span>
+                    <span class="period" data-monthly="/ month" data-yearly="/ month">/ month</span>
+                </div>
+                <ul class="pre-features">
+                    <li><i class="fas fa-check"></i> 5 emails simultaneously</li>
+                    <li><i class="fas fa-check"></i> 1-hour expiration</li>
+                    <li><i class="fas fa-check"></i> 10+ private domains</li>
+                    <li><i class="fas fa-check"></i> Auto-refresh + push notifications</li>
+                    <li><i class="fas fa-check"></i> 2 custom domains</li>
+                    <li><i class="fas fa-check"></i> Priority delivery</li>
+                    <li><i class="fas fa-check"></i> API access (1K req/day)</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Unlimited everything</li>
+                </ul>
+                <button class="pre-btn primary" onclick="handleCheckout('pro', this)"><i class="fas fa-bolt"></i> Subscribe to Pro</button>
+            </div>
+
+            <!-- Business -->
+            <div class="pre-card">
+                <h3>Business</h3>
+                <p class="desc">For teams and businesses</p>
+                <div class="pre-price">
+                    <span class="currency">$</span><span class="amount" data-monthly="29.99" data-yearly="23.99">29.99</span>
+                    <span class="period" data-monthly="/ month" data-yearly="/ month">/ month</span>
+                </div>
+                <ul class="pre-features">
+                    <li><i class="fas fa-check"></i> Unlimited emails</li>
+                    <li><i class="fas fa-check"></i> 24-hour expiration</li>
+                    <li><i class="fas fa-check"></i> All private domains</li>
+                    <li><i class="fas fa-check"></i> Real-time webhooks</li>
+                    <li><i class="fas fa-check"></i> 10 custom domains</li>
+                    <li><i class="fas fa-check"></i> Fastest delivery</li>
+                    <li><i class="fas fa-check"></i> API access (unlimited)</li>
+                    <li><i class="fas fa-check"></i> Priority support</li>
+                </ul>
+                <button class="pre-btn primary" onclick="handleCheckout('business', this)"><i class="fas fa-rocket"></i> Subscribe to Business</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <div class="trust-bar">
+        <div class="trust-item"><i class="fas fa-shield-halved"></i> SSL Encrypted</div>
+        <div class="trust-item"><i class="fas fa-lock"></i> Secure Payments</div>
+        <div class="trust-item"><i class="fab fa-stripe-s"></i> Powered by Stripe</div>
+        <div class="trust-item"><i class="fas fa-rotate-left"></i> Cancel Anytime</div>
+        <div class="trust-item"><i class="fas fa-headset"></i> 24/7 Support</div>
+    </div>
+
+    <!-- FAQ -->
+    <section class="pre-faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">Can I cancel my subscription anytime? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-a"><div class="faq-a-inner">Yes, you can cancel your subscription at any time. Your access will continue until the end of your current billing period. No questions asked.</div></div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">What payment methods do you accept? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-a"><div class="faq-a-inner">We accept all major credit/debit cards (Visa, MasterCard, Amex), as well as Apple Pay and Google Pay through our secure payment processor, Stripe.</div></div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">Is there a free trial for Pro or Business? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-a"><div class="faq-a-inner">Yes! All paid plans come with a 7-day free trial. You won't be charged until the trial ends. Cancel anytime during the trial and you won't pay a thing.</div></div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">Can I upgrade or downgrade my plan? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-a"><div class="faq-a-inner">Absolutely. You can upgrade or downgrade your plan at any time. If you upgrade, the new features are available immediately. If you downgrade, changes take effect at the next billing cycle.</div></div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">What happens to my emails if I downgrade? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-a"><div class="faq-a-inner">Your existing emails are safe. However, you'll lose access to premium features like extended expiration, custom domains, and API access. Any active emails will complete their lifecycle normally.</div></div>
+        </div>
+    </section>
+
+    <!-- Guarantee -->
+    <div class="guarantee">
+        <div class="guarantee-box">
+            <i class="fas fa-medal"></i>
+            <div class="g-text">
+                <h4>30-Day Money-Back Guarantee</h4>
+                <p>If you're not satisfied, we'll refund your payment â€” no questions asked.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="wrap">
+            <div class="foot-grid">
+                <div>
+                    <a href="index.html" class="logo" style="margin-bottom:14px">
+                        <div class="logo-ico"><i class="fas fa-paper-plane"></i></div>
+                        <span>Fake<span class="logo-p">Mail</span></span>
+                    </a>
+                    <p style="color:var(--tx3);font-size:.85rem;line-height:1.7;max-width:280px">Free temporary email service. Protect your privacy, avoid spam, and keep your real inbox clean.</p>
+                </div>
+                <div>
+                    <h4 style="font-size:.85rem;font-weight:700;margin-bottom:16px">Product</h4>
+                    <div style="display:flex;flex-direction:column;gap:10px">
+                        <a href="index.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Home</a>
+                        <a href="premium.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Premium</a>
+                        <a href="blog.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Blog</a>
+                        <a href="#" style="color:var(--tx3);font-size:.85rem;text-decoration:none">API Docs</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="font-size:.85rem;font-weight:700;margin-bottom:16px">Legal</h4>
+                    <div style="display:flex;flex-direction:column;gap:10px">
+                        <a href="privacy.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Privacy Policy</a>
+                        <a href="terms.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Terms of Service</a>
+                        <a href="cookies.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Cookie Policy</a>
+                        <a href="contact.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="foot-bottom">
+                <span>&copy; 2026 FakeMail. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="js/i18n.js?v=2"></script>
+    <script src="js/site-content.js?v=1"></script>
+    <script>
+        // Theme
+        const saved = localStorage.getItem('tmx_theme') || 'dark';
+        document.body.setAttribute('data-theme', saved);
+        const themeBtn = document.getElementById('themeBtn');
+        if (themeBtn) {
+            themeBtn.addEventListener('click', () => {
+                const cur = document.body.getAttribute('data-theme');
+                const next = cur === 'dark' ? 'light' : 'dark';
+                document.body.setAttribute('data-theme', next);
+                localStorage.setItem('tmx_theme', next);
+                themeBtn.innerHTML = next === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+            });
+            themeBtn.innerHTML = saved === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+        }
+
+        // i18n
+        initLang();
+        document.getElementById('langSwitcher').replaceWith(createLangSwitcher());
+
+        // Billing toggle
+        let billing = 'monthly';
+        function setBilling(type, btn) {
+            billing = type;
+            document.querySelectorAll('.pre-toggle button').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            document.querySelectorAll('.amount').forEach(el => {
+                el.textContent = el.dataset[type];
+            });
+            document.querySelectorAll('.period[data-monthly]').forEach(el => {
+                el.textContent = el.dataset[type];
+            });
+        }
+
+        function setCheckoutStatus(message, isError) {
+            let box = document.getElementById('checkoutStatus');
+            if (!box) {
+                box = document.createElement('div');
+                box.id = 'checkoutStatus';
+                box.className = 'checkout-status';
+                document.querySelector('.pre-hero .wrap')?.appendChild(box);
+            }
+            box.textContent = message || '';
+            box.style.color = isError ? 'var(--err)' : 'var(--tx2)';
+        }
+
+        // Real Stripe-ready checkout. Configure endpoint and price IDs in admin-dashboard.html.
+        async function handleCheckout(plan, btn) {
+            const label = btn ? btn.innerHTML : '';
+            try {
+                if (btn) {
+                    btn.disabled = true;
+                    btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Opening checkout...';
+                }
+                setCheckoutStatus('Creating secure Stripe checkout session...', false);
+                await window.TMXContent.createCheckout(plan, billing);
+            } catch (err) {
+                setCheckoutStatus(err.message, true);
+                alert(err.message + '\n\nOpen admin-dashboard.html > Stripe, add your real price IDs and checkout endpoint, then try again.');
+            } finally {
+                if (btn) {
+                    btn.disabled = false;
+                    btn.innerHTML = label;
+                }
+            }
+        }
+
+        // FAQ
+        function toggleFaq(el) {
+            el.parentElement.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
+

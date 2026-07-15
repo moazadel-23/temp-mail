@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Sync</title></head>
+<body>
+<script>
+window.addEventListener('message', function(e) {
+    var d = e.data;
+    if (!d || !d.action) return;
+    if (d.action === 'save') {
+        localStorage.setItem('tmx_articles_v2', JSON.stringify(d.articles));
+        localStorage.setItem('tmx_articles_ver', '3');
+        e.source.postMessage({ action: 'saved', ok: true }, '*');
+    } else if (d.action === 'load') {
+        var arts = localStorage.getItem('tmx_articles_v2');
+        var ver = localStorage.getItem('tmx_articles_ver');
+        e.source.postMessage({ action: 'data', articles: arts, version: ver }, '*');
+    }
+});
+
+// Also listen for storage events to notify parent pages
+window.addEventListener('storage', function(e) {
+    if (e.key === 'tmx_articles_v2') {
+        try {
+            var arts = JSON.parse(e.newValue);
+            if (arts && arts.length) {
+                parent.postMessage({ action: 'sync_articles', articles: arts }, '*');
+            }
+        } catch(err) {}
+    }
+});
+</script>
+</body>
+</html>

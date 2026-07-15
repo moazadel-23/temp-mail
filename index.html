@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FakeMail - Free Temporary Email | Disposable Inbox</title>
+    <meta name="description" content="Get a free temporary email address instantly. Protect your privacy, avoid spam, and receive verification emails with our disposable email service.">
+    <meta name="keywords" content="temp mail, temporary email, disposable email, fake email, throwaway email, 10 minute mail, tempmail, fakemail">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="FakeMail - Free Temporary Email Address">
+    <meta property="og:description" content="Get a free temporary email address instantly. No registration needed.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fakemail.com/">
+    <meta property="og:image" content="https://fakemail.com/og-image.png">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="FakeMail">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FakeMail - Free Temporary Email Address">
+    <meta name="twitter:description" content="Get a free temporary email address instantly. No registration needed.">
+    <meta name="twitter:image" content="https://fakemail.com/og-image.png">
+    <link rel="canonical" href="https://fakemail.com/">
+    <link rel="alternate" hreflang="en" href="https://fakemail.com/?lang=en">
+    <link rel="alternate" hreflang="ar" href="https://fakemail.com/?lang=ar">
+    <link rel="alternate" hreflang="fr" href="https://fakemail.com/?lang=fr">
+    <link rel="alternate" hreflang="it" href="https://fakemail.com/?lang=it">
+    <link rel="alternate" hreflang="zh" href="https://fakemail.com/?lang=zh">
+    <link rel="alternate" hreflang="de" href="https://fakemail.com/?lang=de">
+    <link rel="alternate" hreflang="x-default" href="https://fakemail.com/">
+    <meta name="theme-color" content="#7c3aed">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>âœ‰</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=14">
+    <!-- Google AdSense -->
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "FakeMail",
+        "url": "https://fakemail.com/",
+        "description": "Free temporary email address generator. Protect your privacy with disposable email.",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://fakemail.com/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+</head>
+<body>
+
+<!-- Toast -->
+<div id="toastBox"></div>
+
+<!-- Header -->
+<header class="header">
+    <div class="wrap header-inner">
+        <a href="index.html" class="logo">
+            <div class="logo-ico"><i class="fas fa-paper-plane"></i></div>
+            <span>Fake<span class="logo-p">Mail</span>
+        </a>
+        <nav class="nav" id="mainNav">
+            <a href="#hero" data-i18n="nav_home">Home</a>
+            <a href="#inbox" data-i18n="nav_inbox">Inbox</a>
+            <a href="blog.html" data-i18n="nav_blog">Blog</a>
+            <a href="premium.html" data-i18n="nav_premium">Premium</a>
+            <a href="#faq">FAQ</a>
+        </nav>
+        <div class="header-right">
+            <div class="lang-switcher" id="langSwitcher"></div>
+            <button class="theme-btn" id="themeBtn" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+            <button class="menu-btn" id="menuBtn"><i class="fas fa-bars"></i></button>
+        </div>
+    </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="hero">
+    <div class="hero-bg-shapes">
+        <div class="shape s1"></div>
+        <div class="shape s2"></div>
+        <div class="shape s3"></div>
+    </div>
+    <div class="wrap hero-inner">
+        <div class="hero-left">
+            <div class="pill"><i class="fas fa-bolt"></i> <span data-i18n="hero_pill">Instant & Free</span></div>
+            <h1><span data-i18n="hero_title_1">Free Temporary</span><br><span data-i18n="hero_title_2">Email Address</span></h1>
+
+            <!-- Email Box -->
+            <div class="email-box">
+                <div class="email-row">
+                    <div class="email-ico"><i class="fas fa-envelope"></i></div>
+                    <div class="email-text" id="emailDisplay">Generating...</div>
+                    <div class="email-timer" id="timerBox"><i class="fas fa-clock"></i> <span id="timerText">10:00</span></div>
+                </div>
+                <div class="email-btns">
+                    <button class="b1" id="btnCopy"><i class="fas fa-copy"></i> <span data-i18n="btn_copy">Copy</span></button>
+                    <button class="b2" id="btnRefresh"><i class="fas fa-sync-alt"></i></button>
+                    <button class="b2" id="btnChange"><i class="fas fa-random"></i> <span data-i18n="btn_change">Change</span></button>
+                    <button class="b2" id="btnDelete"><i class="fas fa-trash-alt"></i> <span data-i18n="btn_delete">Delete</span></button>
+                    <button class="b2" id="btnQR"><i class="fas fa-qrcode"></i></button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ========== INBOX ========== -->
+<section class="inbox-section" id="inbox">
+    <div class="wrap">
+        <div class="inbox-wrap">
+            <!-- Main -->
+            <div class="inbox-main">
+                <div class="inbox-toolbar">
+                    <span class="inbox-title"><i class="fas fa-envelope"></i> <span data-i18n="inbox_title">Incoming Messages</span></span>
+                    <button class="icon-btn" id="btnRefreshInbox" title="Refresh"><i class="fas fa-sync-alt"></i></button>
+                </div>
+                <!-- Email List -->
+                <div class="email-list" id="emailList">
+                    <div class="list-empty" id="listEmpty">
+                        <i class="fas fa-envelope-open"></i>
+                        <h3 data-i18n="inbox_empty">Inbox is empty</h3>
+                    </div>
+                </div>
+                <!-- Email Detail -->
+                <div class="email-detail" id="emailDetail" style="display:none">
+                    <div class="detail-top">
+                        <button class="icon-btn" id="btnBack"><i class="fas fa-arrow-left"></i></button>
+                        <div class="detail-actions">
+                            <button class="icon-btn" id="btnDownload" title="Download .eml"><i class="fas fa-download"></i></button>
+                            <button class="icon-btn red" id="btnDeleteMsg" title="Delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="detail-meta">
+                        <h2 id="dSubject">-</h2>
+                        <div><strong>From:</strong> <span id="dFrom">-</span></div>
+                        <div><strong>To:</strong> <span id="dTo">-</span></div>
+                        <div><strong>Date:</strong> <span id="dDate">-</span></div>
+                    </div>
+                    <div class="detail-attachments" id="dAttachments" style="display:none">
+                        <h4><i class="fas fa-paperclip"></i> <span data-i18n="attachments">Attachments</span></h4>
+                        <div class="att-list" id="attList"></div>
+                    </div>
+                    <div class="detail-body" id="dBody"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sticky Ad Banner Placeholder -->
+<div class="ad-sticky-placeholder" id="adPlaceholder">
+    <div class="ad-sticky-container" id="adContainer">
+        <div class="ad-slot" id="ad-bottom">
+            <span class="ad-tag">Advertisement</span>
+            <!-- Google AdSense Banner 728x90 -->
+            <!--
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:728px;height:90px"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            -->
+            <div class="ad-placeholder">Your Ad Here - 728x90 Banner</div>
+        </div>
+    </div>
+</div>
+
+<!-- ========== ABOUT SECTION ========== -->
+<section class="about-section" id="about" style="padding:60px 0">
+    <div class="wrap">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:700px;margin:0 auto 48px">
+            <div style="padding:24px;background:var(--bg2);border:1px solid var(--brd);border-radius:var(--r2);text-align:center">
+                <div style="font-size:1.5rem;font-weight:900;color:var(--pri);margin-bottom:6px" data-i18n="about_stat1_num">100%</div>
+                <div style="font-size:.82rem;color:var(--tx3)" data-i18n="about_stat1">Free to Use</div>
+            </div>
+            <div style="padding:24px;background:var(--bg2);border:1px solid var(--brd);border-radius:var(--r2);text-align:center">
+                <div style="font-size:1.5rem;font-weight:900;color:var(--pri);margin-bottom:6px" data-i18n="about_stat2_num">0 sec</div>
+                <div style="font-size:.82rem;color:var(--tx3)" data-i18n="about_stat2">Signup Required</div>
+            </div>
+            <div style="padding:24px;background:var(--bg2);border:1px solid var(--brd);border-radius:var(--r2);text-align:center">
+                <div style="font-size:1.5rem;font-weight:900;color:var(--pri);margin-bottom:6px" data-i18n="about_stat3_num">10 min</div>
+                <div style="font-size:.82rem;color:var(--tx3)" data-i18n="about_stat3">Email Expiration</div>
+            </div>
+        </div>
+
+        <div class="sec-head">
+            <span class="tag">Articles</span>
+            <h2 data-i18n="about_articles">Popular Articles</h2>
+        </div>
+        <div id="homeArticleGrid"></div>
+    </div>
+</section>
+
+<!-- ========== LONG ARTICLE ========== -->
+<section style="padding:60px 0;background:var(--bg2)">
+    <div class="wrap">
+        <div style="max-width:800px;margin:0 auto">
+            <h2 style="font-size:1.8rem;font-weight:900;margin-bottom:8px" data-i18n="article_title">The Tech behind Disposable Email Addresses</h2>
+            <p style="color:var(--tx3);font-size:.82rem;margin-bottom:32px" data-i18n="article_published">Published by FakeMail Team</p>
+            <div style="color:var(--tx2);font-size:.92rem;line-height:1.9">
+                <p style="margin-bottom:18px" data-i18n="article_p1">Everyone owns an email address these days, using it for everything â€” connecting at work, reaching out to friends, signing up for services, and managing online accounts. Nearly 99% of all apps and services we sign up for today require an email address, just like most shopper loyalty cards, contest entries, and promotional offers.</p>
+                <p style="margin-bottom:18px" data-i18n="article_p2">We all benefit from having an email address, but receiving dozens of spam emails every day doesn't feel comfortable. Furthermore, it's entirely common for online stores and services to have their databases hacked, leaving your business email address exposed and far more likely to end up on spam lists. The reality is that nothing done online is 100% private. That's exactly why you need to protect your email identity â€” and the best way to do that is by using disposable email addresses.</p>
+
+                <h3 style="color:var(--tx);font-size:1.15rem;font-weight:700;margin:28px 0 12px" data-i18n="article_h3_1">So, What Is a Disposable Email Address?</h3>
+                <p style="margin-bottom:18px" data-i18n="article_p3">A disposable email address (DEA) is a temporary, throwaway email that a user creates for a specific purpose. It allows you to sign up for services and websites without revealing your true identity. The concept is simple: instead of giving out your real email, you generate a temporary one that forwards messages to your inbox for a limited time, then self-destructs.</p>
+                <p style="margin-bottom:18px" data-i18n="article_p4">If a disposable email address is compromised or used in connection with online abuse, the owner can't be tied to the incident. You can quickly cancel it without affecting your other contacts. With a temporary mail service like FakeMail, you receive emails at the fake address and they appear in your real inbox for a specified time â€” then the fake address simply vanishes.</p>
+
+                <h3 style="color:var(--tx);font-size:1.15rem;font-weight:700;margin:28px 0 12px" data-i18n="article_h3_2">Why Would You Need a Fake Email Address?</h3>
+                <p style="margin-bottom:18px" data-i18n="article_p5">Services like Amazon Prime, Hulu, and Netflix allow limited-time trial runs. If you're still evaluating the service after the trial expires, all you need is a disposable email address. Technically, you can extend your trial usage by creating a new account with a different email linked to your original payment method.</p>
+                <p style="margin-bottom:18px" data-i18n="article_p6">An offline or online retailer often demands an email address to take advantage of their offers. However, this often results in an unwanted flood of spam promotional emails. A temporary email address makes it easy to cut out those irritating messages without affecting your primary inbox.</p>
+                <p style="margin-bottom:18px" data-i18n="article_p7">While the idea of a temporary email address may sound like something only hackers use, there are many convincing reasons to use fake email services for everyday purposes:</p>
+                <ul style="margin:0 0 18px 20px">
+                    <li style="margin-bottom:10px"><strong data-i18n="article_li1_title">Sign Up for Store Loyalty Cards:</strong> <span data-i18n="article_li1">Use a disposable email instead of your real one to avoid promotional spam. If the store gets hacked, your real email won't be stolen.</span></li>
+                    <li style="margin-bottom:10px"><strong data-i18n="article_li2_title">Test Your App:</strong> <span data-i18n="article_li2">Just finished building a web app? Generate 100 disposable emails, create test accounts, and thoroughly test your application before launch â€” without hiring unreliable testers.</span></li>
+                    <li style="margin-bottom:10px"><strong data-i18n="article_li3_title">Create Multiple Accounts:</strong> <span data-i18n="article_li3">Need a second account for a service like IFTTT or social media? Use a disposable email to avoid managing another inbox.</span></li>
+                    <li style="margin-bottom:10px"><strong data-i18n="article_li4_title">Eliminate Spam:</strong> <span data-i18n="article_li4">A disposable email is an extremely useful tool against spam. For users who frequently access web forms, forums, and discussion groups, a temp address keeps your real inbox spotless.</span></li>
+                </ul>
+
+                <h3 style="color:var(--tx);font-size:1.15rem;font-weight:700;margin:28px 0 12px" data-i18n="article_h3_3">What Makes a Good Disposable Email Provider?</h3>
+                <p style="margin-bottom:18px" data-i18n="article_p8">The best fake email provider should allow you to create temporary email addresses at the click of a button â€” no registration or identity information required. The email address should remain completely anonymous, and you should be able to create as many as you want. A good provider offers a temporary inbox where emails are stored for your convenience, has a straightforward and functional design, and allows you to choose your own address or generate a random one.</p>
+
+                <h3 style="color:var(--tx);font-size:1.15rem;font-weight:700;margin:28px 0 12px" data-i18n="article_h3_4">How to Use a Disposable Email Address</h3>
+                <p style="margin-bottom:18px" data-i18n="article_p9">The simplest approach is to use a dedicated service like FakeMail. Instead of creating throwaway accounts with your regular email provider (which means managing yet another inbox), you simply visit the site, copy the generated address, and use it wherever you need. The emails arrive instantly and the address expires automatically after 10 minutes.</p>
+                <p style="margin-bottom:18px" data-i18n="article_p10">The amazing thing about a disposable email address is that you can forward emails directly to your real account. If you suspect the disposable address has been compromised, you can redirect those emails to trash. For important connections, forward them to your primary inbox. It's that simple.</p>
+
+                <h3 style="color:var(--tx);font-size:1.15rem;font-weight:700;margin:28px 0 12px" data-i18n="article_h3_5">Conclusion</h3>
+                <p style="margin-bottom:0" data-i18n="article_p11">Setting up a disposable email system is a smart way to ensure that when you participate in online wikis, chat rooms, file sharing services, and bulletin board forums, your real identity is never disclosed and never sold to spammers. Stay spam-free and save time with FakeMail â€” your favorite disposable email service.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Dynamic Custom Sections (from Admin) -->
+<div id="customSections"></div>
+
+
+
+<!-- ========== FAQ ========== -->
+<section class="faq-section" id="faq">
+    <div class="wrap">
+        <div class="sec-head">
+            <span class="tag">FAQ</span>
+            <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-q"><span>What is a temporary email?</span><i class="fas fa-chevron-down"></i></button>
+                <div class="faq-a"><p>A temporary email (also known as disposable or throwaway email) is a short-lived email address that lets you receive messages without revealing your real email. It auto-deletes after a set time, keeping your main inbox clean from spam.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q"><span>Is FakeMail free to use?</span><i class="fas fa-chevron-down"></i></button>
+                <div class="faq-a"><p>Yes, FakeMail is 100% free. No hidden fees, no credit card, no registration. Just visit the site and use it immediately.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q"><span>How long do emails stay?</span><i class="fas fa-chevron-down"></i></button>
+                <div class="faq-a"><p>Your temporary email address and all received messages are automatically deleted after 10 minutes. You can also manually delete them anytime.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q"><span>Is it completely anonymous?</span><i class="fas fa-chevron-down"></i></button>
+                <div class="faq-a"><p>Absolutely. We don't collect personal information, don't require registration, and don't track your IP. Your usage is fully anonymous and private.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q"><span>Can I send emails?</span><i class="fas fa-chevron-down"></i></button>
+                <div class="faq-a"><p>No, FakeMail is receive-only. You can only receive emails, not send them. This prevents abuse of the service.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q"><span>Can I choose my own email?</span><i class="fas fa-chevron-down"></i></button>
+                <div class="faq-a"><p>Yes! You can generate a random email or create a custom one by choosing your own username. The domain is selected automatically from available options.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+    <div class="wrap">
+        <div class="foot-grid">
+            <div class="foot-brand">
+                <a href="index.html" class="logo">
+                    <div class="logo-ico"><i class="fas fa-paper-plane"></i></div>
+            <span>Fake<span class="logo-p">Mail</span></span>
+                </a>
+                <p>Free temporary email service to protect your privacy. Disposable, anonymous, and secure.</p>
+                <div class="socials">
+                    <a href="https://wa.me/201220460754"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://t.me/fakemail12"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+            <div class="foot-links">
+                <h4 data-i18n="foot_product">Product</h4>
+                <a href="#features">Features</a>
+                <a href="premium.html" data-i18n="foot_premium">Premium</a>
+                <a href="blog.html" data-i18n="nav_blog">Blog</a>
+                <a href="#faq" data-i18n="foot_faq">FAQ</a>
+            </div>
+            <div class="foot-links">
+                <h4 data-i18n="foot_legal">Legal</h4>
+                <a href="privacy.html" data-i18n="foot_privacy">Privacy Policy</a>
+                <a href="terms.html" data-i18n="foot_terms">Terms of Service</a>
+                <a href="cookies.html" data-i18n="foot_cookies">Cookie Policy</a>
+                <a href="contact.html" data-i18n="foot_contact">Contact</a>
+            </div>
+        </div>
+        <div class="foot-bottom">
+            <p>&copy; 2026 FakeMail. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- QR Modal -->
+<div class="modal" id="qrModal">
+    <div class="modal-bg"></div>
+    <div class="modal-box">
+        <div class="modal-top">
+            <h3>QR Code</h3>
+            <button class="icon-btn" id="closeQR"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-body">
+            <div id="qrCanvas"></div>
+            <p class="qr-email" id="qrEmailText">-</p>
+            <p class="qr-sub">Scan to copy email address</p>
+        </div>
+    </div>
+</div>
+
+<!-- Side Ads (Desktop wide screens) -->
+<div class="side-ad left-side" id="sideAdLeft">
+    <span class="ad-tag">Ad</span>
+    <!-- Google AdSense 160x600 -->
+    <!--
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:160px;height:600px"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    -->
+    <div class="ad-placeholder vertical">Your Ad<br>160x600</div>
+</div>
+
+<div class="side-ad right-side" id="sideAdRight">
+    <span class="ad-tag">Ad</span>
+    <!-- Google AdSense 160x600 -->
+    <!--
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:160px;height:600px"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    -->
+    <div class="ad-placeholder vertical">Your Ad<br>160x600</div>
+</div>
+
+<script src="js/articles.js?v=13"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script src="js/i18n.js?v=2"></script>
+    <script src="js/app.js?v=13"></script>
+<script>
+    initLang();
+    document.getElementById('langSwitcher').replaceWith(createLangSwitcher());
+    applyTranslations();
+
+    function syncHomeArticles() {
+        let arts = localStorage.getItem('tmx_articles_v2');
+        const version = localStorage.getItem('tmx_articles_ver');
+        if (arts) {
+            try { arts = JSON.parse(arts); } catch { arts = null; }
+        }
+        if (!arts || !arts.length || version !== '4') {
+            if (typeof getDefaultArticles === 'function') {
+                arts = getDefaultArticles();
+                localStorage.setItem('tmx_articles_v2', JSON.stringify(arts));
+                localStorage.setItem('tmx_articles_ver', '4');
+            }
+        }
+        if (!arts || !arts.length) return;
+        const grid = document.getElementById('homeArticleGrid');
+        if (!grid) return;
+        grid.innerHTML = '';
+        const catBadges = {
+            privacy: { bg: 'rgba(124,58,237,.1)', color: '#a78bfa', icon: 'fa-shield-halved', label: 'Privacy' },
+            guide: { bg: 'rgba(59,130,246,.1)', color: '#60a5fa', icon: 'fa-book', label: 'Guide' },
+            tips: { bg: 'rgba(245,158,11,.1)', color: '#fbbf24', icon: 'fa-lightbulb', label: 'Tips' },
+            news: { bg: 'rgba(16,185,129,.1)', color: '#34d399', icon: 'fa-newspaper', label: 'News' },
+            security: { bg: 'rgba(239,68,68,.1)', color: '#f87171', icon: 'fa-lock', label: 'Security' }
+        };
+        arts.slice(0, 6).forEach(function(art, i) {
+            const titleVal = typeof art.title === 'object' ? (art.title[currentLang] || art.title.en || art.title) : art.title;
+            const excerptVal = typeof art.excerpt === 'object' ? (art.excerpt[currentLang] || art.excerpt.en || art.excerpt) : art.excerpt;
+            const badge = catBadges[art.category] || catBadges['privacy'];
+            const bgStyle = art.image
+                ? 'background-image:url(' + art.image + ')'
+                : 'background:linear-gradient(135deg, ' + badge.bg + ')';
+            grid.innerHTML += '<a href="blog.html?id=' + i + '" class="blog-card">' +
+                '<div class="blog-card-img" style="' + bgStyle + '">' + (art.image ? '' : '<div style="color:' + badge.color + ';font-size:2rem;opacity:.4"><i class="fas ' + badge.icon + '"></i></div>') + '</div>' +
+                '<div class="blog-card-body">' +
+                '<span style="display:inline-block;padding:3px 10px;border-radius:50px;font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;background:' + badge.bg + ';color:' + badge.color + '">' + badge.label + '</span>' +
+                '<h3 style="font-size:.95rem;font-weight:700;margin-bottom:8px;line-height:1.4">' + titleVal + '</h3>' +
+                '<p class="excerpt">' + excerptVal + '</p>' +
+                '</div></a>';
+        });
+    }
+    
+    syncHomeArticles();
+    window.onLangChange = function(lang) {
+        syncHomeArticles();
+    };
+
+    // Sticky bottom ad scroll handler
+    (function() {
+        const placeholder = document.getElementById('adPlaceholder');
+        const container = document.getElementById('adContainer');
+        if (placeholder && container) {
+            function handleAdScroll() {
+                const rect = placeholder.getBoundingClientRect();
+                // When the natural bottom of the placeholder scrolls above the bottom of the viewport
+                if (rect.bottom < window.innerHeight) {
+                    container.classList.add('is-fixed-bottom');
+                } else {
+                    container.classList.remove('is-fixed-bottom');
+                }
+            }
+            window.addEventListener('scroll', handleAdScroll);
+            window.addEventListener('resize', handleAdScroll);
+            handleAdScroll(); // Run once initially
+        }
+    })();
+</script>
+</body>
+</html>
+

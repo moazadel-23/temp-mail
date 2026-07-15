@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Policy - FakeMail</title>
+    <meta name="description" content="Cookie Policy for FakeMail disposable temporary email service. Learn about cookies, how we use them, and how to manage your preferences.">
+    <meta name="robots" content="index, follow">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css?v=14">
+    <style>
+        .cookies-hero{text-align:center;padding:120px 0 40px;position:relative;overflow:hidden}
+        .cookies-hero::before{content:'';position:absolute;top:-50%;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(124,58,237,.1),transparent 70%);pointer-events:none}
+        .cookies-hero h1{font-size:2.5rem;font-weight:900;margin-bottom:12px}
+        .cookies-hero p{color:var(--tx2);font-size:1rem;max-width:600px;margin:0 auto}
+        .cookies-content-section{max-width:800px;margin:0 auto;padding:20px 20px 80px}
+        .cookies-content{color:var(--tx2);font-size:.95rem;line-height:1.8}
+        .cookies-content h3{color:var(--tx);font-size:1.25rem;font-weight:700;margin:32px 0 12px;border-bottom:1px solid var(--brd);padding-bottom:6px}
+        .cookies-content p{margin-bottom:16px}
+        .cookies-content ul{margin:12px 0 16px 20px}
+        .cookies-content li{margin-bottom:8px}
+        .cookies-content strong{color:var(--tx)}
+        @media(max-width:768px){
+            .cookies-hero h1{font-size:1.8rem}
+        }
+    </style>
+</head>
+<body data-theme="dark">
+    <!-- Header -->
+    <header class="header">
+        <div class="wrap header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-ico"><i class="fas fa-paper-plane"></i></div>
+                <span>Fake<span class="logo-p">Mail</span></span>
+            </a>
+            <nav class="nav" id="mainNav">
+                <a href="index.html" data-i18n="nav_home">Home</a>
+                <a href="index.html#inbox" data-i18n="nav_inbox">Inbox</a>
+                <a href="blog.html" data-i18n="nav_blog">Blog</a>
+                <a href="premium.html" data-i18n="nav_premium">Premium</a>
+            </nav>
+            <div class="header-right">
+                <div class="lang-switcher" id="langSwitcher"></div>
+                <button class="theme-btn" id="themeBtn"><i class="fas fa-moon"></i></button>
+                <button class="menu-btn" id="menuBtn"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="cookies-container">
+        <section class="cookies-hero">
+            <div class="wrap">
+                <h1 id="cookiesTitle">Cookie Policy</h1>
+                <p id="cookiesSubtitle">This policy explains what cookies are, how we use them on our site, and how to manage them.</p>
+            </div>
+        </section>
+
+        <section class="cookies-content-section">
+            <div class="wrap">
+                <div class="cookies-content" id="cookiesContent">
+                    <!-- Content rendered dynamically based on active language -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="wrap">
+            <div class="foot-grid">
+                <div>
+                    <a href="index.html" class="logo" style="margin-bottom:14px">
+                        <div class="logo-ico"><i class="fas fa-paper-plane"></i></div>
+                        <span>Fake<span class="logo-p">Mail</span></span>
+                    </a>
+                    <p style="color:var(--tx3);font-size:.85rem;line-height:1.7;max-width:280px">Free temporary email service. Protect your privacy, avoid spam, and keep your real inbox clean.</p>
+                </div>
+                <div>
+                    <h4 style="font-size:.85rem;font-weight:700;margin-bottom:16px">Product</h4>
+                    <div style="display:flex;flex-direction:column;gap:10px">
+                        <a href="index.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Home</a>
+                        <a href="premium.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Premium</a>
+                        <a href="blog.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Blog</a>
+                        <a href="#" style="color:var(--tx3);font-size:.85rem;text-decoration:none">API Docs</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="font-size:.85rem;font-weight:700;margin-bottom:16px">Legal</h4>
+                    <div style="display:flex;flex-direction:column;gap:10px">
+                        <a href="privacy.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Privacy Policy</a>
+                        <a href="terms.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Terms of Service</a>
+                        <a href="cookies.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Cookie Policy</a>
+                        <a href="contact.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="foot-bottom">
+                <span>&copy; 2026 FakeMail. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/i18n.js?v=2"></script>
+    <script>
+        // Theme Management
+        const savedTheme = localStorage.getItem('tmx_theme') || 'dark';
+        document.body.setAttribute('data-theme', savedTheme);
+        const themeBtn = document.getElementById('themeBtn');
+        if (themeBtn) {
+            themeBtn.addEventListener('click', () => {
+                const cur = document.body.getAttribute('data-theme');
+                const next = cur === 'dark' ? 'light' : 'dark';
+                document.body.setAttribute('data-theme', next);
+                localStorage.setItem('tmx_theme', next);
+                themeBtn.innerHTML = next === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+            });
+            themeBtn.innerHTML = savedTheme === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+        }
+
+        // i18n
+        initLang();
+        document.getElementById('langSwitcher').replaceWith(createLangSwitcher());
+
+        const cookiesTexts = {
+            en: {
+                title: "Cookie Policy",
+                subtitle: "This policy explains what cookies are, how we use them on our site, and how to manage them.",
+                body: `
+                    <p>This Cookie Policy explains how FakeMail uses cookies and similar technologies on our website (<a href="https://fakemail.com" target="_blank">https://fakemail.com</a>) when you browse or interact with our services. By using our website, you agree to our use of cookies as described in this policy.</p>
+
+                    <h3>1. What are Cookies?</h3>
+                    <p>Cookies are small text files that are stored on your computer or mobile device when you visit a website. They are widely used to make websites work, or work more efficiently, as well as to provide information to the owners of the site.</p>
+
+                    <h3>2. How We Use Cookies</h3>
+                    <p>We use cookies for several reasons. Some cookies are required for technical reasons for our website to operate, and we refer to these as "strictly necessary" cookies. Other cookies enable us to track advertisements, remember user preferences, and improve user experience.</p>
+                    <p>We use the following types of cookies:</p>
+                    <ul>
+                        <li><strong>Strictly Necessary Cookies:</strong> Essential to run the website (e.g. keeping track of your generated temporary email address or user session). Without these, basic features cannot be provided.</li>
+                        <li><strong>Functional Cookies:</strong> Used to recognize you when you return to our website and remember your preferences (such as your chosen language or theme settings).</li>
+                        <li><strong>Advertising / Target Cookies:</strong> Third-party advertising vendors, including Google, use these cookies to serve ads based on your prior visits to our site or other websites.</li>
+                    </ul>
+
+                    <h3>3. Google Ads and Cookies</h3>
+                    <p>Google, as a third-party vendor, uses cookies (including the DoubleClick DART cookie) to serve ads to our users based on their visits to our site and other sites on the Internet. Users may opt out of personalized advertising by visiting Google's Ads Settings page or by visiting <a href="https://www.aboutads.info" target="_blank">www.aboutads.info</a>.</p>
+
+                    <h3>4. How to Manage Cookies</h3>
+                    <p>You can set or amend your web browser controls to accept or refuse cookies. If you choose to reject cookies, you may still use our website, though your access to some functionalities and areas of our website may be restricted. Since the means by which you can refuse cookies through your web browser controls vary from browser-to-browser, you should visit your browser's help menu for more information.</p>
+
+                    <h3>5. Cookie Consent Pop-up</h3>
+                    <p>When you visit our site, a cookie consent banner will appear at the bottom. You can click "Accept All" to consent to our cookie usage. You can change your mind or manage your cookie settings through your browser controls at any time.</p>
+
+                    <h3>6. Changes to this Policy</h3>
+                    <p>We may update this Cookie Policy from time to time in order to reflect, for example, changes to the cookies we use or for other operational, legal, or regulatory reasons. Please re-visit this Cookie Policy regularly to stay informed about our use of cookies and related technologies.</p>
+
+                    <h3>7. Contact Us</h3>
+                    <p>If you have any questions about our use of cookies or other technologies, please email us at:</p>
+                    <p><strong>Email:</strong> support@face-mail.com</p>
+                    <p>This policy is effective as of July 15, 2026.</p>
+                `
+            },
+            ar: {
+                title: "سياسة ملفات تعريف الارتباط",
+                subtitle: "توضح هذه السياسة ما هي ملفات تعريف الارتباط، وكيفية استخدامها في موقعنا، وكيفية إدارتها.",
+                body: `
+                    <p>توضح سياسة ملفات تعريف الارتباط هذه كيف يستخدم FakeMail ملفات تعريف الارتباط والتقنيات المشابهة على موقعنا الإلكتروني (<a href="https://fakemail.com" target="_blank">https://fakemail.com</a>) عند تصفح أو استخدام خدماتنا. باستخدامك لموقعنا، فإنك توافق على استخدامنا لملفات تعريف الارتباط كما هو موضح في هذه السياسة.</p>
+
+                    <h3>1. ما هي ملفات تعريف الارتباط (Cookies)؟</h3>
+                    <p>ملفات تعريف الارتباط هي ملفات نصية صغيرة يتم تخزينها على جهاز الكمبيوتر أو الهاتف المحمول الخاص بك عند زيارة موقع ويب. وهي تُستخدم على نطاق واسع لجعل مواقع الويب تعمل بشكل أفضل وأكثر كفاءة، وكذلك لتقديم معلومات لأصحاب الموقع.</p>
+
+                    <h3>2. كيف نستخدم ملفات تعريف الارتباط؟</h3>
+                    <p>نحن نستخدم ملفات تعريف الارتباط لعدة أسباب. بعض ملفات تعريف الارتباط مطلوبة لأسباب فنية ليعمل موقعنا، ونشير إليها باسم ملفات تعريف الارتباط "الضرورية للغاية". تتيح لنا ملفات تعريف الارتباط الأخرى تتبع الإعلانات وتذكر تفضيلات المستخدم وتحسين تجربة التصفح.</p>
+                    <p>نحن نستخدم الأنواع التالية من ملفات تعريف الارتباط:</p>
+                    <ul>
+                        <li><strong>ملفات تعريف الارتباط الضرورية للغاية:</strong> أساسية لتشغيل الموقع (مثل حفظ عنوان بريدك الإلكتروني المؤقت المنشأ أو جلسة المستخدم). بدونها، لا يمكن تقديم الميزات الأساسية.</li>
+                        <li><strong>ملفات تعريف الارتباط الوظيفية:</strong> تُستخدم للتعرف عليك عند العودة لموقعنا وتذكر تفضيلاتك (مثل اللغة المفضلة أو إعدادات المظهر).</li>
+                        <li><strong>ملفات تعريف الارتباط الإعلانية / المستهدفة:</strong> يستخدم بائعو الإعلانات من جهات خارجية، بما في ذلك Google، ملفات تعريف الارتباط هذه لتقديم الإعلانات بناءً على زياراتك السابقة لموقعنا أو المواقع الأخرى.</li>
+                    </ul>
+
+                    <h3>3. إعلانات Google وملفات تعريف الارتباط</h3>
+                    <p>تستخدم جوجل، كبائع خارجي، ملفات تعريف الارتباط (بما في ذلك ملف تعريف الارتباط DoubleClick DART) لتقديم الإعلانات لمستخدمينا بناءً على زياراتهم لموقعنا ومواقع أخرى على الإنترنت. يجوز للمستخدمين إلغاء الاشتراك في الإعلانات المخصصة عن طريق زيارة صفحة إعدادات إعلانات جوجل أو عن طريق زيارة <a href="https://www.aboutads.info" target="_blank">www.aboutads.info</a>.</p>
+
+                    <h3>4. كيفية إدارة ملفات تعريف الارتباط</h3>
+                    <p>يمكنك ضبط متصفح الويب الخاص بك أو تعديله لقبول ملفات تعريف الارتباط أو رفضها. إذا اخترت رفض ملفات تعريف الارتباط، فلا يزال بإمكانك استخدام موقعنا الإلكتروني، على الرغم من أن وصولك إلى بعض الوظائف والأقسام قد يكون محدوداً. نظراً لأن وسائل رفض ملفات تعريف الارتباط تختلف من متصفح لآخر، يجب عليك مراجعة قائمة المساعدة في متصفحك للحصول على مزيد من المعلومات.</p>
+
+                    <h3>5. نافذة الموافقة على ملفات تعريف الارتباط</h3>
+                    <p>عند زيارة موقعنا، ستظهر لك نافذة موافقة في الأسفل. يمكنك النقر فوق "قبول الكل" للموافقة على استخدامنا لملفات تعريف الارتباط. يمكنك تغيير رأيك أو إدارة إعدادات ملفات تعريف الارتباط من خلال إعدادات متصفحك في أي وقت.</p>
+
+                    <h3>6. التعديلات على هذه السياسة</h3>
+                    <p>قد نقوم بتحديث سياسة ملفات تعريف الارتباط هذه من وقت لآخر لتعكس، على سبيل المثال، التغييرات في ملفات تعريف الارتباط التي نستخدمها أو لأسباب تشغيلية أو قانونية أو تنظيمية أخرى. يرجى مراجعة هذه السياسة بانتظام للبقاء على علم بكيفية استخدامنا لملفات تعريف الارتباط والتقنيات ذات الصلة.</p>
+
+                    <h3>7. الاتصال بنا</h3>
+                    <p>إذا كانت لديك أي أسئلة حول استخدامنا لملفات تعريف الارتباط أو التقنيات الأخرى، يرجى مراسلتنا عبر البريد الإلكتروني على:</p>
+                    <p><strong>البريد الإلكتروني:</strong> support@face-mail.com</p>
+                    <p>هذه السياسة سارية المفعول اعتباراً من 15 يوليو 2026.</p>
+                `
+            }
+        };
+
+        function renderCookiesContent(lang) {
+            const currentLangData = cookiesTexts[lang] || cookiesTexts.en;
+            document.getElementById('cookiesTitle').textContent = currentLangData.title;
+            document.getElementById('cookiesSubtitle').textContent = currentLangData.subtitle;
+            document.getElementById('cookiesContent').innerHTML = currentLangData.body;
+            document.title = currentLangData.title + ' - FakeMail';
+        }
+
+        // Render initially
+        renderCookiesContent(currentLang);
+
+        window.onLangChange = function(lang) {
+            renderCookiesContent(lang);
+        };
+    </script>
+</body>
+</html>

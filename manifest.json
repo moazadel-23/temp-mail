@@ -1,0 +1,20 @@
+{
+    "name": "FakeMail - Free Temporary Email",
+    "short_name": "FakeMail",
+    "description": "Free temporary email address generator. Protect your privacy with disposable email.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#f8fafc",
+    "theme_color": "#6366f1",
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📧</text></svg>",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        }
+    ],
+    "categories": ["productivity", "utilities"],
+    "lang": "en",
+    "dir": "ltr"
+}

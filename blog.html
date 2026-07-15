@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FakeMail - Blog</title>
+    <meta name="description" content="Tips, guides, and insights about email privacy, security, and online safety from the FakeMail team.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="FakeMail - Blog & Articles">
+    <meta property="og:description" content="Tips, guides, and insights about email privacy, security, and online safety.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fakemail.com/blog.html">
+    <meta property="og:site_name" content="FakeMail">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="FakeMail - Blog & Articles">
+    <meta name="twitter:description" content="Tips, guides, and insights about email privacy, security, and online safety.">
+    <link rel="canonical" href="https://fakemail.com/blog.html">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css?v=14">
+    <style>
+        .blog-hero{text-align:center;padding:120px 0 40px;position:relative;overflow:hidden}
+        .blog-hero::before{content:'';position:absolute;top:-50%;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(124,58,237,.1),transparent 70%);pointer-events:none}
+        .blog-hero h1{font-size:2.5rem;font-weight:900;margin-bottom:12px}
+        .blog-hero p{color:var(--tx2);font-size:1rem;max-width:500px;margin:0 auto}
+        .blog-filters{display:flex;align-items:center;justify-content:center;gap:10px;padding:20px;flex-wrap:wrap}
+        .blog-filters button{padding:8px 20px;border-radius:50px;border:1px solid var(--brd);background:var(--bg2);color:var(--tx2);font-size:.82rem;font-weight:500;cursor:pointer;transition:all .2s;font-family:inherit}
+        .blog-filters button.active{background:var(--grad);color:#fff;border-color:transparent}
+        .blog-filters button:hover:not(.active){border-color:var(--pri);color:var(--pri)}
+        .blog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:1100px;margin:0 auto;padding:20px 20px 80px}
+        .cat-privacy{background:rgba(124,58,237,.1);color:#a78bfa}
+        .cat-guide{background:rgba(59,130,246,.1);color:#60a5fa}
+        .cat-news{background:rgba(16,185,129,.1);color:#34d399}
+        .cat-tips{background:rgba(245,158,11,.1);color:#fbbf24}
+        .article-view{display:none;max-width:750px;margin:0 auto;padding:100px 20px 80px}
+        .article-view.active{display:block}
+        .article-back{display:inline-flex;align-items:center;gap:6px;color:var(--pri);font-size:.88rem;font-weight:600;text-decoration:none;margin-bottom:24px;cursor:pointer}
+        .article-back:hover{text-decoration:underline}
+        .article-view h1{font-size:2rem;font-weight:900;margin-bottom:16px;line-height:1.2}
+        .article-meta{display:flex;align-items:center;gap:16px;margin-bottom:28px;color:var(--tx3);font-size:.82rem;flex-wrap:wrap}
+        .article-meta i{margin-right:4px}
+        .article-content{color:var(--tx2);font-size:.95rem;line-height:1.8}
+        .article-content h3{color:var(--tx);font-size:1.15rem;font-weight:700;margin:28px 0 12px}
+        .article-content p{margin-bottom:16px}
+        .article-content ul,.article-content ol{margin:12px 0 16px 20px}
+        .article-content li{margin-bottom:8px}
+        .article-content strong{color:var(--tx)}
+        .article-banner{background-position:center;background-size:cover;background-repeat:no-repeat;height:320px;border-radius:var(--r3);margin-bottom:28px;width:100%}
+        [dir="rtl"] .article-content ul, [dir="rtl"] .article-content ol {
+            margin: 12px 20px 16px 0;
+        }
+        .blog-list-wrap{position:relative}
+        .related-section{margin-top:50px;padding-top:40px;border-top:1px solid var(--brd)}
+        .related-title{font-size:1.4rem;font-weight:800;margin-bottom:24px}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+        @media(max-width:768px){
+            .blog-grid{grid-template-columns:1fr}
+            .blog-hero h1{font-size:1.8rem}
+            .related-grid{grid-template-columns:1fr}
+            .article-view{padding:90px 16px 60px}
+            .article-view h1{font-size:1.6rem}
+            .article-banner{height:200px;border-radius:var(--r2);margin-bottom:20px}
+            .article-meta{gap:10px 16px;margin-bottom:20px}
+        }
+    </style>
+</head>
+<body data-theme="dark">
+    <!-- Header -->
+    <header class="header">
+        <div class="wrap header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-ico"><i class="fas fa-paper-plane"></i></div>
+                <span>Fake<span class="logo-p">Mail</span></span>
+            </a>
+            <nav class="nav" id="mainNav">
+                <a href="index.html" data-i18n="nav_home">Home</a>
+                <a href="index.html#inbox" data-i18n="nav_inbox">Inbox</a>
+                <a href="blog.html" class="active" data-i18n="nav_blog">Blog</a>
+                <a href="premium.html" data-i18n="nav_premium">Premium</a>
+            </nav>
+            <div class="header-right">
+                <div class="lang-switcher" id="langSwitcher"></div>
+                <button class="theme-btn" id="themeBtn"><i class="fas fa-moon"></i></button>
+                <button class="menu-btn" id="menuBtn"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Blog List View -->
+    <div class="blog-list-wrap" id="blogListWrap">
+        <section class="blog-hero">
+            <div class="wrap">
+                <h1>Blog & Articles</h1>
+                <p>Tips, guides, and insights about email privacy, security, and online safety.</p>
+            </div>
+        </section>
+
+        <div class="blog-filters" id="blogFilters">
+            <button class="active" onclick="filterArticles('all')">All</button>
+            <button onclick="filterArticles('privacy')">Privacy</button>
+            <button onclick="filterArticles('guide')">Guides</button>
+            <button onclick="filterArticles('tips')">Tips & Tricks</button>
+            <button onclick="filterArticles('news')">News</button>
+        </div>
+
+        <div class="blog-grid" id="blogGrid"></div>
+    </div>
+
+    <!-- Article Detail View -->
+    <div class="article-view" id="articleView">
+        <div class="article-back" onclick="showList()"><i class="fas fa-arrow-left"></i> Back to Blog</div>
+        <div id="articleContent"></div>
+        <div class="related-section" id="relatedSection">
+            <h3 class="related-title" data-i18n="related_articles">Related Articles</h3>
+            <div class="related-grid" id="relatedGrid"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="wrap">
+            <div class="foot-grid">
+                <div>
+                    <a href="index.html" class="logo" style="margin-bottom:14px">
+                        <div class="logo-ico"><i class="fas fa-paper-plane"></i></div>
+                        <span>Fake<span class="logo-p">Mail</span></span>
+                    </a>
+                    <p style="color:var(--tx3);font-size:.85rem;line-height:1.7;max-width:280px">Free temporary email service. Protect your privacy, avoid spam, and keep your real inbox clean.</p>
+                </div>
+                <div>
+                    <h4 style="font-size:.85rem;font-weight:700;margin-bottom:16px">Product</h4>
+                    <div style="display:flex;flex-direction:column;gap:10px">
+                        <a href="index.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Home</a>
+                        <a href="premium.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Premium</a>
+                        <a href="blog.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Blog</a>
+                        <a href="#" style="color:var(--tx3);font-size:.85rem;text-decoration:none">API Docs</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="font-size:.85rem;font-weight:700;margin-bottom:16px">Legal</h4>
+                    <div style="display:flex;flex-direction:column;gap:10px">
+                        <a href="privacy.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Privacy Policy</a>
+                        <a href="terms.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Terms of Service</a>
+                        <a href="cookies.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Cookie Policy</a>
+                        <a href="contact.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="foot-bottom">
+                <span>&copy; 2026 FakeMail. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/articles.js?v=13"></script>
+    <script src="js/i18n.js?v=2"></script>
+    <script src="js/site-content.js?v=1"></script>
+    <script>
+        // Theme
+        const saved = localStorage.getItem('tmx_theme') || 'dark';
+        document.body.setAttribute('data-theme', saved);
+        const themeBtn = document.getElementById('themeBtn');
+        if (themeBtn) {
+            themeBtn.addEventListener('click', () => {
+                const cur = document.body.getAttribute('data-theme');
+                const next = cur === 'dark' ? 'light' : 'dark';
+                document.body.setAttribute('data-theme', next);
+                localStorage.setItem('tmx_theme', next);
+                themeBtn.innerHTML = next === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+            });
+            themeBtn.innerHTML = saved === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+        }
+
+        // i18n
+        initLang();
+        document.getElementById('langSwitcher').replaceWith(createLangSwitcher());
+
+        // Articles from localStorage (same source as admin)
+        function getArticles() {
+            let arts = localStorage.getItem('tmx_articles_v2');
+            const version = localStorage.getItem('tmx_articles_ver');
+            if (arts) { try { arts = JSON.parse(arts); } catch { arts = null; } }
+            if (!arts || !arts.length || version !== '4') {
+                arts = getDefaultArticles();
+                localStorage.setItem('tmx_articles_v2', JSON.stringify(arts));
+                localStorage.setItem('tmx_articles_ver', '4');
+            }
+            return arts;
+        }
+
+        // Listen for sync from admin via sync.html bridge
+        window.addEventListener('message', function(e) {
+            if (e.data && e.data.action === 'sync_articles') {
+                localStorage.setItem('tmx_articles_v2', JSON.stringify(e.data.articles));
+                localStorage.setItem('tmx_articles_ver', '4');
+                renderBlog(document.querySelector('.blog-filters button.active')?.textContent.toLowerCase() || 'all');
+            }
+        });
+
+
+        function esc(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+        const catIcons = { privacy: 'fas fa-shield-halved', guide: 'fas fa-book-open', news: 'fas fa-newspaper', tips: 'fas fa-lightbulb', security: 'fas fa-lock' };
+
+        function getImgUrl(url, lastModified) {
+            if (!url) return '';
+            if (url.startsWith('data:')) return url;
+            return url + (url.includes('?') ? '&' : '?') + 't=' + (lastModified || '');
+        }
+
+        function renderBlog(filter) {
+            const arts = getArticles();
+            const filtered = filter && filter !== 'all' ? arts.filter(a => a.category === filter) : arts;
+            const grid = document.getElementById('blogGrid');
+            grid.innerHTML = filtered.map((a, i) => {
+                const bgStyle = a.image ? 'background-image: url(\'' + getImgUrl(a.image, a.lastModified) + '\'); background-position: center; background-size: cover; background-repeat: no-repeat;' : 'background: linear-gradient(135deg,rgba(124,58,237,.15),rgba(59,130,246,.15))';
+                const icoHtml = a.image ? '' : '<i class="' + (catIcons[a.category] || 'fas fa-newspaper') + '"></i>';
+                
+                // Bilingual support
+                const titleVal = typeof a.title === 'object' ? (a.title[currentLang] || a.title.en) : a.title;
+                const excerptVal = typeof a.excerpt === 'object' ? (a.excerpt[currentLang] || a.excerpt.en) : a.excerpt;
+                const readTimeVal = typeof a.readTime === 'object' ? (a.readTime[currentLang] || a.readTime.en) : a.readTime;
+                const catLabel = typeof t === 'function' ? t(a.category) : a.category;
+
+                return '<div class="blog-card" onclick="openArticle(' + arts.indexOf(a) + ')">' +
+                '<div class="blog-card-img" style="' + bgStyle + '">' + icoHtml + '</div>' +
+                '<div class="blog-card-body">' +
+                '<span class="blog-card-cat cat-' + a.category + '">' + catLabel + '</span>' +
+                '<h3>' + esc(titleVal) + '</h3>' +
+                '<p class="excerpt">' + esc(excerptVal) + '</p>' +
+                '<div class="blog-card-meta">' +
+                '<span><i class="fas fa-user"></i>' + esc(a.author || 'FakeMail Team') + '</span>' +
+                '<span><i class="fas fa-calendar"></i>' + a.date + '</span>' +
+                '<span><i class="fas fa-clock"></i>' + readTimeVal + '</span>' +
+                '</div></div></div>';
+            }).join('');
+            if (!filtered.length) {
+                grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--tx3)"><i class="fas fa-newspaper" style="font-size:2.5rem;opacity:.2;margin-bottom:12px;display:block"></i><p>No articles found in this category.</p></div>';
+            }
+        }
+
+        function filterArticles(cat) {
+            document.querySelectorAll('.blog-filters button').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            renderBlog(cat);
+        }
+
+        function renderRelatedArticles(currentIdx, arts) {
+            const relatedGrid = document.getElementById('relatedGrid');
+            if (!relatedGrid) return;
+            
+            // Filter out current article
+            let candidates = arts.filter((_, i) => i !== currentIdx);
+            
+            // Sort to prioritize same category
+            const currentCat = arts[currentIdx].category;
+            candidates.sort((a, b) => {
+                if (a.category === currentCat && b.category !== currentCat) return -1;
+                if (a.category !== currentCat && b.category === currentCat) return 1;
+                return 0;
+            });
+            
+            // Take top 3
+            const related = candidates.slice(0, 3);
+            
+            relatedGrid.innerHTML = related.map(a => {
+                const globalIdx = arts.indexOf(a);
+                const bgStyle = a.image ? 'background-image: url(\'' + getImgUrl(a.image, a.lastModified) + '\'); background-position: center; background-size: cover; background-repeat: no-repeat;' : 'background: linear-gradient(135deg,rgba(124,58,237,.15),rgba(59,130,246,.15))';
+                const icoHtml = a.image ? '' : '<i class="' + (catIcons[a.category] || 'fas fa-newspaper') + '"></i>';
+                
+                // Bilingual support
+                const titleVal = typeof a.title === 'object' ? (a.title[currentLang] || a.title.en) : a.title;
+                const excerptVal = typeof a.excerpt === 'object' ? (a.excerpt[currentLang] || a.excerpt.en) : a.excerpt;
+                const catLabel = typeof t === 'function' ? t(a.category) : a.category;
+
+                return '<div class="blog-card" onclick="openArticle(' + globalIdx + ')">' +
+                '<div class="blog-card-img" style="' + bgStyle + '">' + icoHtml + '</div>' +
+                '<div class="blog-card-body">' +
+                '<span class="blog-card-cat cat-' + a.category + '">' + catLabel + '</span>' +
+                '<h3>' + esc(titleVal) + '</h3>' +
+                '<p class="excerpt">' + esc(excerptVal) + '</p>' +
+                '<div class="blog-card-meta">' +
+                '<span><i class="fas fa-user"></i>' + esc(a.author || 'FakeMail Team') + '</span>' +
+                '<span><i class="fas fa-calendar"></i>' + a.date + '</span>' +
+                '</div></div></div>';
+            }).join('');
+        }
+
+        let currentArticleIdx = -1;
+
+        function openArticle(idx) {
+            const arts = getArticles();
+            const a = arts[idx];
+            if (!a) return;
+            currentArticleIdx = idx;
+            let bannerHtml = '';
+            if (a.image) {
+                bannerHtml = '<div class="article-banner" style="background-image:url(\'' + getImgUrl(a.image, a.lastModified) + '\')"></div>';
+            }
+
+            // Bilingual support
+            const titleVal = typeof a.title === 'object' ? (a.title[currentLang] || a.title.en) : a.title;
+            const contentVal = typeof a.content === 'object' ? (a.content[currentLang] || a.content.en) : a.content;
+            const readTimeVal = typeof a.readTime === 'object' ? (a.readTime[currentLang] || a.readTime.en) : a.readTime;
+            const catLabel = typeof t === 'function' ? t(a.category) : a.category;
+
+            document.getElementById('articleContent').innerHTML =
+                bannerHtml +
+                '<span class="blog-card-cat cat-' + a.category + '" style="margin-bottom:16px;display:inline-block">' + catLabel + '</span>' +
+                '<h1>' + esc(titleVal) + '</h1>' +
+                '<div class="article-meta">' +
+                '<span><i class="fas fa-user"></i>' + esc(a.author || 'FakeMail Team') + '</span>' +
+                '<span><i class="fas fa-calendar"></i>' + a.date + '</span>' +
+                '<span><i class="fas fa-clock"></i>' + readTimeVal + '</span>' +
+                '</div>' +
+                '<div class="article-content">' + contentVal + '</div>';
+            
+            renderRelatedArticles(idx, arts);
+            applyTranslations(); // Translate elements dynamically
+
+            document.getElementById('blogListWrap').style.display = 'none';
+            document.getElementById('articleView').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function showList() {
+            currentArticleIdx = -1;
+            document.getElementById('blogListWrap').style.display = 'block';
+            document.getElementById('articleView').classList.remove('active');
+        }
+
+        // Handle language change callback
+        window.onLangChange = function(lang) {
+            renderBlog(document.querySelector('.blog-filters button.active')?.textContent.toLowerCase() || 'all');
+            if (currentArticleIdx !== -1) {
+                openArticle(currentArticleIdx);
+            }
+        };
+
+        renderBlog('all');
+        applyTranslations(); // Ensure translated content on load
+
+        // Check for ?id=X in URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const articleId = urlParams.get('id');
+        if (articleId !== null) {
+            const idx = parseInt(articleId);
+            if (!isNaN(idx)) openArticle(idx);
+        }
+    </script>
+</body>
+</html>
+
