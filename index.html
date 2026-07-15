@@ -379,22 +379,15 @@
     applyTranslations();
 
     function syncHomeArticles() {
-        let arts = localStorage.getItem('tmx_articles_v2');
-        const version = localStorage.getItem('tmx_articles_ver');
-        if (arts) {
-            try { arts = JSON.parse(arts); } catch { arts = null; }
-        }
-        if (!arts || !arts.length || version !== '4') {
-            if (typeof getDefaultArticles === 'function') {
-                arts = getDefaultArticles();
-                localStorage.setItem('tmx_articles_v2', JSON.stringify(arts));
-                localStorage.setItem('tmx_articles_ver', '4');
-            }
-        }
-        if (!arts || !arts.length) return;
+        const fullArts = window.TMXContent && typeof window.TMXContent.getArticles === 'function'
+            ? window.TMXContent.getArticles()
+            : (typeof getDefaultArticles === 'function' ? getDefaultArticles() : []);
+
+        if (!fullArts || !fullArts.length) return;
         const grid = document.getElementById('homeArticleGrid');
         if (!grid) return;
         grid.innerHTML = '';
+
         const catBadges = {
             privacy: { bg: 'rgba(124,58,237,.1)', color: '#a78bfa', icon: 'fa-shield-halved', label: 'Privacy' },
             guide: { bg: 'rgba(59,130,246,.1)', color: '#60a5fa', icon: 'fa-book', label: 'Guide' },
@@ -402,7 +395,9 @@
             news: { bg: 'rgba(16,185,129,.1)', color: '#34d399', icon: 'fa-newspaper', label: 'News' },
             security: { bg: 'rgba(239,68,68,.1)', color: '#f87171', icon: 'fa-lock', label: 'Security' }
         };
-        arts.slice(0, 6).forEach(function(art, i) {
+
+        fullArts.slice(0, 6).forEach(function(art) {
+            const globalIndex = fullArts.indexOf(art);
             const titleVal = typeof art.title === 'object' ? (art.title[currentLang] || art.title.en || art.title) : art.title;
             const excerptVal = typeof art.excerpt === 'object' ? (art.excerpt[currentLang] || art.excerpt.en || art.excerpt) : art.excerpt;
             const badge = catBadges[art.category] || catBadges['privacy'];
@@ -410,12 +405,12 @@
             const bgStyle = art.image
                 ? 'background-image:url(' + resolvedImg + ')'
                 : 'background:linear-gradient(135deg, ' + badge.bg + ')';
-            grid.innerHTML += '<a href="blog.html?id=' + i + '" class="blog-card">' +
+            grid.innerHTML += '<a href="blog.html?id=' + globalIndex + '" class="blog-card">' +
                 '<div class="blog-card-img" style="' + bgStyle + '">' + (art.image ? '' : '<div style="color:' + badge.color + ';font-size:2rem;opacity:.4"><i class="fas ' + badge.icon + '"></i></div>') + '</div>' +
                 '<div class="blog-card-body">' +
                 '<span style="display:inline-block;padding:3px 10px;border-radius:50px;font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;background:' + badge.bg + ';color:' + badge.color + '">' + badge.label + '</span>' +
-                '<h3 style="font-size:.95rem;font-weight:700;margin-bottom:8px;line-height:1.4">' + titleVal + '</h3>' +
-                '<p class="excerpt">' + excerptVal + '</p>' +
+                '<h3 style="font-size:.95rem;font-weight:700;margin-bottom:8px;line-height:1.4">' + (window.TMXContent ? window.TMXContent.esc(titleVal) : titleVal) + '</h3>' +
+                '<p class="excerpt">' + (window.TMXContent ? window.TMXContent.esc(excerptVal) : excerptVal) + '</p>' +
                 '</div></a>';
         });
     }
