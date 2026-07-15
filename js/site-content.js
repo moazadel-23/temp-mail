@@ -117,6 +117,30 @@
         localStorage.setItem(KEYS.articleVersion, '4');
     }
 
+    async function syncFromSupabase() {
+        if (!window.TMXSupabase || !window.TMXSupabase.isEnabled()) return false;
+
+        const keys = [KEYS.sections, KEYS.pages, KEYS.stripe, KEYS.articles, KEYS.articleVersion];
+        let synced = false;
+
+        for (const key of keys) {
+            try {
+                const value = await window.TMXSupabase.readJson(key);
+                if (value === null || value === undefined) continue;
+                if (key === KEYS.articleVersion) {
+                    localStorage.setItem(key, String(value));
+                } else {
+                    localStorage.setItem(key, JSON.stringify(value));
+                }
+                synced = true;
+            } catch (err) {
+                console.warn('Supabase sync skipped for', key, err);
+            }
+        }
+
+        return synced;
+    }
+
     function renderDynamicNav() {
         const nav = document.getElementById('mainNav');
         if (!nav) return;
@@ -232,10 +256,11 @@
         KEYS, DEFAULT_STRIPE, esc, slugify, getText, readJson, writeJson,
         getSections, saveSections, getPages, savePages, getArticles, saveArticles,
         getStripeSettings, saveStripeSettings, renderDynamicNav, renderCustomSections,
-        renderDynamicPage, applyStripeSettings, createCheckout
+        renderDynamicPage, applyStripeSettings, createCheckout, syncFromSupabase
     };
 
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', async function () {
+        await syncFromSupabase();
         renderDynamicNav();
         renderDynamicPage();
         applyStripeSettings();
