@@ -411,6 +411,33 @@
         $('#businessYearlyPrice').value = settings.prices.business.yearly || '';
     }
 
+    function loadSupabaseForm() {
+        $('#supabaseUrl').value = localStorage.getItem('tmx_supabase_url') || '';
+        $('#supabaseAnonKey').value = localStorage.getItem('tmx_supabase_anon') || '';
+    }
+
+    function saveSupabaseConfig(event) {
+        event.preventDefault();
+        const url = $('#supabaseUrl').value.trim();
+        const anon = $('#supabaseAnonKey').value.trim();
+        if (!url || !anon) {
+            setStatus('#supabaseStatus', 'Add both the Supabase project URL and anon key to enable shared sync.', false);
+            return;
+        }
+        localStorage.setItem('tmx_supabase_url', url);
+        localStorage.setItem('tmx_supabase_anon', anon);
+        window.TMX_SUPABASE_CONFIG = { url: url, anonKey: anon };
+        setStatus('#supabaseStatus', 'Supabase settings saved. Shared content sync is now ready to use.', true);
+    }
+
+    function resetSupabaseConfig() {
+        localStorage.removeItem('tmx_supabase_url');
+        localStorage.removeItem('tmx_supabase_anon');
+        delete window.TMX_SUPABASE_CONFIG;
+        loadSupabaseForm();
+        setStatus('#supabaseStatus', 'Supabase config cleared. Site will fall back to local storage.', false);
+    }
+
     function saveStripe(event) {
         event.preventDefault();
         const current = window.TMXContent.getStripeSettings();
@@ -522,6 +549,8 @@
         $('#resetArticles').addEventListener('click', function () { const defaults = typeof window.getDefaultArticles === 'function' ? window.getDefaultArticles() : []; window.TMXContent.saveArticles(defaults); renderAll(); });
         $('#stripeForm').addEventListener('submit', saveStripe);
         $('#stripeReset').addEventListener('click', resetStripe);
+        $('#supabaseForm').addEventListener('submit', saveSupabaseConfig);
+        $('#supabaseReset').addEventListener('click', resetSupabaseConfig);
         document.addEventListener('click', function (event) {
             const sectionEdit = event.target.closest('[data-edit-section]');
             const sectionDelete = event.target.closest('[data-delete-section]');
@@ -539,7 +568,8 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () { 
-        bindEvents(); 
+        bindEvents();
+        loadSupabaseForm();
         if (isAuthed()) {
             showApp(); 
         } else {

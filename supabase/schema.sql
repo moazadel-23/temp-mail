@@ -13,21 +13,21 @@ create policy "Public can read site_content"
   for select
   using (true);
 
-create policy "Authenticated users can upsert site_content"
+create policy "Public can insert site_content"
   on public.site_content
   for insert
-  with check (auth.role() = 'authenticated');
+  with check (true);
 
-create policy "Authenticated users can update site_content"
+create policy "Public can update site_content"
   on public.site_content
   for update
-  using (auth.role() = 'authenticated')
-  with check (auth.role() = 'authenticated');
+  using (true)
+  with check (true);
 
-create policy "Authenticated users can delete site_content"
+create policy "Public can delete site_content"
   on public.site_content
   for delete
-  using (auth.role() = 'authenticated');
+  using (true);
 
 create index if not exists site_content_updated_at_idx
   on public.site_content(updated_at desc);
