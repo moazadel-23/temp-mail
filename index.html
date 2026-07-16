@@ -392,6 +392,7 @@
             return;
         }
 
+        const activeLang = window.currentLang || 'en';
         grid.innerHTML = '';
 
         const catBadges = {
@@ -403,8 +404,8 @@
         };
 
         fullArts.forEach(function(art, index) {
-            const titleVal = typeof art.title === 'object' ? (art.title[currentLang] || art.title.en || art.title) : art.title;
-            const excerptVal = typeof art.excerpt === 'object' ? (art.excerpt[currentLang] || art.excerpt.en || art.excerpt) : art.excerpt;
+            const titleVal = typeof art.title === 'object' ? (art.title[activeLang] || art.title.en || art.title) : art.title;
+            const excerptVal = typeof art.excerpt === 'object' ? (art.excerpt[activeLang] || art.excerpt.en || art.excerpt) : art.excerpt;
             const badge = catBadges[art.category] || catBadges['privacy'];
             const resolvedImg = typeof resolveLocalImage === 'function' ? resolveLocalImage(art.image) : art.image;
             const bgStyle = art.image

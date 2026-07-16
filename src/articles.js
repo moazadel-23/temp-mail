@@ -534,6 +534,8 @@ function getDefaultArticles() {
     ];
 }
 
+window.getDefaultArticles = getDefaultArticles;
+
 function resolveLocalImage(id) {
     if (!id) return '';
     if (id.startsWith('data:') || id.startsWith('http') || id.includes('/')) return id;

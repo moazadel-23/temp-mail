@@ -482,6 +482,7 @@ const I18N = {
 // i18n Engine
 // ========================================
 let currentLang = localStorage.getItem('tmx_lang') || 'en';
+window.currentLang = currentLang;
 
 function t(key) {
     return (I18N[currentLang] && I18N[currentLang][key]) || (I18N.en[key]) || key;
@@ -580,6 +581,12 @@ function createLangSwitcher() {
     wrapper.appendChild(dropdown);
     return wrapper;
 }
+
+window.initLang = initLang;
+window.createLangSwitcher = createLangSwitcher;
+window.setLang = setLang;
+window.applyTranslations = applyTranslations;
+window.t = t;
 
 // ========================================
 // Cookie Consent Banner Injection & Logic
