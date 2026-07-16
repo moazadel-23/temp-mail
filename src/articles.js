@@ -546,3 +546,4 @@ function resolveLocalImage(id) {
         return id;
     }
 }
+window.resolveLocalImage = resolveLocalImage;

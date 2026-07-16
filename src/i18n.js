@@ -490,6 +490,7 @@ function t(key) {
 
 function setLang(lang) {
     currentLang = lang;
+    window.currentLang = lang;
     localStorage.setItem('tmx_lang', lang);
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
