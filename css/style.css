@@ -416,14 +416,14 @@ kbd{display:inline-block;padding:2px 7px;background:var(--bg3);border:1px solid 
     .feat-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:768px){
-    .wrap{padding:0 14px}
+    .wrap{padding:0}
     .nav{display:none;position:fixed;top:var(--hdr);left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--brd);padding:12px 20px;flex-direction:column;box-shadow:var(--sh3);z-index:999}
     .nav.open{display:flex}
     .menu-btn{display:flex}
     .hero{padding:100px 0 40px}
     .hero h1{font-size:2rem}
     .hero-desc{font-size:.95rem}
-    .email-box{padding:12px}
+    .email-box{padding:12px;max-width:none;width:100%}
     .email-row{padding:10px 12px;gap:8px}
     .email-ico,.email-timer{display:none}
     .email-text{font-size:.92rem;min-width:0}
@@ -439,11 +439,11 @@ kbd{display:inline-block;padding:2px 7px;background:var(--bg3);border:1px solid 
     .inbox-wrap{border-radius:0}
 }
 @media(max-width:480px){
-    .wrap{padding:0 12px}
+    .wrap{padding:0}
     .hero h1{font-size:1.7rem}
     .stats-grid{grid-template-columns:1fr}
     .inbox-toolbar{flex-wrap:wrap}
-    .email-box{max-width:100%}
+    .email-box{max-width:none;width:100%}
     .email-text{font-size:.82rem}
     .email-btns{grid-template-columns:1fr}
 }
