@@ -480,6 +480,43 @@
         loadVisitorCount();
     }
 
+    function dataURLtoBlob(dataurl) {
+        const arr = dataurl.split(',');
+        const mime = arr[0].match(/:(.*?);/)[1];
+        const bstr = atob(arr[1]);
+        let n = bstr.length;
+        const u8arr = new Uint8Array(n);
+        while (n--) {
+            u8arr[n] = bstr.charCodeAt(n);
+        }
+        return new Blob([u8arr], { type: mime });
+    }
+
+    async function uploadBlobToSupabase(blob) {
+        const client = window.TMXSupabase?.getClient();
+        if (!client) throw new Error('Supabase client is not available.');
+        
+        const fileExt = blob.type.split('/')[1] || 'jpeg';
+        const fileName = `img_${Math.random().toString(36).substring(2, 7)}_${Date.now()}.${fileExt}`;
+        const filePath = `articles/${fileName}`;
+
+        const { data, error } = await client.storage
+            .from('uploads')
+            .upload(filePath, blob, {
+                contentType: blob.type,
+                cacheControl: '3600',
+                upsert: false
+            });
+
+        if (error) throw error;
+
+        const { data: { publicUrl } } = client.storage
+            .from('uploads')
+            .getPublicUrl(filePath);
+
+        return publicUrl;
+    }
+
     function bindEvents() {
         $('#logoutBtn').addEventListener('click', function () { 
             sessionStorage.removeItem(AUTH_KEY); 
@@ -488,11 +525,26 @@
         $('#articleImageFile')?.addEventListener('change', function (e) {
             const file = e.target.files[0];
             if (!file) return;
-            compressImage(file, function (dataUrl) {
-                const id = generateImageId();
-                saveLocalImage(id, dataUrl);
-                $('#articleImage').value = id;
-                updateImagePreview();
+            setStatus('#articleStatus', 'Compressing image...');
+            compressImage(file, async function (dataUrl) {
+                try {
+                    if (window.TMXSupabase && window.TMXSupabase.isEnabled()) {
+                        setStatus('#articleStatus', 'Uploading to Supabase Storage...');
+                        const blob = dataURLtoBlob(dataUrl);
+                        const publicUrl = await uploadBlobToSupabase(blob);
+                        $('#articleImage').value = publicUrl;
+                        setStatus('#articleStatus', 'Uploaded successfully to Supabase.', true);
+                    } else {
+                        const id = generateImageId();
+                        saveLocalImage(id, dataUrl);
+                        $('#articleImage').value = id;
+                        setStatus('#articleStatus', 'Saved locally to browser storage.', true);
+                    }
+                    updateImagePreview();
+                } catch (err) {
+                    console.error('Upload failed:', err);
+                    setStatus('#articleStatus', 'Upload failed: ' + err.message);
+                }
             });
         });
         $('#removeImageBtn')?.addEventListener('click', function () {
@@ -505,33 +557,49 @@
         $('#articleBodyImageFile')?.addEventListener('change', function (e) {
             const file = e.target.files[0];
             if (!file) return;
-            compressImage(file, function (dataUrl) {
-                const textarea = $('#articleContent');
-                if (!textarea) return;
-                const id = generateImageId();
-                saveLocalImage(id, dataUrl);
+            setStatus('#articleStatus', 'Compressing body image...');
+            compressImage(file, async function (dataUrl) {
+                try {
+                    const textarea = $('#articleContent');
+                    if (!textarea) return;
+                    
+                    let imageSrc = '';
+                    if (window.TMXSupabase && window.TMXSupabase.isEnabled()) {
+                        setStatus('#articleStatus', 'Uploading body image to Supabase...');
+                        const blob = dataURLtoBlob(dataUrl);
+                        imageSrc = await uploadBlobToSupabase(blob);
+                        setStatus('#articleStatus', 'Body image uploaded to Supabase.', true);
+                    } else {
+                        const id = generateImageId();
+                        saveLocalImage(id, dataUrl);
+                        imageSrc = id;
+                        setStatus('#articleStatus', 'Body image saved locally.', true);
+                    }
 
-                const startPos = textarea.selectionStart;
-                const endPos = textarea.selectionEnd;
-                const text = textarea.value;
-                const imgTag = '<img src="' + id + '" alt="Uploaded Image">';
-                
-                // Copy to clipboard as a backup convenience
-                navigator.clipboard.writeText(imgTag).catch(err => {
-                    console.error('Failed to copy to clipboard:', err);
-                });
+                    const startPos = textarea.selectionStart;
+                    const endPos = textarea.selectionEnd;
+                    const text = textarea.value;
+                    const imgTag = '<img src="' + imageSrc + '" alt="Uploaded Image">';
+                    
+                    // Copy to clipboard as a backup convenience
+                    navigator.clipboard.writeText(imgTag).catch(err => {
+                        console.error('Failed to copy to clipboard:', err);
+                    });
 
-                // Insert at cursor
-                textarea.value = text.substring(0, startPos) + imgTag + text.substring(endPos);
-                textarea.dispatchEvent(new Event('input'));
-                
-                // Restore focus and place cursor right after the inserted tag
-                textarea.focus();
-                const newCursorPos = startPos + imgTag.length;
-                textarea.setSelectionRange(newCursorPos, newCursorPos);
+                    // Insert at cursor
+                    textarea.value = text.substring(0, startPos) + imgTag + text.substring(endPos);
+                    textarea.dispatchEvent(new Event('input'));
+                    
+                    // Restore focus and place cursor right after the inserted tag
+                    textarea.focus();
+                    const newCursorPos = startPos + imgTag.length;
+                    textarea.setSelectionRange(newCursorPos, newCursorPos);
 
-                e.target.value = '';
-                setStatus('#articleStatus', 'Image uploaded as ' + id + ' (inserted at cursor and copied to clipboard).', true);
+                    e.target.value = '';
+                } catch (err) {
+                    console.error('Body image upload failed:', err);
+                    setStatus('#articleStatus', 'Upload failed: ' + err.message);
+                }
             });
         });
 

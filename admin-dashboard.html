@@ -10,8 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css?v=14">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="js/supabase.js"></script>
+    <script type="module" src="/src/lib/supabase.js"></script>
     <script>
         if (sessionStorage.getItem('tmx_admin_auth') !== 'true') {
             window.location.replace('admin-login.html');
@@ -35,8 +34,8 @@
             <section class="admin-card admin-panel" id="panel-ideas"><div class="panel-head"><div><h2>Suggested additions</h2><p>Practical ideas that fit a temporary email tool and can be added from this dashboard or wired to a backend later.</p></div></div><div class="admin-grid"><div class="mini-note"><strong>API documentation page:</strong> publish endpoint examples, rate limits, and API key pricing.</div><div class="mini-note"><strong>Use cases section:</strong> explain signup testing, OTP previews, trial accounts, and spam protection.</div><div class="mini-note"><strong>Trust center:</strong> add retention policy, abuse policy, and deletion rules.</div><div class="mini-note"><strong>Premium account portal:</strong> connect Stripe customer portal for upgrades, cancellations, and invoices.</div></div></section>
         </div>
     </main>
-    <script src="js/articles.js?v=13"></script>
-    <script src="js/site-content.js?v=1"></script>
-    <script src="js/admin-dashboard.js?v=1"></script>
+    <script type="module" src="/src/articles.js"></script>
+    <script type="module" src="/src/site-content.js"></script>
+    <script type="module" src="/src/admin-dashboard.js"></script>
 </body>
 </html>

@@ -10,8 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css?v=14">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="js/supabase.js"></script>
+    <script type="module" src="/src/lib/supabase.js"></script>
     <style>
         body.admin-body {
             background: var(--bg);
@@ -215,7 +214,7 @@
         </div>
     </main>
 
-    <script>
+    <script type="module">
         const ADMIN_EMAIL = 'admin@baridtemp.local';
         const ADMIN_PASSWORD = 'TMX-Admin-2026!';
         const AUTH_KEY = 'tmx_admin_auth';
