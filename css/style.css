@@ -445,7 +445,6 @@ kbd{display:inline-block;padding:2px 7px;background:var(--bg3);border:1px solid 
     .inbox-toolbar{flex-wrap:wrap}
     .email-box{max-width:none;width:100%}
     .email-text{font-size:.82rem}
-    .email-btns{grid-template-columns:1fr}
 }
 
 /* ===== RTL SUPPORT ===== */
@@ -708,5 +707,48 @@ kbd{display:inline-block;padding:2px 7px;background:var(--bg3);border:1px solid 
 .footer-controls .lang-dropdown {
     bottom: calc(100% + 6px);
     top: auto;
+}
+
+/* ===== MOBILE EMAIL BUTTONS GRID & PILLS ===== */
+@media (max-width: 768px) {
+    .email-btns {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 12px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    .email-btns button {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 12px !important;
+        padding: 14px 20px !important;
+        background: var(--bg2) !important;
+        border: 1px solid var(--brd) !important;
+        border-radius: 50px !important;
+        color: var(--tx) !important;
+        font-size: .95rem !important;
+        font-weight: 600 !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
+        transition: all 0.2s ease !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        transform: none !important;
+    }
+    .email-btns button:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06) !important;
+    }
+    .email-btns button i {
+        font-size: 1rem !important;
+        color: var(--tx2) !important;
+    }
+    #btnQR {
+        grid-column: span 2 !important;
+    }
+    .btn-text-refresh, .btn-text-qr {
+        display: inline !important;
+    }
 }
 
