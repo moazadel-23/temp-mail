@@ -193,10 +193,10 @@
             let arts = localStorage.getItem('tmx_articles_v2');
             const version = localStorage.getItem('tmx_articles_ver');
             if (arts) { try { arts = JSON.parse(arts); } catch { arts = null; } }
-            if (!arts || !arts.length || version !== '4') {
+            if (!arts || !arts.length || version !== '5') {
                 arts = getDefaultArticles();
                 localStorage.setItem('tmx_articles_v2', JSON.stringify(arts));
-                localStorage.setItem('tmx_articles_ver', '4');
+                localStorage.setItem('tmx_articles_ver', '5');
             }
             return arts;
         }
