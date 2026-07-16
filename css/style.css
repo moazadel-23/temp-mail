@@ -658,3 +658,26 @@ kbd{display:inline-block;padding:2px 7px;background:var(--bg3);border:1px solid 
     from { transform: translateY(100px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
+
+/* ===== CUSTOM HEADER & FOOTER CONTROLS ===== */
+.gold-link {
+    color: #ffd700 !important;
+    font-weight: 700;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.gold-link i {
+    color: #ffd700;
+}
+.gold-link:hover {
+    color: #fff !important;
+    background: linear-gradient(135deg, #ffd700, #ffa500) !important;
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
+}
+.footer-controls .lang-dropdown {
+    bottom: calc(100% + 6px);
+    top: auto;
+}
+
