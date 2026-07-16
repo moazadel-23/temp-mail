@@ -333,6 +333,13 @@
         const contentAr = currentEditingArticle.content.ar || '';
         if (!titleEn && !titleAr) { setStatus('#articleStatus', 'Please enter a title for this article.'); return; }
         if (!contentEn && !contentAr) { setStatus('#articleStatus', 'Please enter some article content.'); return; }
+        const enWords = contentEn.replace(/<[^>]*>/g, ' ').trim().split(/\s+/).filter(Boolean).length;
+        const arWords = contentAr.replace(/<[^>]*>/g, ' ').trim().split(/\s+/).filter(Boolean).length;
+        const totalWords = enWords + arWords;
+        if (totalWords < 1000) {
+            setStatus('#articleStatus', 'Article must be at least 1000 words total. Current: ' + totalWords + ' words (EN: ' + enWords + ', AR: ' + arWords + ').');
+            return;
+        }
         currentEditingArticle.category = $('#articleCategory').value;
         currentEditingArticle.image = $('#articleImage').value.trim() || 'img/1.png';
         currentEditingArticle.author = $('#articleAuthor').value.trim() || 'BaridTemp Team';
