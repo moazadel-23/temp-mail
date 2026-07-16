@@ -416,7 +416,7 @@ kbd{display:inline-block;padding:2px 7px;background:var(--bg3);border:1px solid 
     .feat-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:768px){
-    .wrap{padding:0}
+    .wrap{padding:0 16px}
     .nav{display:none;position:fixed;top:var(--hdr);left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--brd);padding:12px 20px;flex-direction:column;box-shadow:var(--sh3);z-index:999}
     .nav.open{display:flex}
     .menu-btn{display:flex}
@@ -439,7 +439,7 @@ kbd{display:inline-block;padding:2px 7px;background:var(--bg3);border:1px solid 
     .inbox-wrap{border-radius:0}
 }
 @media(max-width:480px){
-    .wrap{padding:0}
+    .wrap{padding:0 16px}
     .hero h1{font-size:1.7rem}
     .stats-grid{grid-template-columns:1fr}
     .inbox-toolbar{flex-wrap:wrap}
