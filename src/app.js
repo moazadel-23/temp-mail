@@ -535,11 +535,6 @@ function showQR() {
             colorDark: '#1e293b',
             colorLight: '#ffffff'
         });
-        // Force hide the canvas element created by QRCode to prevent double rendering
-        setTimeout(() => {
-            const canvas = box.querySelector('canvas');
-            if (canvas) canvas.style.display = 'none';
-        }, 50);
     }
     if (modal) modal.classList.add('open');
 }

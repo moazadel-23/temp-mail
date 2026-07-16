@@ -382,7 +382,7 @@ kbd{display:inline-block;padding:2px 7px;background:var(--bg3);border:1px solid 
 .modal-top h3{font-size:1.1rem;font-weight:700}
 .modal-body{text-align:center}
 #qrCanvas{display:inline-block;margin-bottom:14px;background:#fff;padding:16px;border-radius:var(--r)}
-#qrCanvas canvas{display:none !important}
+#qrCanvas canvas{width:0;height:0;opacity:0;position:absolute;pointer-events:none}
 #qrCanvas img{display:block;margin:0 auto}
 .qr-email{font-weight:700;color:var(--pri);font-family:monospace;font-size:.92rem;margin-bottom:6px}
 .qr-sub{font-size:.78rem;color:var(--tx3)}
