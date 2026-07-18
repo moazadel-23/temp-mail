@@ -1,5 +1,5 @@
 /* ========================================
-   BaridTemp - Complete Working Version
+   TempSnap - Complete Working Version
    ======================================== */
 
 const PASS = 'TMX_temp_2026!';

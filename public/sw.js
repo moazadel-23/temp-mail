@@ -1,4 +1,4 @@
-const CACHE_NAME = 'baridtemp-v2';
+const CACHE_NAME = 'TempSnap-v2';
 const urlsToCache = [
     '/',
     '/index.html',

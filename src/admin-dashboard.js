@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    const ADMIN_EMAIL = 'admin@baridtemp.local';
+    const ADMIN_EMAIL = 'admin@tempsnap.local';
     const ADMIN_PASSWORD = 'TMX-Admin-2026!';
     const AUTH_KEY = 'tmx_admin_auth';
     let currentEditingArticle = null;
@@ -76,8 +76,8 @@
     }
 
     function fillSectionSample() {
-        $('#sectionTitle').value = 'Why users choose BaridTemp';
-        $('#sectionId').value = 'why-users-choose-baridtemp';
+        $('#sectionTitle').value = 'Why users choose TempSnap';
+        $('#sectionId').value = 'why-users-choose-TempSnap';
         $('#sectionTag').value = 'Use cases';
         $('#sectionIcon').value = 'fas fa-user-check';
         $('#sectionShowHeader').checked = true;
@@ -141,8 +141,8 @@
     function fillPageSample() {
         $('#pageTitle').value = 'Privacy Center';
         $('#pageSlug').value = 'privacy-center';
-        $('#pageSummary').value = 'How BaridTemp helps users reduce spam and protect their identity online.';
-        $('#pageBody').value = '<h2>Who is BaridTemp for?</h2><p>BaridTemp is for people who need a quick inbox for signups, OTP previews, downloads, trials, and product testing without exposing their primary email address.</p><h2>Why use it?</h2><p>Temporary email reduces spam, limits tracking, and gives developers a fast way to test email-based workflows. Use it for low-risk, short-term tasks, not for banking, work accounts, or services you need to recover later.</p>';
+        $('#pageSummary').value = 'How TempSnap helps users reduce spam and protect their identity online.';
+        $('#pageBody').value = '<h2>Who is TempSnap for?</h2><p>TempSnap is for people who need a quick inbox for signups, OTP previews, downloads, trials, and product testing without exposing their primary email address.</p><h2>Why use it?</h2><p>Temporary email reduces spam, limits tracking, and gives developers a fast way to test email-based workflows. Use it for low-risk, short-term tasks, not for banking, work accounts, or services you need to recover later.</p>';
         $('#pageShowHeader').checked = true;
     }
 
@@ -342,7 +342,7 @@
         }
         currentEditingArticle.category = $('#articleCategory').value;
         currentEditingArticle.image = $('#articleImage').value.trim() || 'img/1.png';
-        currentEditingArticle.author = $('#articleAuthor').value.trim() || 'BaridTemp Team';
+        currentEditingArticle.author = $('#articleAuthor').value.trim() || 'TempSnap Team';
         currentEditingArticle.date = $('#articleDate').value || new Date().toISOString().slice(0, 10);
         currentEditingArticle.lastModified = Date.now();
 

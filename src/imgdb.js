@@ -1,10 +1,10 @@
 /* ========================================
-   BaridTemp - IndexedDB Image Storage
+   TempSnap - IndexedDB Image Storage
    ======================================== */
 
 const ImgDB = {
     db: null,
-    DB_NAME: 'BaridTempImages',
+    DB_NAME: 'TempSnapImages',
     STORE: 'images',
     VERSION: 1,
 

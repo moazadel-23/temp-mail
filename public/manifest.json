@@ -1,6 +1,6 @@
 {
-    "name": "BaridTemp - Free Temporary Email",
-    "short_name": "BaridTemp",
+    "name": "TempSnap - Free Temporary Email",
+    "short_name": "TempSnap",
     "description": "Disposable email is a free email service that allows to receive email at a temporary address that self-destructed after a certain time elapses.",
     "start_url": "/",
     "display": "standalone",

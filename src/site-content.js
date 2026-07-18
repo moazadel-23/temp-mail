@@ -191,12 +191,12 @@
         const slug = new URLSearchParams(location.search).get('slug') || '';
         const page = getPages().find(function (item) { return item.slug === slug; });
         if (!page) {
-            document.title = 'Page not found - BaridTemp';
+            document.title = 'Page not found - TempSnap';
             root.innerHTML = '<section class="page-hero"><div class="wrap"><span class="tag">Not Found</span><h1>Page not found</h1><p>This page is not available yet. Create it from admin-dashboard.html.</p></div></section>';
             return;
         }
-        document.title = page.title + ' - BaridTemp';
-        root.innerHTML = '<section class="page-hero"><div class="wrap"><span class="tag">' + esc(page.badge || 'BaridTemp') + '</span><h1>' + esc(page.title) + '</h1>' + (page.summary ? '<p>' + esc(page.summary) + '</p>' : '') + '</div></section><section class="page-content-section"><div class="wrap"><article class="page-content">' + (page.body || '') + '</article></div></section>';
+        document.title = page.title + ' - TempSnap';
+        root.innerHTML = '<section class="page-hero"><div class="wrap"><span class="tag">' + esc(page.badge || 'TempSnap') + '</span><h1>' + esc(page.title) + '</h1>' + (page.summary ? '<p>' + esc(page.summary) + '</p>' : '') + '</div></section><section class="page-content-section"><div class="wrap"><article class="page-content">' + (page.body || '') + '</article></div></section>';
     }
 
     function syncSupabaseForKey(key, value) {
