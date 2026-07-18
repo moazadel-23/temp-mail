@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /api/
+Disallow: /admin-dashboard.html
+Disallow: /admin-login.html
+Disallow: /sync.html
 
-Sitemap: https://fakemail.com/sitemap.xml
+Sitemap: https://tempsnap.online/sitemap.xml

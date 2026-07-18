@@ -18,6 +18,10 @@ export default defineConfig({
         sync: resolve(__dirname, 'sync.html'),
         adminLogin: resolve(__dirname, 'admin-login.html'),
         adminDashboard: resolve(__dirname, 'admin-dashboard.html'),
+        about: resolve(__dirname, 'about.html'),
+        disclaimer: resolve(__dirname, 'disclaimer.html'),
+        faq: resolve(__dirname, 'faq.html'),
+        404: resolve(__dirname, '404.html'),
       }
     }
   }

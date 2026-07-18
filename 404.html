@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - TempSnap</title>
+    <meta name="description" content="The page you are looking for does not exist on TempSnap. Redirect back to the homepage.">
+    <meta name="robots" content="noindex, follow">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" href="css/style.css?v=14">
+    
+    <style>
+        .err-container{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:calc(100vh - var(--hdr) - 300px);padding:60px 20px;text-align:center}
+        .err-code{font-size:7rem;font-weight:900;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:16px;animation:pulse 2s infinite ease-in-out}
+        .err-title{font-size:1.8rem;font-weight:800;margin-bottom:12px;color:var(--tx)}
+        .err-desc{color:var(--tx2);font-size:.95rem;max-width:480px;margin:0 auto 28px;line-height:1.7}
+        .btn-home{background:var(--grad);color:#fff;font-weight:800;font-size:0.9rem;padding:14px 28px;border-radius:50px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:10px;border:none;transition:var(--tr);text-decoration:none}
+        .btn-home:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(124,58,237,0.3)}
+        @keyframes pulse{
+            0%,100%{transform:scale(1)}
+            50%{transform:scale(1.05)}
+        }
+    </style>
+</head>
+<body data-theme="dark">
+    <!-- Header -->
+    <header class="header">
+        <div class="wrap header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-ico"><i class="fas fa-paper-plane"></i></div>
+                <span>Temp<span class="logo-p">Snap</span></span>
+            </a>
+            <nav id="mainNav" style="display:none"></nav>
+            <div class="header-right">
+                <a href="premium.html" class="gold-btn" data-i18n="nav_premium"><i class="fas fa-crown"></i> Premium</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="err-container wrap">
+        <div class="err-code">404</div>
+        <h1 class="err-title" id="errTitle">Page Not Found</h1>
+        <p class="err-desc" id="errDesc">The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+        <a href="index.html" class="btn-home" id="btnHomeText"><i class="fas fa-home"></i> Back to Homepage</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="wrap">
+            <div class="foot-grid">
+                <div>
+                    <a href="index.html" class="logo" style="margin-bottom:14px">
+                        <div class="logo-ico"><i class="fas fa-paper-plane"></i></div>
+                        <span>Temp<span class="logo-p">Snap</span></span>
+                    </a>
+                    <p style="color:var(--tx3);font-size:.85rem;line-height:1.7;max-width:280px">Free temporary email service. Protect your privacy, avoid spam, and keep your real inbox clean.</p>
+                </div>
+                <div>
+                    <h4 style="font-size:.85rem;font-weight:700;margin-bottom:16px">Product</h4>
+                    <div style="display:flex;flex-direction:column;gap:10px">
+                        <a href="index.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Home</a>
+                        <a href="premium.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Premium</a>
+                        <a href="blog.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Blog</a>
+                        <a href="faq.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">FAQ</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="font-size:.85rem;font-weight:700;margin-bottom:16px">Legal</h4>
+                    <div style="display:flex;flex-direction:column;gap:10px">
+                        <a href="privacy.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Privacy Policy</a>
+                        <a href="terms.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Terms of Service</a>
+                        <a href="cookies.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Cookie Policy</a>
+                        <a href="disclaimer.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Disclaimer</a>
+                        <a href="contact.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="foot-bottom">
+                <span>&copy; 2026 TempSnap. All rights reserved.</span>
+                <div class="footer-controls" style="display:flex;align-items:center;gap:12px">
+                    <div class="lang-switcher" id="langSwitcher"></div>
+                    <button class="theme-btn" id="themeBtn" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+    <script type="module">
+        // Theme Management
+        const savedTheme = localStorage.getItem('tmx_theme') || 'dark';
+        document.body.setAttribute('data-theme', savedTheme);
+        const themeBtn = document.getElementById('themeBtn');
+        if (themeBtn) {
+            themeBtn.addEventListener('click', () => {
+                const cur = document.body.getAttribute('data-theme');
+                const next = cur === 'dark' ? 'light' : 'dark';
+                document.body.setAttribute('data-theme', next);
+                localStorage.setItem('tmx_theme', next);
+                themeBtn.innerHTML = next === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+            });
+            themeBtn.innerHTML = savedTheme === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+        }
+
+        // i18n
+        initLang();
+        document.getElementById('langSwitcher').replaceWith(createLangSwitcher());
+
+        const errTexts = {
+            en: {
+                title: "Page Not Found",
+                desc: "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
+                btn: "Back to Homepage"
+            },
+            ar: {
+                title: "الصفحة غير موجودة",
+                desc: "قد تكون الصفحة التي تبحث عنها قد تمت إزالتها، أو تم تغيير اسمها، أو أنها غير متاحة مؤقتاً.",
+                btn: "العودة للرئيسية"
+            }
+        };
+
+        function render404Page(lang) {
+            const currentLangData = errTexts[lang] || errTexts.en;
+            document.getElementById('errTitle').textContent = currentLangData.title;
+            document.getElementById('errDesc').textContent = currentLangData.desc;
+            document.getElementById('btnHomeText').innerHTML = '<i class="fas fa-home"></i> ' + currentLangData.btn;
+            document.title = currentLangData.title + ' - TempSnap';
+        }
+
+        render404Page(currentLang);
+
+        window.onLangChange = function(lang) {
+            render404Page(lang);
+        };
+    </script>
+</body>
+</html>

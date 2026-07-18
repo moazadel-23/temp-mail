@@ -196,6 +196,29 @@
             return;
         }
         document.title = page.title + ' - TempSnap';
+        
+        // Dynamic SEO adjustments for dynamically generated pages
+        const fullUrl = window.location.protocol + '//' + window.location.host + window.location.pathname + '?slug=' + encodeURIComponent(slug);
+        const desc = page.summary || page.title + ' - TempSnap custom page.';
+        document.getElementById('metaDescription')?.setAttribute('content', desc);
+        document.getElementById('canonicalLink')?.setAttribute('href', fullUrl);
+        
+        // Dynamically inject/overwrite schema
+        let schemaScript = document.getElementById('dynamicPageSchema');
+        if (!schemaScript) {
+            schemaScript = document.createElement('script');
+            schemaScript.type = 'application/ld+json';
+            schemaScript.id = 'dynamicPageSchema';
+            document.head.appendChild(schemaScript);
+        }
+        schemaScript.textContent = JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": page.title,
+            "description": desc,
+            "url": fullUrl
+        });
+
         root.innerHTML = '<section class="page-hero"><div class="wrap"><span class="tag">' + esc(page.badge || 'TempSnap') + '</span><h1>' + esc(page.title) + '</h1>' + (page.summary ? '<p>' + esc(page.summary) + '</p>' : '') + '</div></section><section class="page-content-section"><div class="wrap"><article class="page-content">' + (page.body || '') + '</article></div></section>';
     }
 

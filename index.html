@@ -26,6 +26,7 @@
     <link rel="alternate" hreflang="zh" href="https://tempsnap.online/?lang=zh">
     <link rel="alternate" hreflang="de" href="https://tempsnap.online/?lang=de">
     <link rel="alternate" hreflang="x-default" href="https://tempsnap.online/">
+    <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#7c3aed">
     <link rel="icon" type="image/png" href="img/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,21 +36,51 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css?v=14">
+    
+    <!-- Google Tag Manager / Analytics / AdSense Placeholders -->
+    <!-- Google Analytics 4 (GA4) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script> -->
+    <!-- Google Tag Manager -->
+    <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script> -->
     <!-- Google AdSense -->
     <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "TempSnap",
-        "url": "https://tempsnap.online/",
-        "description": "Disposable email is a free email service that allows to receive email at a temporary address that self-destructed after a certain time elapses.",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://tempsnap.online/?q={search_term_string}",
-            "query-input": "required name=search_term_string"
+    [
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "TempSnap",
+            "url": "https://tempsnap.online/",
+            "description": "Disposable email is a free email service that allows to receive email at a temporary address that self-destructed after a certain time elapses.",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://tempsnap.online/?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "TempSnap",
+            "url": "https://tempsnap.online/",
+            "logo": "https://tempsnap.online/img/logo.png",
+            "sameAs": [
+                "https://twitter.com/tempsnap",
+                "https://github.com/tempsnap"
+            ]
         }
-    }
+    ]
     </script>
 </head>
 <body>
