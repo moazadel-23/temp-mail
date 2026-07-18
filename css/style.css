@@ -384,9 +384,9 @@ kbd{display:inline-block;padding:2px 7px;background:var(--bg3);border:1px solid 
 .modal-top h3{font-size:1.1rem;font-weight:700}
 .modal-body{text-align:center}
 .qr-wrapper{position:relative;display:inline-block}
-.qr-popover{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) scale(.95);transform-origin:top center;background:#fff;border-radius:12px;padding:12px;box-shadow:0 10px 30px rgba(0,0,0,.2);z-index:2000;opacity:0;pointer-events:none;transition:all .18s cubic-bezier(.4,0,.2,1);border:1px solid rgba(0,0,0,.08)}
+.qr-popover{position:absolute;bottom:calc(100% + 12px);left:50%;transform:translateX(-50%) scale(.95);transform-origin:bottom center;background:#fff;border-radius:12px;padding:12px;box-shadow:0 -10px 30px rgba(0,0,0,.2);z-index:2000;opacity:0;pointer-events:none;transition:all .18s cubic-bezier(.4,0,.2,1);border:1px solid rgba(0,0,0,.08)}
 .qr-popover.open{opacity:1;pointer-events:all;transform:translateX(-50%) scale(1)}
-.qr-popover-arrow{position:absolute;top:-6px;left:50%;transform:translateX(-50%) rotate(45deg);width:12px;height:12px;background:#fff;border-left:1px solid rgba(0,0,0,.08);border-top:1px solid rgba(0,0,0,.08)}
+.qr-popover-arrow{position:absolute;bottom:-6px;left:50%;transform:translateX(-50%) rotate(45deg);width:12px;height:12px;background:#fff;border-right:1px solid rgba(0,0,0,.08);border-bottom:1px solid rgba(0,0,0,.08)}
 #qrCanvas{display:inline-block;width:140px;height:140px;box-sizing:border-box}
 #qrCanvas:empty{display:none}
 #qrCanvas canvas{width:0;height:0;opacity:0;position:absolute;pointer-events:none}
