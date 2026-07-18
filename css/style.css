@@ -78,7 +78,21 @@ img{max-width:100%}
 .email-ico{width:40px;height:40px;background:var(--grad);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem;flex-shrink:0}
 .email-text{flex:1;font-size:1rem;font-weight:700;font-family:'Courier New',monospace;word-break:break-all;color:var(--tx)}
 .email-timer{display:flex;align-items:center;gap:6px;padding:5px 12px;background:rgba(239,68,68,.08);border-radius:8px;color:var(--err);font-size:.8rem;font-weight:600;white-space:nowrap;flex-shrink:0}
-.email-btns{display:flex;gap:8px;flex-wrap:wrap}
+.email-btns{display:flex;gap:8px;flex-wrap:nowrap;width:100%}
+.email-btns > .b1,
+.email-btns > .b2,
+.email-btns > .qr-wrapper {
+    flex: 1;
+    min-width: 0;
+}
+.email-btns .qr-wrapper .b2 {
+    width: 100%;
+}
+.email-btns > .b1,
+.email-btns > .b2,
+.email-btns .qr-wrapper .b2 {
+    justify-content: center;
+}
 .b1{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;background:var(--grad);color:#fff;border-radius:var(--r);font-size:.85rem;font-weight:600;transition:var(--tr);border:none;cursor:pointer;position:relative;overflow:hidden}
 .b1::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.2),transparent);opacity:0;transition:var(--tr)}
 .b1:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(124,58,237,.3)}
@@ -387,10 +401,9 @@ kbd{display:inline-block;padding:2px 7px;background:var(--bg3);border:1px solid 
 .qr-popover{position:absolute;bottom:calc(100% + 12px);left:50%;transform:translateX(-50%) scale(.95);transform-origin:bottom center;background:#fff;border-radius:12px;padding:12px;box-shadow:0 -10px 30px rgba(0,0,0,.2);z-index:9999;opacity:0;pointer-events:none;transition:all .18s cubic-bezier(.4,0,.2,1);border:1px solid rgba(0,0,0,.08);will-change:transform,opacity}
 .qr-popover.open{opacity:1;pointer-events:all;transform:translateX(-50%) scale(1)}
 .qr-popover-arrow{position:absolute;bottom:-6px;left:50%;transform:translateX(-50%) rotate(45deg);width:12px;height:12px;background:#fff;border-right:1px solid rgba(0,0,0,.08);border-bottom:1px solid rgba(0,0,0,.08)}
-#qrCanvas{display:inline-block;width:140px;height:140px;box-sizing:border-box}
-#qrCanvas:empty{display:none}
+#qrCanvas{display:inline-block;width:110px;height:110px;box-sizing:border-box}
 #qrCanvas canvas{width:0;height:0;opacity:0;position:absolute;pointer-events:none}
-#qrCanvas img{display:block;margin:0 auto;width:140px !important;height:140px !important;border-radius:8px}
+#qrCanvas img{display:block;margin:0 auto;width:110px !important;height:110px !important;border-radius:8px}
 
 /* ===== TOAST ===== */
 #toastBox{position:fixed;top:84px;right:20px;z-index:3000;display:flex;flex-direction:column;gap:8px}

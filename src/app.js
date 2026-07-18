@@ -536,8 +536,8 @@ function showQR(e) {
     if (typeof QRCode !== 'undefined' && box) {
         new QRCode(box, {
             text: S.email,
-            width: 140,
-            height: 140,
+            width: 110,
+            height: 110,
             colorDark: '#1e293b',
             colorLight: '#ffffff'
         });
@@ -715,8 +715,39 @@ function initEvents() {
     $('#btnCopy')?.addEventListener('click', copyEmail);
     $('#btnChange')?.addEventListener('click', function () { generateNew(); });
     $('#btnNewAddr')?.addEventListener('click', function () { generateNew(); });
-    $('#btnRefresh')?.addEventListener('click', function () { loadMessages(); toast('Refreshed', 'info'); });
-    $('#btnRefreshInbox')?.addEventListener('click', function () { loadMessages(); toast('Refreshed', 'info'); });
+    
+    $('#btnRefresh')?.addEventListener('click', async function () {
+        const icon = $('#btnRefresh i');
+        if (icon) icon.classList.add('fa-spin');
+        try {
+            await loadMessages();
+            toast(window.currentLang === 'ar' ? 'تم تحديث البريد' : 'Inbox Refreshed', 'ok');
+        } catch (e) {
+            console.error(e);
+            toast(window.currentLang === 'ar' ? 'فشل التحديث' : 'Refresh failed', 'err');
+        } finally {
+            if (icon) {
+                setTimeout(() => { icon.classList.remove('fa-spin'); }, 600);
+            }
+        }
+    });
+
+    $('#btnRefreshInbox')?.addEventListener('click', async function () {
+        const icon = $('#btnRefreshInbox i');
+        if (icon) icon.classList.add('fa-spin');
+        try {
+            await loadMessages();
+            toast(window.currentLang === 'ar' ? 'تم تحديث البريد' : 'Inbox Refreshed', 'ok');
+        } catch (e) {
+            console.error(e);
+            toast(window.currentLang === 'ar' ? 'فشل التحديث' : 'Refresh failed', 'err');
+        } finally {
+            if (icon) {
+                setTimeout(() => { icon.classList.remove('fa-spin'); }, 600);
+            }
+        }
+    });
+
     $('#btnDelete')?.addEventListener('click', deleteAccount);
     $('#btnQR')?.addEventListener('click', showQR);
 
