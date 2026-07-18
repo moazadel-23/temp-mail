@@ -490,6 +490,12 @@
                 openArticle(currentArticleIdx);
             }
         };
+        window.addEventListener('tmx-sync-complete', function() {
+            renderBlog(document.querySelector('.blog-filters button.active')?.textContent.toLowerCase() || 'all');
+            if (currentArticleIdx !== -1) {
+                openArticle(currentArticleIdx);
+            }
+        });
 
         window.addEventListener('DOMContentLoaded', async function () {
             if (window.TMXContent && typeof window.TMXContent.syncFromSupabase === 'function') {

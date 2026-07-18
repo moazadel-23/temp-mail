@@ -650,5 +650,8 @@
         } else {
             window.location.replace('admin-login.html');
         }
+        window.addEventListener('tmx-sync-complete', function () {
+            renderAll();
+        });
     });
 })();

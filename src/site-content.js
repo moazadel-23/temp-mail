@@ -108,6 +108,9 @@
 
     function getArticles() {
         let articles = readJson(KEYS.articles, null);
+        if (window.TMXSupabase && window.TMXSupabase.isEnabled()) {
+            return Array.isArray(articles) ? articles : [];
+        }
         const version = localStorage.getItem(KEYS.articleVersion);
         if (!Array.isArray(articles) || !articles.length || version !== '7') {
             articles = typeof window.getDefaultArticles === 'function' ? window.getDefaultArticles() : [];
@@ -150,6 +153,10 @@
             } catch (err) {
                 console.warn('Supabase sync skipped for', key, err);
             }
+        }
+
+        if (synced) {
+            window.dispatchEvent(new CustomEvent('tmx-sync-complete'));
         }
 
         return synced;
