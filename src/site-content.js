@@ -38,8 +38,12 @@
 
     function writeJson(key, value) {
         localStorage.setItem(key, JSON.stringify(value));
-        if (window.TMXSupabase && typeof window.TMXSupabase.upsertJson === 'function') {
-            window.TMXSupabase.upsertJson(key, value).catch(function () {});
+        if (window.TMXSupabase && window.TMXSupabase.isEnabled()) {
+            if (key === KEYS.articles && typeof window.TMXSupabase.upsertArticlesTable === 'function') {
+                window.TMXSupabase.upsertArticlesTable(value).catch(function (e) { console.error('Supabase articles table sync error:', e); });
+            } else if (typeof window.TMXSupabase.upsertJson === 'function') {
+                window.TMXSupabase.upsertJson(key, value).catch(function () {});
+            }
         }
     }
 
@@ -125,7 +129,17 @@
 
         for (const key of keys) {
             try {
-                const value = await window.TMXSupabase.readJson(key);
+                let value;
+                if (key === KEYS.articles) {
+                    if (typeof window.TMXSupabase.fetchArticlesTable === 'function') {
+                        value = await window.TMXSupabase.fetchArticlesTable();
+                    } else {
+                        value = await window.TMXSupabase.readJson(key);
+                    }
+                } else {
+                    value = await window.TMXSupabase.readJson(key);
+                }
+
                 if (value === null || value === undefined) continue;
                 if (key === KEYS.articleVersion) {
                     localStorage.setItem(key, String(value));
