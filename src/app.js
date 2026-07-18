@@ -723,9 +723,10 @@ function initEvents() {
     // Close QR Popover when clicking outside
     document.addEventListener('click', function (e) {
         const popover = $('#qrPopover');
-        const wrapper = $('#qrWrapper');
+        const btn = $('#btnQR');
         if (popover && popover.classList.contains('open')) {
-            if (wrapper && !wrapper.contains(e.target)) {
+            // Close if click is NOT on the button itself and NOT inside the popover itself
+            if (btn && !btn.contains(e.target) && !popover.contains(e.target)) {
                 popover.classList.remove('open');
             }
         }
