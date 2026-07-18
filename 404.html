@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('tmx_theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Not Found - TempSnap</title>
@@ -25,7 +32,7 @@
         }
     </style>
 </head>
-<body data-theme="dark">
+<body >
     <!-- Header -->
     <header class="header">
         <div class="wrap header-inner">
@@ -91,20 +98,6 @@
 
     <script type="module" src="/src/main.js"></script>
     <script type="module">
-        // Theme Management
-        const savedTheme = localStorage.getItem('tmx_theme') || 'dark';
-        document.body.setAttribute('data-theme', savedTheme);
-        const themeBtn = document.getElementById('themeBtn');
-        if (themeBtn) {
-            themeBtn.addEventListener('click', () => {
-                const cur = document.body.getAttribute('data-theme');
-                const next = cur === 'dark' ? 'light' : 'dark';
-                document.body.setAttribute('data-theme', next);
-                localStorage.setItem('tmx_theme', next);
-                themeBtn.innerHTML = next === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
-            });
-            themeBtn.innerHTML = savedTheme === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
-        }
 
         // i18n
         initLang();

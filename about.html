@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('tmx_theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - TempSnap</title>
@@ -62,7 +69,7 @@
     }
     </script>
 </head>
-<body data-theme="dark">
+<body >
     <!-- Header -->
     <header class="header">
         <div class="wrap header-inner">
@@ -138,20 +145,6 @@
 
     <script type="module" src="/src/main.js"></script>
     <script type="module">
-        // Theme Management
-        const savedTheme = localStorage.getItem('tmx_theme') || 'dark';
-        document.body.setAttribute('data-theme', savedTheme);
-        const themeBtn = document.getElementById('themeBtn');
-        if (themeBtn) {
-            themeBtn.addEventListener('click', () => {
-                const cur = document.body.getAttribute('data-theme');
-                const next = cur === 'dark' ? 'light' : 'dark';
-                document.body.setAttribute('data-theme', next);
-                localStorage.setItem('tmx_theme', next);
-                themeBtn.innerHTML = next === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
-            });
-            themeBtn.innerHTML = savedTheme === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
-        }
 
         // i18n
         initLang();
@@ -162,42 +155,60 @@
                 title: "About TempSnap",
                 subtitle: "Your ultimate shield against spam, tracking, and digital footprint overload.",
                 body: `
-                    <p>Welcome to <strong>TempSnap</strong>, the leading provider of free disposable temporary email addresses. Our mission is simple: to give you complete control over your digital identity, protect your primary mailbox from security threats, and eliminate spam before it ever reaches you.</p>
-                    
-                    <h3>Why TempSnap Was Born</h3>
-                    <p>In 2026, the internet requires an email address for almost every single transaction. Whether you want to test a new application, download an eBook, sign up for public Wi-Fi, or read an article, you are forced to provide your contact details. This has led to a massive increase in database leaks, spam emails, and invasive ad trackers profiling your personal habits. TempSnap was designed as a firewall for your inbox—offering instant, fully functional throwaway mailboxes that expire automatically, leaving absolutely zero digital footprint.</p>
-                    
-                    <h3>Our Core Values</h3>
+                    <p>Welcome to <strong>TempSnap</strong>, the premier destination for secure, anonymous, and instant temporary email solutions. In the modern web era, privacy has shifted from a luxury to an absolute necessity. Our mission is to democratize online data privacy by providing powerful, user-friendly tools that protect you from the constant threat of inbox clutter, trackers, and cybersecurity breaches. We believe that you should have absolute authority over who has access to your personal inbox.</p>
+
+                    <h3>The Vision Behind TempSnap</h3>
+                    <p>TempSnap was founded in response to the growing challenges of digital footprint sprawl. Every day, online platforms demand your email address for simple interactions: downloading a PDF guide, connecting to a public Wi-Fi network, verifying a test account, or accessing a discount code. Once you share your address, it is stored in databases that are frequently shared with third-party advertising networks, leading to a perpetual influx of promotional spam, target profiling, and high security risks. We envisioned a tool that acts as a digital decoy—a shield that receives necessary verification messages and then ceases to exist, keeping your private data private.</p>
+
+                    <h3>Who We Serve</h3>
+                    <p>TempSnap is designed for anyone who values their online safety, organization, and peace of mind. Our users include:</p>
                     <ul>
-                      <li><strong>Absolute Anonymity:</strong> We do not ask for names, phone numbers, or passwords. Your connection details and temporary identity are kept 100% confidential.</li>
-                      <li><strong>Zero IP Logging:</strong> We do not log or store the IP addresses of our users. You are completely protected from tracking.</li>
-                      <li><strong>State-of-the-Art Security:</strong> All received emails and attachments are processed securely and deleted permanently after a short window (2 hours maximum).</li>
-                      <li><strong>Stellar User Experience:</strong> Our platform is designed to be blazing fast, responsive, and available in multiple languages to assist users worldwide.</li>
+                      <li><strong>Individual Users:</strong> Casual web browsers who want to download resources, participate in forums, or test services without exposing their real identity or getting spammed.</li>
+                      <li><strong>Developers and QA Teams:</strong> Software engineers and testers who require rapid generation of multiple unique email inboxes to validate sign-up flows, email delivery templates, and message triggers in real time.</li>
+                      <li><strong>Privacy Advocates:</strong> Security-conscious individuals who implement strict boundaries between their high-value personal/financial accounts and casual website registrations.</li>
                     </ul>
-                    
-                    <h3>How It Works</h3>
-                    <p>When you open TempSnap, our advanced backend systems generate a random, unique email address instantly. You can copy it, use it to register on any platform, and read incoming messages directly on our site. Once you are done, click 'Delete' to purge the address, or let it self-destruct automatically. No passwords, no storage, no hassle.</p>
+
+                    <h3>Key Technical & Security Features</h3>
+                    <p>Our infrastructure is built on principles of absolute security, speed, and privacy. Here is what sets us apart:</p>
+                    <ul>
+                      <li><strong>Zero Account Creation:</strong> We do not require any signup, registration, phone number, or password. A random, unique mailbox is generated instantly upon loading.</li>
+                      <li><strong>Real-time WebSocket Push:</strong> Incoming messages appear instantly without manual refreshes, ensuring a seamless experience for capturing OTP and verification codes.</li>
+                      <li><strong>Complete Ephemeral Storage:</strong> All emails, logs, and attachments are kept strictly in-memory or in short-lived databases, and are permanently wiped from physical servers after 2 hours (or instantly when you click 'Delete'). We keep no history.</li>
+                      <li><strong>Bilingual Support:</strong> Full translation across Arabic and English to support a global audience in reclaiming their inbox privacy.</li>
+                    </ul>
+
+                    <h3>Our Commitment to Privacy</h3>
+                    <p>TempSnap operates under a strict data minimization policy. We do not track user behavior, we do not log IP addresses, and we do not compile profiles. We are fully compliant with GDPR and other international privacy standards because we collect no personally identifiable information (PII) to begin with. When you use TempSnap, you remain completely anonymous.</p>
                 `
             },
             ar: {
                 title: "حول TempSnap",
                 subtitle: "درعك الحصين لحماية خصوصيتك من البريد العشوائي، التتبع، وبصمتك الرقمية المتضخمة.",
                 body: `
-                    <p>مرحباً بك في <strong>TempSnap</strong>، المنصة الرائدة في تقديم عناوين البريد الإلكتروني المؤقتة والمهملة مجاناً. مهمتنا واضحة وبسيطة: تمكينك من السيطرة الكاملة على هويتك الرقمية، حماية صندوق بريدك الأساسي من التهديدات الأمنية، والقضاء على الرسائل المزعجة (Spam) قبل أن تصل إليك.</p>
-                    
-                    <h3>لماذا تم تأسيس TempSnap؟</h3>
-                    <p>في العصر الرقمي الحالي، تتطلب كافة المواقع والخدمات تقريبًا إدخال بريدك الإلكتروني. سواء كنت ترغب في اختبار تطبيق جديد، أو تحميل كتاب إلكتروني مجاني، أو الاتصال بشبكة واي فاي عامة، فإنك تجبر على تقديم بيانات اتصالك. يؤدي ذلك لتزايد تسريبات قواعد البيانات، وانتشار الرسائل المزعجة، والتتبع الإعلاني الدقيق لاهتماماتك. صُمم TempSnap ليكون بمثابة جدار حماية لبريدك الإلكتروني الحقيقي - حيث يوفر لك صناديق بريد مؤقتة فورية تدمر نفسها ذاتياً دون أن تترك وراءها أي أثر رقمي.</p>
-                    
-                    <h3>قيمنا الأساسية</h3>
+                    <p>مرحباً بك في منصة <strong>TempSnap</strong>، الوجهة الرائدة لتقديم حلول البريد الإلكتروني المؤقت والمجهول بالكامل وبشكل فوري. في العصر الرقمي الحديث، تحولت الخصوصية والأمان الرقمي من مجرد ميزة إضافية إلى ضرورة ملحة وأساسية لكل مستخدم للإنترنت. تتمثل مهمتنا في TempSnap في تمكين المستخدمين حول العالم من استعادة السيطرة الكاملة على خصوصية بياناتهم وصناديق بريدهم الأساسية، وتوفير جدار حماية قوي يمنع وصول رسائل السبام، والتتبع الإعلاني، ومخاطر الاختراقات الأمنية.</p>
+
+                    <h3>رؤيتنا وقصتنا</h3>
+                    <p>تأسست منصة TempSnap استجابة للتحديات الكبرى التي يواجهها المستخدمون يومياً في الحفاظ على خصوصية بياناتهم الشخصية. فكل موقع أو خدمة تقريباً تجبرك على إدخال بريدك الإلكتروني لأداء أبسط المهام: مثل تحميل كتاب إلكتروني، أو الاتصال بشبكة واي فاي عامة، أو تجربة تطبيق جديد، أو الحصول على كوبون خصم. وبمجرد تقديم بريدك الحقيقي، يتم إدراجه في قواعد بيانات تُباع وتُشترى بين شبكات الإعلانات، مما ينتج عنه تدفق مستمر لا ينتهي من الرسائل المزعجة (Spam) ومحاولات الاختراق. من هنا، جاءت فكرة TempSnap لتوفير بريد إلكتروني بديل ومؤقت يستقبل الرسائل والأكواد المطلوبة ثم يختفي تماماً دون ترك أي أثر رقمي خلفك.</p>
+
+                    <h3>من نخدمهم؟</h3>
+                    <p>تقدم منصة TempSnap خدماتها لجميع مستخدمي الإنترنت الذين يضعون الخصوصية والأمان كأولوية في تصفحهم اليومي، وبشكل خاص:</p>
                     <ul>
-                      <li><strong>سرية مطلقة:</strong> لا نطلب منك إدخال اسمك، أو رقم هاتفك، أو كلمة مرورك. معلومات اتصالك وهوية بريدك المؤقت محمية بنسبة 100%.</li>
-                      <li><strong>عدم حفظ عناوين IP:</strong> لا نقوم بتسجيل أو تخزين عناوين الـ IP الخاصة بالمستخدمين، مما يحميك من أي تتبع رقمي.</li>
-                      <li><strong>أمان متطور:</strong> كافة الرسائل والمرفقات الواردة يتم معالجتها بشكل آمن وحذفها نهائيًا بعد وقت قصير (ساعتان كحد أقصى).</li>
-                      <li><strong>تجربة مستخدم استثنائية:</strong> تم تصميم منصتنا لتكون فائقة السرعة، متجاوبة مع كافة الشاشات، ومتوفرة بلغات متعددة لخدمة المستخدمين حول العالم.</li>
+                      <li><strong>المستخدمون الأفراد:</strong> لتصفح الويب وتحميل الموارد والتسجيل في المواقع دون الخوف من تراكم رسائل السبام في صناديقهم البريدية الحقيقية.</li>
+                      <li><strong>المطورون وفرق فحص الجودة (QA):</strong> لإنشاء مئات الحسابات البريدية الفورية واختبار عمليات التسجيل وتدفق الرسائل والتحقق من كود البريد الإلكتروني بكفاءة وسرعة فائقة.</li>
+                      <li><strong>المدافعون عن الخصوصية والأمان:</strong> الذين يفصلون تماماً بين حساباتهم البنكية والشخصية الحساسة وبين التسجيلات العابرة في المنتديات والمواقع العامة.</li>
                     </ul>
-                    
-                    <h3>كيف نعمل؟</h3>
-                    <p>بمجرد زيارتك لموقع TempSnap، يقوم نظامنا بتوليد عنوان بريد إلكتروني عشوائي وفريد فوراً. يمكنك نسخه واستخدامه للتسجيل في أي منصة، وقراءة الرسائل الواردة مباشرة في متصفحك. عند الانتهاء، اضغط على زر 'Delete' لحذف العنوان والرسائل فوراً، أو دع النظام يقوم بتدميرها ذاتياً بكل سلاسة وأمان.</p>
+
+                    <h3>أبرز المميزات التقنية والأمنية</h3>
+                    <p>تم بناء البنية التحتية لمنصة TempSnap وفقاً لأعلى معايير الأمان والسرعة والخصوصية المتبعة عالمياً:</p>
+                    <ul>
+                      <li><strong>إنشاء فوري بدون تسجيل:</strong> لا نطلب منك اسماً، أو رقماً هاتفياً، أو كلمة مرور. بمجرد فتح الموقع، يتم توليد بريد إلكتروني فريد وعشوائي فوراً.</li>
+                      <li><strong>استقبال فوري عبر الـ WebSockets:</strong> تظهر الرسائل الواردة فور إرسالها دون الحاجة لتحديث الصفحة يدوياً، مما يضمن سرعة استقبال رموز التفعيل (OTP).</li>
+                      <li><strong>تدمير ذاتي وحذف نهائي:</strong> يتم تخزين الرسائل لفترة وجيزة جداً وتُحذف نهائياً وتلقائياً من خوادمنا بعد ساعتين كحد أقصى، أو فوراً بمجرد ضغطك على زر الحذف، دون الاحتفاظ بأي نسخ احتياطية أو سجلات تاريخية.</li>
+                      <li><strong>دعم كامل للغتين العربية والإنجليزية:</strong> لتمكين المستخدمين في شتى أنحاء العالم من تصفح المنصة وإدارة خصوصيتهم بلغتهم المفضلة بكل سهولة.</li>
+                    </ul>
+
+                    <h3>التزامنا الصارم بالخصوصية</h3>
+                    <p>نعمل في TempSnap وفق سياسة صارمة لتقليل البيانات (Data Minimization). نحن لا نقوم بتتبع سلوكك، ولا نسجل عناوين الـ IP الخاصة بك، ولا نبيع أو نشارك أي بيانات مع أي جهة إعلانية. نحن متوافقون تماماً مع معايير حماية البيانات العالمية (مثل GDPR) لأننا ببساطة لا نجمع أي بيانات شخصية يمكنها تحديد هويتك الحقيقية. عند استخدامك لـ TempSnap، أنت مجهول الهوية بالكامل وبأمان مطلق.</p>
                 `
             }
         };

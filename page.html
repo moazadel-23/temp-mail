@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('tmx_theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="pageTitle">TempSnap Page</title>
@@ -34,7 +41,7 @@
     <!-- Google AdSense -->
     <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
 </head>
-<body data-theme="dark">
+<body >
     <header class="header">
         <div class="wrap header-inner">
             <a href="index.html" class="logo"><div class="logo-ico"><i class="fas fa-paper-plane"></i></div><span>Temp<span class="logo-p">Snap</span></span></a>
@@ -62,20 +69,7 @@
     </footer>
     <script type="module" src="/src/main.js"></script>
     <script type="module">
-        const savedTheme = localStorage.getItem('tmx_theme') || 'dark';
-        document.body.setAttribute('data-theme', savedTheme);
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        const themeBtn = document.getElementById('themeBtn');
-        if (themeBtn) {
-            themeBtn.addEventListener('click', function () {
-                const current = document.documentElement.getAttribute('data-theme') || 'dark';
-                const next = current === 'dark' ? 'light' : 'dark';
-                document.body.setAttribute('data-theme', next);
-                document.documentElement.setAttribute('data-theme', next);
-                localStorage.setItem('tmx_theme', next);
-                themeBtn.innerHTML = next === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-            });
-        }
+        
     </script>
 </body>
 </html>
