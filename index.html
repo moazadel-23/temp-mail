@@ -94,7 +94,13 @@
                     <button class="b2" id="btnRefresh"><i class="fas fa-sync-alt"></i> <span data-i18n="inbox_refresh" class="btn-text-refresh" style="display:none">Refresh</span></button>
                     <button class="b2" id="btnChange"><i class="fas fa-pen"></i> <span data-i18n="btn_change">Change</span></button>
                     <button class="b2" id="btnDelete"><i class="fas fa-times"></i> <span data-i18n="btn_delete">Delete</span></button>
-                    <button class="b2" id="btnQR"><i class="fas fa-qrcode"></i> <span data-i18n="btn_qr" class="btn-text-qr" style="display:none">QR Code</span></button>
+                    <div class="qr-wrapper" id="qrWrapper">
+                        <button class="b2" id="btnQR"><i class="fas fa-qrcode"></i> <span data-i18n="btn_qr" class="btn-text-qr" style="display:none">QR Code</span></button>
+                        <div class="qr-popover" id="qrPopover">
+                            <div class="qr-popover-arrow"></div>
+                            <div id="qrCanvas"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -311,21 +317,7 @@
     </div>
 </footer>
 
-<!-- QR Modal -->
-<div class="modal" id="qrModal">
-    <div class="modal-bg"></div>
-    <div class="modal-box">
-        <div class="modal-top">
-            <h3>QR Code</h3>
-            <button class="icon-btn" id="closeQR"><i class="fas fa-times"></i></button>
-        </div>
-        <div class="modal-body">
-            <div id="qrCanvas"></div>
-            <p class="qr-email" id="qrEmailText">-</p>
-            <p class="qr-sub">Scan to copy email address</p>
-        </div>
-    </div>
-</div>
+
 
 <!-- Side Ads (Desktop wide screens) -->
 <div class="side-ad left-side" id="sideAdLeft">

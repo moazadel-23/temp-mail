@@ -520,13 +520,19 @@ function startRefresh() {
 // ========================================
 // QR Code
 // ========================================
-function showQR() {
+function showQR(e) {
+    if (e) e.stopPropagation();
     if (!S.email) return;
-    const modal = $('#qrModal');
+    const popover = $('#qrPopover');
     const box = $('#qrCanvas');
-    const txt = $('#qrEmailText');
+    if (!popover) return;
+
+    if (popover.classList.contains('open')) {
+        popover.classList.remove('open');
+        return;
+    }
+
     if (box) box.innerHTML = '';
-    if (txt) txt.textContent = S.email;
     if (typeof QRCode !== 'undefined' && box) {
         new QRCode(box, {
             text: S.email,
@@ -536,7 +542,7 @@ function showQR() {
             colorLight: '#ffffff'
         });
     }
-    if (modal) modal.classList.add('open');
+    popover.classList.add('open');
 }
 
 // ========================================
@@ -694,7 +700,10 @@ function initKeys() {
             toast('Refreshed', 'info');
         }
         if (e.ctrlKey && e.key === 'n') { e.preventDefault(); generateNew(); }
-        if (e.key === 'Escape') { $$('.modal.open').forEach(function (m) { m.classList.remove('open'); }); }
+        if (e.key === 'Escape') {
+            $$('.modal.open').forEach(function (m) { m.classList.remove('open'); });
+            $('#qrPopover')?.classList.remove('open');
+        }
     });
 }
 
@@ -710,7 +719,18 @@ function initEvents() {
     $('#btnRefreshInbox')?.addEventListener('click', function () { loadMessages(); toast('Refreshed', 'info'); });
     $('#btnDelete')?.addEventListener('click', deleteAccount);
     $('#btnQR')?.addEventListener('click', showQR);
-    $('#closeQR')?.addEventListener('click', function () { $('#qrModal').classList.remove('open'); });
+
+    // Close QR Popover when clicking outside
+    document.addEventListener('click', function (e) {
+        const popover = $('#qrPopover');
+        const wrapper = $('#qrWrapper');
+        if (popover && popover.classList.contains('open')) {
+            if (wrapper && !wrapper.contains(e.target)) {
+                popover.classList.remove('open');
+            }
+        }
+    });
+
     $('.modal-bg')?.addEventListener('click', function () { $$('.modal.open').forEach(function (m) { m.classList.remove('open'); }); });
     $('#btnBack')?.addEventListener('click', closeDetail);
     $('#btnDeleteMsg')?.addEventListener('click', function () {
