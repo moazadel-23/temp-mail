@@ -530,8 +530,8 @@ function showQR() {
     if (typeof QRCode !== 'undefined' && box) {
         new QRCode(box, {
             text: S.email,
-            width: 180,
-            height: 180,
+            width: 140,
+            height: 140,
             colorDark: '#1e293b',
             colorLight: '#ffffff'
         });

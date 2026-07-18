@@ -381,9 +381,10 @@ kbd{display:inline-block;padding:2px 7px;background:var(--bg3);border:1px solid 
 .modal-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
 .modal-top h3{font-size:1.1rem;font-weight:700}
 .modal-body{text-align:center}
-#qrCanvas{display:inline-block;margin-bottom:14px;background:#fff;padding:16px;border-radius:var(--r)}
+#qrCanvas{display:inline-block;margin-bottom:14px;width:140px;height:140px;box-sizing:border-box}
+#qrCanvas:empty{display:none}
 #qrCanvas canvas{width:0;height:0;opacity:0;position:absolute;pointer-events:none}
-#qrCanvas img{display:block;margin:0 auto}
+#qrCanvas img{display:block;margin:0 auto;width:140px !important;height:140px !important;border-radius:8px}
 .qr-email{font-weight:700;color:var(--pri);font-family:monospace;font-size:.92rem;margin-bottom:6px}
 .qr-sub{font-size:.78rem;color:var(--tx3)}
 
