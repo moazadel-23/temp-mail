@@ -45,7 +45,7 @@ img{max-width:100%}
 .header{position:fixed;top:0;left:0;right:0;height:var(--hdr);z-index:1000;background:var(--bg2);border-bottom:1px solid var(--brd);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);transition:var(--tr)}
 .header.scrolled{box-shadow:var(--sh2)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;height:100%}
-.logo{display:flex;align-items:center;gap:10px;font-size:1.35rem;font-weight:800}
+.logo{display:flex;align-items:center;gap:6px;font-size:1.35rem;font-weight:800}
 .logo-ico{width:46px;height:46px;background:var(--grad);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.95rem}
 .logo .logo-ico{background:url('../public/img/logo.png') no-repeat center;background-size:cover;border-radius:50%}
 .logo .logo-ico i{display:none}

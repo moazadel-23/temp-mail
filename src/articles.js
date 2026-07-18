@@ -636,6 +636,200 @@ function getDefaultArticles() {
 <p>عندما تتعامل مع الخصوصية كروتين مستمر وليس مجرد إعداد لمرة واحدة، فإنك تحقق فوائد طويلة الأمد. يظل البريد الحقيقي نظيفاً، وتنخفض مخاطر التسريبات، وتصبح هويتك الرقمية أكثر مقاومة للسبام والتتبع والرسائل الاحتيالية. إن خدمة البريد المؤقت مثل TempSnap ليست مجرد ميزة مريحة، بل هي طبقة حماية عملية تقوي كل خطوة تتخذها عبر الإنترنت.</p>
 `
             }
+        },
+        {
+            // Article 5
+            category: "security",
+            image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=800&q=80",
+            date: "2026-07-18",
+            readTime: {
+                en: "13 min read",
+                ar: "13 دقيقة للقراءة"
+            },
+            title: {
+                en: "The Complete Guide to Email Privacy and Spam Protection in 2026",
+                ar: "الدليل الشامل لأمان البريد الإلكتروني ومكافحة الرسائل المزعجة في عام 2026"
+            },
+            excerpt: {
+                en: "Explore the ultimate strategies to secure your primary email inbox, identify phishing attempts, block ad trackers, and use disposable mail as a digital firewall.",
+                ar: "تعرف على أفضل الاستراتيجيات لتأمين صندوق الوارد الرئيسي، واكتشاف محاولات التصيد، وحظر أدوات التتبع الإعلانية، واستخدام البريد المؤقت كجدار حماية رقمي."
+            },
+            content: {
+                en: `
+<p>Email has evolved from a simple messaging tool into the master key of our digital lives. It is the root of our online banking, social media, shopping profiles, and work communication. However, this centrality has made our email inbox the primary target for cybersecurity threats, malicious actors, and advertising agencies. Every single day, billions of spam messages and sophisticated phishing emails are sent across the globe, aiming to steal sensitive data, deploy malware, or profile consumers. In this comprehensive guide, we will analyze the mechanisms of spam, phishing, and email tracking, and share actionable strategies to secure your inbox and defend your digital privacy in 2026.</p>
+
+<div style="text-align: center; margin: 24px 0;">
+    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" alt="Cybersecurity Shield Inbox Protection" style="max-width: 100%; border-radius: var(--r2); border: 1px solid var(--brd); box-shadow: var(--sh2);">
+</div>
+
+<h3>The Evolution of Email Threats: More Than Just Annoyances</h3>
+<p>For a long time, people viewed spam as a minor inconvenience—unwanted advertisements for products they would never buy. But in 2026, the nature of spam has changed dramatically. Today, spam is highly trackable, highly personalized, and frequently malicious. It is no longer just about selling products; it is about harvesting data. Security researchers classify modern email threats into three major categories:</p>
+<ul>
+    <li><strong>Commercial Spam:</strong> Mass marketing emails sent without your explicit consent. While annoying, they are usually legal, but they clutter your inbox and drain your daily productivity.</li>
+    <li><strong>Phishing and Social Engineering:</strong> Highly deceptive emails designed to look like legitimate communications from banks, government agencies, or popular services like Netflix or Google. Their goal is to trick you into entering your password, credit card number, or social security details on a fake website.</li>
+    <li><strong>Malware and Ransomware Distribution:</strong> Emails containing harmful attachments or links that, when clicked, download malicious software onto your computer, encrypting your files or spying on your keystrokes.</li>
+</ul>
+
+<h3>The Invisible Threat: Email Tracking Pixels</h3>
+<p>Many users do not realize that when they open an email, they are often sending information back to the sender. This is done through "tracking pixels"—invisible 1x1 pixel images embedded inside HTML emails. When your email client loads this tiny image, the sender's server logs your IP address, the exact time and date you opened the email, the physical location of your device, and the type of browser or email app you are using. This information is highly valuable to data brokers and advertisers, who use it to build a behavioral profile of your activity and determine when you are most active online. This makes simple email reading a direct violation of your privacy.</p>
+
+<h3>How Your Email Address Gets Exposed</h3>
+<p>Before you can defend your inbox, you must understand how spammers obtain your address in the first place. Spammers do not guess random emails; they use automated software to scrape public websites, purchase leaked databases from breached platforms, or buy marketing lists from unethical companies. Every time you enter your email to access public Wi-Fi, sign up for a forum, download a free PDF template, or enter an online sweepstake, you are risking the exposure of your digital identity. Once your address is on a single marketing database, it will eventually be shared, sold, and leaked to hundreds of other lists, starting a never-ending cycle of spam.</p>
+
+<div style="text-align: center; margin: 24px 0;">
+    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" alt="Data Protection Secure Network" style="max-width: 100%; border-radius: var(--r2); border: 1px solid var(--brd); box-shadow: var(--sh2);">
+</div>
+
+<h3>Five Key Strategies to Protect Your Email Privacy</h3>
+<p>Reclaiming control of your inbox requires a proactive defense system. Here are the five most effective strategies you can implement today to secure your primary email address:</p>
+
+<h4>1. Use Temporary Email for Casual Signups</h4>
+<p>The absolute best way to protect your real email is to hide it. For any signup that does not require long-term relationship building (like reading a single article, downloading a gated ebook, or accessing a public Wi-Fi network), use a disposable email address from TempSnap. The address will receive the confirmation code or download link, and then disappear. Spammers who buy that database will receive a bounced email, and your primary inbox remains clean and safe.</p>
+
+<h4>2. Disable Automatic Image Loading</h4>
+<p>To block tracking pixels, go into your email client settings (Gmail, Apple Mail, Outlook) and turn off the setting that automatically loads external images. By forcing the client to ask before loading images, you block the sender from knowing whether you opened the email, protecting your location and activity logs.</p>
+
+<h4>3. Implement Email Aliases for Trusted Services</h4>
+<p>For websites you trust but want to monitor, use email aliases. Many providers allow you to add a "+" symbol followed by any keyword to your address (e.g., yourname+shopping@gmail.com). If you receive spam sent to that specific alias, you will know exactly which website sold or leaked your data, and you can easily set up a filter to delete all messages sent to that alias.</p>
+
+<h4>4. Enable Strong Multi-Factor Authentication (MFA)</h4>
+<p>If a hacker manages to compromise your email address through a data breach or phishing attack, MFA acts as your second line of defense. By requiring a code from an authenticator app or a security key in addition to your password, you prevent unauthorized access even if your credentials are leaked.</p>
+
+<h4>5. Recognize the Red Flags of Phishing</h4>
+<p>Spam filters are excellent, but some phishing emails will always get through. Train yourself to spot the red flags: urgent language demanding immediate action, mismatched sender domains (e.g., an email claiming to be from PayPal but sent from a Gmail account), generic greetings like "Dear Customer," and links that point to unfamiliar URLs. When in doubt, never click a link inside the email; instead, navigate to the service directly using your browser.</p>
+
+<h3>Comparison: Inbox Protection Strategies</h3>
+<p>Here is a detailed breakdown of different strategies to help you choose the right tool for each online task:</p>
+<table style="width:100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9rem; text-align: left;">
+    <thead>
+        <tr style="border-bottom: 2px solid var(--brd); color: var(--tx);">
+            <th style="padding: 8px;">Strategy</th>
+            <th style="padding: 8px;">Privacy Level</th>
+            <th style="padding: 8px;">Best Use Case</th>
+            <th style="padding: 8px;">Maintenance Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="border-bottom: 1px solid var(--brd);">
+            <td style="padding: 8px; font-weight:700;">Temporary Email (TempSnap)</td>
+            <td style="padding: 8px; color:var(--tx2);">Maximum (No connection to real ID)</td>
+            <td style="padding: 8px; color:var(--tx2);">One-time downloads, casual trials, public Wi-Fi</td>
+            <td style="padding: 8px; color:var(--tx2);">None (Inboxes expire automatically)</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--brd);">
+            <td style="padding: 8px; font-weight:700;">Plus-Addressing / Aliases</td>
+            <td style="padding: 8px; color:var(--tx2);">Medium (Reveals primary address domain)</td>
+            <td style="padding: 8px; color:var(--tx2);">Online shopping, newsletter subscriptions</td>
+            <td style="padding: 8px; color:var(--tx2);">Requires setting up filter rules to block spam</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--brd);">
+            <td style="padding: 8px; font-weight:700;">Primary Inbox Filters</td>
+            <td style="padding: 8px; color:var(--tx2);">Low (Exposes full primary address)</td>
+            <td style="padding: 8px; color:var(--tx2);">Financial accounts, personal and business relations</td>
+            <td style="padding: 8px; color:var(--tx2);">High (Requires regular updates to spam filters)</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>A 3-Step Routine for Permanent Email Safety</h3>
+<p>To ensure long-term email health, build these three simple steps into your weekly routine:</p>
+<ol>
+    <li><strong>Use TempSnap by default</strong> whenever you encounter a signup form on a website you are visiting for the first time.</li>
+    <li><strong>Review and unsubscribe</strong> once a week from any marketing emails that managed to reach your primary inbox.</li>
+    <li><strong>Update your passwords regularly</strong> using a password manager, ensuring that no two accounts share the same login details.</li>
+</ol>
+
+<h3>Conclusion</h3>
+<p>Your email inbox is the command center of your digital identity, and protecting it is critical to preserving your privacy and cybersecurity. By adopting a proactive defense system—combining temporary emails for casual signups, disabling tracking pixels, and staying vigilant against phishing attempts—you can build a secure digital environment, eliminate spam entirely, and enjoy a cleaner, safer online experience.</p>
+`,
+                ar: `
+<p>لقد تطور البريد الإلكتروني من مجرد أداة بسيطة للمراسلة ليصبح المفتاح الرئيسي لحياتنا الرقمية بأكملها. فهو يمثل الركيزة الأساسية لحساباتنا البنكية، وشبكات التواصل الاجتماعي، وتطبيقات التسوق، والمراسلات المهنية. ومع ذلك، فإن هذه الأهمية الفائقة جعلت من صندوق الوارد الهدف الأول للهجمات السيبرانية، والمخترقين، ووكالات الإعلانات المزعجة. في كل يوم، يتم إرسال المليارات من رسائل السبام ورسائل التصيد الاحتيالي المعقدة حول العالم بهدف سرقة البيانات الحساسة أو زرع البرمجيات الخبيثة. في هذا الدليل الشامل، سنقوم بتحليل آليات عمل الرسائل المزعجة والتصيد الاحتيالي وأدوات التتبع، وسنستعرض استراتيجيات عملية لحماية صندوق الوارد الخاص بك والحفاظ على خصوصيتك الرقمية في عام 2026.</p>
+
+<div style="text-align: center; margin: 24px 0;">
+    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" alt="حماية البريد الإلكتروني والخصوصية" style="max-width: 100%; border-radius: var(--r2); border: 1px solid var(--brd); box-shadow: var(--sh2);">
+</div>
+
+<h3>تطور التهديدات البريدية: خطر يتجاوز مجرد الإزعاج</h3>
+<p>لفترة طويلة، كان يُنظر إلى الرسائل المزعجة (Spam) على أنها مجرد إزعاج بسيط؛ إعلانات غير مرغوب فيها لمنتجات لا تهم المستخدم. ولكن في عام 2026، تغيرت طبيعة هذه الرسائل تماماً. اليوم، أصبحت رسائل السبام عالية التخصيص وتحمل أدوات تتبع ذكية، وفي كثير من الأحيان تكون خبيثة وخطيرة. لم يعد الأمر مقتصراً على بيع المنتجات، بل أصبح يركز بشكل أساسي على جمع بيانات المستخدمين. ويصنف خبراء الأمن السيبراني هذه التهديدات إلى ثلاث فئات رئيسية:</p>
+<ul>
+    <li><strong>الرسائل الإعلانية المزعجة (Spam):</strong> رسائل تسويقية جماعية تُرسل دون موافقتك. ورغم أنها تبدو قانونية في بعض الأحيان، إلا أنها تملأ صندوق الوارد وتستهلك وقتك وجهدك اليومي.</li>
+    <li><strong>التصيد الاحتيالي والهندسة الاجتماعية (Phishing):</strong> رسائل مخادعة للغاية تُصمم لتبدو وكأنها من جهات موثوقة مثل البنوك، أو منصات الدفع، أو شركات التكنولوجيا الكبرى. والهدف منها هو خداعك لتدخل كلمة مرورك أو بيانات بطاقتك الائتمانية في موقع مزيف.</li>
+    <li><strong>برمجيات خبيثة وفيروسات الفدية (Malware):</strong> رسائل تحتوي على ملفات مرفقة أو روابط تؤدي عند النقر عليها إلى تنزيل برمجيات ضارة تقوم بتشفير ملفاتك أو التجسس على جهازك.</li>
+</ul>
+
+<h3>التهديد الخفي: بكسلات التتبع الإعلاني (Tracking Pixels)</h3>
+<p>لا يدرك الكثير من المستخدمين أنه بمجرد فتحهم لرسالة بريد إلكتروني، فإنهم يرسلون بيانات فورية للجهة المرسلة. يتم ذلك عبر ما يسمى "بكسلات التتبع"—وهي صورة غير مرئية بحجم 1×1 بكسل مدمجة داخل كود الرسالة. عندما يقوم متصفحك أو تطبيق البريد بتحميل هذه الصورة، يقوم خادم المرسل بتسجيل عنوان الـ IP الخاص بك، والوقت والتاريخ الدقيقين لفتح الرسالة، وموقعك الجغرافي التقريبي، ونوع الجهاز المستخدم. تُباع هذه البيانات لشركات الإعلانات لبناء ملف سلوكي عن عاداتك وتحديد الأوقات التي تكون فيها متصلاً بالإنترنت، مما يمثل انتهاكاً صارخاً لخصوصيتك دون علمك.</p>
+
+<h3>كيف يتسرب عنوان بريدك الإلكتروني؟</h3>
+<p>قبل أن تتمكن من حماية بريدك، يجب أن تفهم كيف يحصل مرسلو السبام على عنوانك. لا يعتمد مرسلو الرسائل المزعجة على التخمين العشوائي؛ بل يستخدمون برمجيات آلية لجمع العناوين من المواقع العامة، أو يشترون قواعد بيانات مسربة من مواقع تم اختراقها، أو يحصلون على قوائم تسويقية من شركات غير أخلاقية. كلما أدخلت بريدك الإلكتروني للاتصال بشبكة واي فاي عامة، أو للتسجيل في منتدى بسيط، أو لتحميل كتاب إلكتروني مجاني، فإنك تخاطر بخصوصيتك. وبمجرد وصول بريدك لقائمة تسويقية واحدة، سيتم بيعه ومشاركته مع مئات الجهات الأخرى ليبدأ سيل لا ينتهي من الرسائل المزعجة.</p>
+
+<div style="text-align: center; margin: 24px 0;">
+    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" alt="حماية البيانات والأمن الرقمي" style="max-width: 100%; border-radius: var(--r2); border: 1px solid var(--brd); box-shadow: var(--sh2);">
+</div>
+
+<h3>خمس استراتيجيات أساسية لحماية خصوصية بريدك الإلكتروني</h3>
+<p>تطلب استعادة السيطرة على صندوق الوارد بناء نظام دفاعي استباقي وقوي. إليك أفضل خمس استراتيجيات يمكنك تطبيقها اليوم لتأمين بريدك الإلكتروني الأساسي:</p>
+
+<h4>1. استخدام البريد المؤقت للتسجيلات العابرة</h4>
+<p>الطريقة المثالية لحماية بريدك الحقيقي هي حجب وجوده بالكامل. لأي عملية تسجيل لا تتطلب تواصلًا مستمرًا طويل الأجل (مثل قراءة مقال محجوب، أو تحميل ملف مجاني، أو الاتصال بشبكة واي فاي في المطار)، استخدم بريدًا مؤقتًا من منصة TempSnap. يستقبل البريد كود التفعيل ويموت تلقائيًا، لتظل حساباتك الحقيقية بعيدة عن أعين المتطفلين.</p>
+
+<h4>2. إيقاف التحميل التلقائي للصور</h4>
+<p>لمنع بكسلات التتبع من التجسس عليك، توجه إلى إعدادات تطبيق البريد الخاص بك (مثل Gmail أو Outlook) وقم بتعطيل ميزة تحميل الصور الخارجية تلقائياً. سيطلب منك التطبيق الإذن قبل عرض أي صورة، مما يمنع الخادم المرسل من معرفة ما إذا كنت قد فتحت الرسالة أم لا.</p>
+
+<h4>3. تفعيل ميزة الأسماء المستعارة (Email Aliases)</h4>
+<p>بالنسبة للمواقع التي تثق بها ولكنك تريد مراقبة نشاطها، استخدم ميزة الاسم المستعار. تتيح لك معظم الخدمات إضافة علامة "+" تليها كلمة معينة لبريدك (مثل yourname+shopping@gmail.com). إذا بدأت في تلقي رسائل سبام على هذا العنوان، ستعرف بدقة أي موقع قام بتسريب بياناتك وتستطيع حظره بسهولة.</p>
+
+<h4>4. تفعيل ميزة التحقق بخطوتين (MFA)</h4>
+<p>حتى لو نجح المخترقون في الحصول على كلمة مرورك من خلال اختراق قاعدة بيانات أحد المواقع، فإن التحقق الثنائي يمثل خط الدفاع الثاني. فعند طلب رمز إضافي يُرسل لتطبيق التوثيق على هاتفك، تمنع أي وصول غير مصرح به لحساباتك الحساسة.</p>
+
+<h4>5. تعلم التعرف على علامات التصيد الاحتيالي</h4>
+<p>رغم كفاءة فلاتر الرسائل، قد تتسرب بعض رسائل التصيد لصندوقك. انتبه جيداً للعلامات التالية: لغة التهديد العاجل لطلب تحديث بياناتك، عدم تطابق عنوان المرسل الفعلي مع اسم الشركة الادعائي، والروابط التي توجهك لصفحات غريبة. لا تضغط على أي رابط داخل رسالة مشكوك فيها، واذهب للموقع الرسمي مباشرة عبر متصفحك.</p>
+
+<h3>جدول مقارنة: استراتيجيات حماية صندوق الوارد</h3>
+<p>يوضح هذا الجدول الفروقات بين الاستراتيجيات المختلفة لمساعدتك في اختيار الأداة المناسبة لكل مهمة عبر الإنترنت:</p>
+<table style="width:100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9rem; text-align: right;" dir="rtl">
+    <thead>
+        <tr style="border-bottom: 2px solid var(--brd); color: var(--tx);">
+            <th style="padding: 8px;">الاستراتيجية</th>
+            <th style="padding: 8px;">مستوى الخصوصية</th>
+            <th style="padding: 8px;">أفضل حالة استخدام</th>
+            <th style="padding: 8px;">الجهد والمتابعة المطلوبة</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="border-bottom: 1px solid var(--brd);">
+            <td style="padding: 8px; font-weight:700;">البريد المؤقت (TempSnap)</td>
+            <td style="padding: 8px; color:var(--tx2);">أقصى درجة (عدم ربط هويتك الحقيقية)</td>
+            <td style="padding: 8px; color:var(--tx2);">تنزيل الملفات لمرة واحدة، المواقع الإخبارية، الواي فاي العام</td>
+            <td style="padding: 8px; color:var(--tx2);">لا يوجد (صندوق الوارد يختفي تلقائياً)</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--brd);">
+            <td style="padding: 8px; font-weight:700;">الأسماء المستعارة (Aliases)</td>
+            <td style="padding: 8px; color:var(--tx2);">متوسط (يكشف نطاق بريدك الأساسي)</td>
+            <td style="padding: 8px; color:var(--tx2);">منصات التسوق الإلكتروني، النشرات البريدية الموثوقة</td>
+            <td style="padding: 8px; color:var(--tx2);">يتطلب إعداد قواعد تصفية لحجب الرسائل عند الحاجة</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--brd);">
+            <td style="padding: 8px; font-weight:700;">فلاتر البريد الأساسي</td>
+            <td style="padding: 8px; color:var(--tx2);">منخفض (يكشف بريدك الحقيقي بالكامل)</td>
+            <td style="padding: 8px; color:var(--tx2);">المعاملات المالية والحكومية، العمل، التواصل الشخصي</td>
+            <td style="padding: 8px; color:var(--tx2);">مرتفع (يتطلب تحديثاً ومراقبة مستمرة لقوائم السبام)</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>روتين ذكي من ٣ خطوات لأمان بريدك على المدى الطويل</h3>
+<p>للمحافظة على صحة وأمان صندوق بريدك الأساسي، اتبع هذا الروتين البسيط أسبوعياً:</p>
+<ol>
+    <li><strong>اجعل البريد المؤقت خيارك التلقائي</strong> عند زيارة أي موقع جديد يطلب التسجيل للحصول على خدمة عابرة.</li>
+    <li><strong>راجع رسائل الترويج</strong> وقم بإلغاء الاشتراك بحزم من أي نشرة بريدية لم تعد تقرأها.</li>
+    <li><strong>استخدم مدير كلمات المرور</strong> لتوليد كلمات مرور قوية وفريدة لكل حساب، وقم بتفعيل التحقق الثنائي على حساباتك الحساسة.</li>
+</ol>
+
+<h3>خاتمة</h3>
+<p>يمثل صندوق بريدك الإلكتروني غرفة التحكم بهويتك الرقمية، وحمايته هي الخطوة الأولى للحفاظ على أمانك السيبراني وخصوصيتك. من خلال تبني نظام دفاعي نشط—يجمع بين البريد المؤقت للأنشطة العابرة وحظر بكسلات التتبع واليقظة تجاه رسائل التصيد—يمكنك إيقاف السبام نهائياً والاستمتاع بتجربة إنترنت نظيفة، آمنة ومريحة بالكامل.</p>
+`
+            }
         }
     ];
 }
