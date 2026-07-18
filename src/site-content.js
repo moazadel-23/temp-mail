@@ -105,7 +105,7 @@
     function getArticles() {
         let articles = readJson(KEYS.articles, null);
         const version = localStorage.getItem(KEYS.articleVersion);
-        if (!Array.isArray(articles) || !articles.length || version !== '6') {
+        if (!Array.isArray(articles) || !articles.length || version !== '7') {
             articles = typeof window.getDefaultArticles === 'function' ? window.getDefaultArticles() : [];
             saveArticles(articles);
         }
@@ -114,7 +114,7 @@
 
     function saveArticles(articles) {
         writeJson(KEYS.articles, Array.isArray(articles) ? articles : []);
-        localStorage.setItem(KEYS.articleVersion, '6');
+        localStorage.setItem(KEYS.articleVersion, '7');
     }
 
     async function syncFromSupabase() {

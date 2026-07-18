@@ -8,7 +8,7 @@ function getDefaultArticles() {
         {
             // Article 1
             category: "privacy",
-            image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80",
+            image: "img/articles/art1.jpg",
             date: "2026-07-15",
             readTime: {
                 en: "12 min read",
@@ -187,7 +187,7 @@ function getDefaultArticles() {
         {
             // Article 2
             category: "guide",
-            image: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=800&q=80",
+            image: "img/articles/art2.jpg",
             date: "2026-07-12",
             readTime: {
                 en: "10 min read",
@@ -299,7 +299,7 @@ function getDefaultArticles() {
         {
             // Article 3
             category: "tips",
-            image: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=800&q=80",
+            image: "img/articles/art3.jpg",
             date: "2026-07-10",
             readTime: {
                 en: "11 min read",
@@ -429,7 +429,7 @@ function getDefaultArticles() {
         {
             // Article 4
             category: "security",
-            image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80",
+            image: "img/articles/art4.jpg",
             date: "2026-07-08",
             readTime: {
                 en: "11 min read",
@@ -534,7 +534,7 @@ function getDefaultArticles() {
         {
             // Article 6
             category: "tips",
-            image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+            image: "img/articles/art5.jpg",
             date: "2026-07-16",
             readTime: {
                 en: "8 min read",
@@ -640,7 +640,7 @@ function getDefaultArticles() {
         {
             // Article 5
             category: "security",
-            image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=800&q=80",
+            image: "img/articles/art6.jpg",
             date: "2026-07-18",
             readTime: {
                 en: "13 min read",
