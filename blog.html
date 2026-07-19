@@ -5,6 +5,9 @@
         (function() {
             const savedTheme = localStorage.getItem('tmx_theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
+            if (new URLSearchParams(window.location.search).has('id')) {
+                document.documentElement.classList.add('viewing-article');
+            }
         })();
     </script>
 
@@ -136,6 +139,8 @@
             .article-banner{height:200px;border-radius:var(--r2);margin-bottom:20px}
             .article-meta{gap:10px 16px;margin-bottom:20px}
         }
+        .viewing-article #blogListWrap { display: none !important; }
+        .viewing-article #articleView { display: block !important; }
     </style>
 </head>
 <body >
@@ -449,6 +454,7 @@
             };
             schemaScript.textContent = JSON.stringify(schemaData);
 
+            document.documentElement.classList.add('viewing-article');
             document.getElementById('blogListWrap').style.display = 'none';
             document.getElementById('articleView').classList.add('active');
             window.scrollTo(0, 0);
@@ -474,6 +480,7 @@
                 window.history.pushState({}, '', window.location.pathname);
             }
             
+            document.documentElement.classList.remove('viewing-article');
             document.getElementById('blogListWrap').style.display = 'block';
             document.getElementById('articleView').classList.remove('active');
         }
@@ -497,14 +504,23 @@
             }
         });
 
+        // Check for ?id=X in URL immediately to avoid waiting for DOMContentLoaded
+        const urlParams = new URLSearchParams(window.location.search);
+        const articleId = urlParams.get('id');
+        if (articleId !== null) {
+            const idx = parseInt(articleId);
+            if (!isNaN(idx)) openArticle(idx);
+        }
+
         window.addEventListener('DOMContentLoaded', async function () {
             if (window.TMXContent && typeof window.TMXContent.syncFromSupabase === 'function') {
-                await window.TMXContent.syncFromSupabase();
+                // Sync in the background so it doesn't block DOM parsing/rendering
+                window.TMXContent.syncFromSupabase();
             }
             renderBlog('all');
             applyTranslations(); // Ensure translated content on load
 
-            // Check for ?id=X in URL
+            // Double check in DOMContentLoaded
             const urlParams = new URLSearchParams(window.location.search);
             const articleId = urlParams.get('id');
             if (articleId !== null) {
