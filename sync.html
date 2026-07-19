@@ -8,7 +8,7 @@ window.addEventListener('message', function(e) {
     if (!d || !d.action) return;
     if (d.action === 'save') {
         localStorage.setItem('tmx_articles_v2', JSON.stringify(d.articles));
-        localStorage.setItem('tmx_articles_ver', '5');
+        localStorage.setItem('tmx_articles_ver', '8');
         e.source.postMessage({ action: 'saved', ok: true }, '*');
     } else if (d.action === 'load') {
         var arts = localStorage.getItem('tmx_articles_v2');
