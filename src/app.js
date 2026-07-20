@@ -525,6 +525,7 @@ function showQR(e) {
     if (!S.email) return;
     const popover = $('#qrPopover');
     const box = $('#qrCanvas');
+    const emailSub = $('#qrEmailSub');
     if (!popover) return;
 
     if (popover.classList.contains('open')) {
@@ -532,15 +533,47 @@ function showQR(e) {
         return;
     }
 
-    if (box) box.innerHTML = '';
-    if (typeof QRCode !== 'undefined' && box) {
-        new QRCode(box, {
-            text: S.email,
-            width: 110,
-            height: 110,
-            colorDark: '#1e293b',
-            colorLight: '#ffffff'
-        });
+    if (emailSub) {
+        emailSub.textContent = S.email;
+    }
+
+    if (box) {
+        box.innerHTML = '';
+        let qrGenerated = false;
+
+        if (typeof QRCode !== 'undefined') {
+            try {
+                new QRCode(box, {
+                    text: S.email,
+                    width: 128,
+                    height: 128,
+                    colorDark: '#0f172a',
+                    colorLight: '#ffffff',
+                    correctLevel: typeof QRCode.CorrectLevel !== 'undefined' ? QRCode.CorrectLevel.H : 2
+                });
+                
+                // Verify canvas or img was attached
+                const canvas = box.querySelector('canvas');
+                const img = box.querySelector('img');
+                if (canvas || img) {
+                    qrGenerated = true;
+                }
+            } catch (err) {
+                console.warn('QRCode JS generation error, using fallback API:', err);
+            }
+        }
+
+        // Reliable fallback if QRCode library fails or is unavailable
+        if (!qrGenerated) {
+            const fallbackImg = document.createElement('img');
+            fallbackImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(S.email)}&color=0f172a`;
+            fallbackImg.alt = 'QR Code';
+            fallbackImg.style.width = '128px';
+            fallbackImg.style.height = '128px';
+            fallbackImg.style.display = 'block';
+            fallbackImg.style.margin = '0 auto';
+            box.appendChild(fallbackImg);
+        }
     }
     popover.classList.add('open');
 }
@@ -750,6 +783,7 @@ function initEvents() {
 
     $('#btnDelete')?.addEventListener('click', deleteAccount);
     $('#btnQR')?.addEventListener('click', showQR);
+    $('#qrCloseBtn')?.addEventListener('click', function () { $('#qrPopover')?.classList.remove('open'); });
 
     // Close QR Popover when clicking outside
     document.addEventListener('click', function (e) {

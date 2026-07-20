@@ -131,7 +131,12 @@
                         <button class="b2" id="btnQR"><i class="fas fa-qrcode"></i> <span data-i18n="btn_qr" class="btn-text-qr">QR Code</span></button>
                         <div class="qr-popover" id="qrPopover">
                             <div class="qr-popover-arrow"></div>
+                            <div class="qr-popover-header">
+                                <span class="qr-popover-title"><i class="fas fa-qrcode"></i> <span data-i18n="btn_qr">QR Code</span></span>
+                                <button type="button" class="qr-close-btn" id="qrCloseBtn" aria-label="Close">&times;</button>
+                            </div>
                             <div id="qrCanvas"></div>
+                            <div class="qr-email-sub" id="qrEmailSub"></div>
                         </div>
                     </div>
                 </div>

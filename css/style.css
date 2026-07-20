@@ -398,12 +398,17 @@ kbd{display:inline-block;padding:2px 7px;background:var(--bg3);border:1px solid 
 .modal-top h3{font-size:1.1rem;font-weight:700}
 .modal-body{text-align:center}
 .qr-wrapper{position:relative;display:inline-block}
-.qr-popover{position:absolute;bottom:calc(100% + 12px);left:50%;transform:translateX(-50%) scale(.95);transform-origin:bottom center;background:#fff;border-radius:12px;padding:12px;box-shadow:0 -10px 30px rgba(0,0,0,.2);z-index:9999;opacity:0;pointer-events:none;transition:all .18s cubic-bezier(.4,0,.2,1);border:1px solid rgba(0,0,0,.08);will-change:transform,opacity}
+.qr-popover{position:absolute;bottom:calc(100% + 12px);left:50%;transform:translateX(-50%) scale(.95);transform-origin:bottom center;background:#fff;border-radius:16px;padding:16px;box-shadow:0 12px 36px rgba(0,0,0,.25);z-index:9999;opacity:0;pointer-events:none;transition:all .2s cubic-bezier(.4,0,.2,1);border:1px solid rgba(0,0,0,.08);min-width:180px;text-align:center;will-change:transform,opacity}
 .qr-popover.open{opacity:1;pointer-events:all;transform:translateX(-50%) scale(1)}
 .qr-popover-arrow{position:absolute;bottom:-6px;left:50%;transform:translateX(-50%) rotate(45deg);width:12px;height:12px;background:#fff;border-right:1px solid rgba(0,0,0,.08);border-bottom:1px solid rgba(0,0,0,.08)}
-#qrCanvas{display:inline-block;width:110px;height:110px;box-sizing:border-box}
-#qrCanvas canvas{width:0;height:0;opacity:0;position:absolute;pointer-events:none}
-#qrCanvas img{display:block;margin:0 auto;width:110px !important;height:110px !important;border-radius:8px}
+.qr-popover-header{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(0,0,0,.06)}
+.qr-popover-title{font-size:.85rem;font-weight:700;color:#1e293b;display:flex;align-items:center;gap:6px}
+.qr-popover-title i{color:var(--pri)}
+.qr-close-btn{background:none;border:none;font-size:1.3rem;line-height:1;color:#64748b;cursor:pointer;padding:0 4px;border-radius:4px;transition:color .15s}
+.qr-close-btn:hover{color:#0f172a}
+#qrCanvas{display:flex;align-items:center;justify-content:center;width:140px;height:140px;margin:0 auto;background:#fff;border-radius:10px;padding:6px;box-sizing:border-box;border:1px solid rgba(0,0,0,.05)}
+#qrCanvas canvas, #qrCanvas img{display:block !important;width:128px !important;height:128px !important;max-width:100% !important;max-height:100% !important;border-radius:6px;margin:0 auto !important;opacity:1 !important;position:relative !important;pointer-events:auto !important}
+.qr-email-sub{margin-top:10px;font-size:.75rem;font-weight:600;color:#475569;word-break:break-all;max-width:160px;margin-left:auto;margin-right:auto;font-family:'Courier New',monospace;background:#f8fafc;padding:4px 8px;border-radius:6px}
 
 /* ===== TOAST ===== */
 #toastBox{position:fixed;top:84px;right:20px;z-index:3000;display:flex;flex-direction:column;gap:8px}
@@ -768,6 +773,38 @@ kbd{display:inline-block;padding:2px 7px;background:var(--bg3);border:1px solid 
         position: relative !important;
         display: block !important;
         z-index: 10 !important;
+    }
+    .qr-popover {
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        bottom: auto !important;
+        transform: translate(-50%, -50%) scale(.9) !important;
+        width: 260px !important;
+        max-width: 90vw !important;
+        z-index: 999999 !important;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4) !important;
+        border-radius: 20px !important;
+        padding: 20px !important;
+        background: #ffffff !important;
+    }
+    .qr-popover.open {
+        transform: translate(-50%, -50%) scale(1) !important;
+    }
+    .qr-popover-arrow {
+        display: none !important;
+    }
+    #qrCanvas {
+        width: 160px !important;
+        height: 160px !important;
+    }
+    #qrCanvas canvas, #qrCanvas img {
+        width: 148px !important;
+        height: 148px !important;
+    }
+    .qr-email-sub {
+        max-width: 220px !important;
+        font-size: .8rem !important;
     }
     #btnQR {
         width: 100% !important;
