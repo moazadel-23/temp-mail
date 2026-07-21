@@ -554,9 +554,6 @@ function showQR(e) {
                 
                 const canvas = box.querySelector('canvas');
                 const img = box.querySelector('img');
-                if (canvas && img) {
-                    canvas.style.display = 'none';
-                }
                 if (canvas || img) {
                     qrGenerated = true;
                 }
