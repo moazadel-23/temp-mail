@@ -752,11 +752,9 @@ function initEvents() {
         const icon = $('#btnRefresh i');
         if (icon) icon.classList.add('fa-spin');
         try {
-            await loadMessages();
-            toast(window.currentLang === 'ar' ? 'تم تحديث البريد' : 'Inbox Refreshed', 'ok');
+            await generateNew();
         } catch (e) {
             console.error(e);
-            toast(window.currentLang === 'ar' ? 'فشل التحديث' : 'Refresh failed', 'err');
         } finally {
             if (icon) {
                 setTimeout(() => { icon.classList.remove('fa-spin'); }, 600);
