@@ -552,9 +552,11 @@ function showQR(e) {
                     correctLevel: typeof QRCode.CorrectLevel !== 'undefined' ? QRCode.CorrectLevel.H : 2
                 });
                 
-                // Verify canvas or img was attached
                 const canvas = box.querySelector('canvas');
                 const img = box.querySelector('img');
+                if (canvas && img) {
+                    canvas.style.display = 'none';
+                }
                 if (canvas || img) {
                     qrGenerated = true;
                 }

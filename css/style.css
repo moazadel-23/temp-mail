@@ -414,7 +414,10 @@ kbd{display:inline-block;padding:2px 7px;background:var(--bg3);border:1px solid 
 .qr-close-btn{background:none;border:none;font-size:1.3rem;line-height:1;color:#64748b;cursor:pointer;padding:0 4px;border-radius:4px;transition:color .15s}
 .qr-close-btn:hover{color:#0f172a}
 #qrCanvas{display:flex;align-items:center;justify-content:center;width:140px;height:140px;margin:0 auto;background:#fff;border-radius:10px;padding:6px;box-sizing:border-box;border:1px solid rgba(0,0,0,.05)}
-#qrCanvas canvas, #qrCanvas img{display:block !important;width:128px !important;height:128px !important;max-width:100% !important;max-height:100% !important;border-radius:6px;margin:0 auto !important;opacity:1 !important;position:relative !important;pointer-events:auto !important}
+#qrCanvas canvas, #qrCanvas img{width:128px !important;height:128px !important;max-width:100% !important;max-height:100% !important;border-radius:6px;margin:0 auto !important;opacity:1 !important;position:relative !important;pointer-events:auto !important}
+#qrCanvas img{display:block !important}
+#qrCanvas canvas{display:none !important}
+#qrCanvas canvas:only-child{display:block !important}
 .qr-email-sub{margin-top:10px;font-size:.75rem;font-weight:600;color:#475569;word-break:break-all;max-width:160px;margin-left:auto;margin-right:auto;font-family:'Courier New',monospace;background:#f8fafc;padding:4px 8px;border-radius:6px}
 
 /* ===== TOAST ===== */
