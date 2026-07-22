@@ -90,15 +90,21 @@ function toast(msg, type = 'info') {
 // ========================================
 async function getDomains() {
     const d = await callAPI('/domains');
-    S.domains = (d['hydra:member'] || []).filter(x => x.isActive);
-    // Prioritize .com domains by placing them at the beginning of the list
-    S.domains.sort((a, b) => {
-        const aIsCom = a.domain.toLowerCase().endsWith('.com');
-        const bIsCom = b.domain.toLowerCase().endsWith('.com');
-        if (aIsCom && !bIsCom) return -1;
-        if (!aIsCom && bIsCom) return 1;
-        return 0;
-    });
+    const allDomains = (d['hydra:member'] || []).filter(x => x.isActive);
+    const comDomains = allDomains.filter(x => x.domain.toLowerCase().endsWith('.com'));
+    
+    if (comDomains.length > 0) {
+        S.domains = comDomains;
+    } else {
+        S.domains = allDomains;
+        S.domains.sort((a, b) => {
+            const aIsCom = a.domain.toLowerCase().endsWith('.com');
+            const bIsCom = b.domain.toLowerCase().endsWith('.com');
+            if (aIsCom && !bIsCom) return -1;
+            if (!aIsCom && bIsCom) return 1;
+            return 0;
+        });
+    }
     return S.domains;
 }
 
