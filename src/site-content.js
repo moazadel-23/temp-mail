@@ -109,14 +109,14 @@
     function getArticles() {
         let articles = readJson(KEYS.articles, null);
         if (window.TMXSupabase && window.TMXSupabase.isEnabled()) {
-            return Array.isArray(articles) ? articles : [];
+            return (Array.isArray(articles) ? articles : []).filter(a => a.category !== 'hidden' && a.category !== 'archive');
         }
         const version = localStorage.getItem(KEYS.articleVersion);
         if (!Array.isArray(articles) || !articles.length || version !== '8') {
             articles = typeof window.getDefaultArticles === 'function' ? window.getDefaultArticles() : [];
             saveArticles(articles);
         }
-        return articles;
+        return articles.filter(a => a.category !== 'hidden' && a.category !== 'archive');
     }
 
     function saveArticles(articles) {

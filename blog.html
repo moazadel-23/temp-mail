@@ -246,7 +246,7 @@
                 localStorage.setItem('tmx_articles_v2', JSON.stringify(arts));
                 localStorage.setItem('tmx_articles_ver', '8');
             }
-            return arts;
+            return (arts || []).filter(a => a.category !== 'hidden' && a.category !== 'archive');
         }
 
         function esc(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
