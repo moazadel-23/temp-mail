@@ -1,8 +1,8 @@
 (function () {
     'use strict';
 
-    const ADMIN_EMAIL = 'admin@tempsnap.local';
-    const ADMIN_PASSWORD = 'TMX-Admin-2026!';
+    const ADMIN_EMAIL = 'moaza5887@gmail.com';
+    const ADMIN_PASSWORD = 'Medo123$';
     const AUTH_KEY = 'tmx_admin_auth';
     let currentEditingArticle = null;
     let currentEditorLang = 'en';

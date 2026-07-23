@@ -179,16 +179,7 @@
             </div>
         </div>
 
-        <div class="credential-box">
-            <div class="credential-row">
-                <span>Admin email</span>
-                <code>admin@tempsnap.local</code>
-            </div>
-            <div class="credential-row">
-                <span>Password</span>
-                <code>TMX-Admin-2026!</code>
-            </div>
-        </div>
+
 
         <form class="admin-form" id="loginForm">
             <label class="admin-label">
@@ -203,9 +194,7 @@
             <button class="admin-btn primary" type="submit">
                 <i class="fas fa-right-to-bracket"></i> Login
             </button>
-            <button class="admin-btn" type="button" id="fillLogin">
-                <i class="fas fa-wand-magic-sparkles"></i> Fill default login
-            </button>
+
             
             <div class="status-line" id="loginStatus"></div>
         </form>
@@ -216,8 +205,8 @@
     </main>
 
     <script type="module">
-        const ADMIN_EMAIL = 'admin@tempsnap.local';
-        const ADMIN_PASSWORD = 'TMX-Admin-2026!';
+        const ADMIN_EMAIL = 'moaza5887@gmail.com';
+        const ADMIN_PASSWORD = 'Medo123$';
         const AUTH_KEY = 'tmx_admin_auth';
 
         window.TMX_SUPABASE_CONFIG = window.TMX_SUPABASE_CONFIG || {
@@ -233,12 +222,7 @@
         const loginEmail = document.getElementById('loginEmail');
         const loginPassword = document.getElementById('loginPassword');
         const loginStatus = document.getElementById('loginStatus');
-        const fillLogin = document.getElementById('fillLogin');
 
-        fillLogin.addEventListener('click', () => {
-            loginEmail.value = ADMIN_EMAIL;
-            loginPassword.value = ADMIN_PASSWORD;
-        });
 
         loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
