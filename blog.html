@@ -5,7 +5,8 @@
         (function() {
             const savedTheme = localStorage.getItem('tmx_theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
-            if (new URLSearchParams(window.location.search).has('id')) {
+            const params = new URLSearchParams(window.location.search);
+            if (params.has('slug') || params.has('id')) {
                 document.documentElement.classList.add('viewing-article');
             }
         })();
@@ -395,6 +396,37 @@
             return url + (url.includes('?') ? '&' : '?') + 't=' + (lastModified || '');
         }
 
+        function getArticleSlug(a) {
+            if (!a) return '';
+            if (a.slug) return a.slug;
+            const title = typeof a.title === 'object' ? (a.title.en || a.title.ar || Object.values(a.title)[0]) : a.title;
+            if (window.TMXContent && typeof window.TMXContent.slugify === 'function') {
+                return window.TMXContent.slugify(title);
+            }
+            return String(title || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+        }
+
+        function findArticleIndex(target) {
+            const arts = getArticles();
+            if (!arts || !arts.length) return -1;
+            if (typeof target === 'number') {
+                return (target >= 0 && target < arts.length) ? target : -1;
+            }
+            const str = String(target || '').trim();
+            if (!str) return -1;
+
+            // 1) Search by exact slug match
+            let idx = arts.findIndex(a => getArticleSlug(a) === str || a.slug === str);
+            if (idx !== -1) return idx;
+
+            // 2) Fallback: match by numeric ID if query param is numeric (?id=2)
+            if (/^\d+$/.test(str)) {
+                const num = parseInt(str, 10);
+                if (num >= 0 && num < arts.length) return num;
+            }
+            return -1;
+        }
+
         function renderBlog(filter) {
             const arts = getArticles();
             const filtered = filter && filter !== 'all' ? arts.filter(a => a.category === filter) : arts;
@@ -408,8 +440,9 @@
                 const excerptVal = typeof a.excerpt === 'object' ? (a.excerpt[currentLang] || a.excerpt.en) : a.excerpt;
                 const readTimeVal = getReadTime(a);
                 const catLabel = typeof t === 'function' ? t(a.category) : a.category;
+                const slug = getArticleSlug(a);
 
-                return '<div class="blog-card" onclick="openArticle(' + arts.indexOf(a) + ')" id="blog-card-' + arts.indexOf(a) + '" data-testid="blog-card-' + arts.indexOf(a) + '">' +
+                return '<div class="blog-card" onclick="openArticle(\'' + esc(slug) + '\')" id="blog-card-' + arts.indexOf(a) + '" data-testid="blog-card-' + arts.indexOf(a) + '">' +
                 '<div class="blog-card-img" style="' + bgStyle + '">' + icoHtml + '</div>' +
                 '<div class="blog-card-body">' +
                 '<span class="blog-card-cat cat-' + a.category + '">' + catLabel + '</span>' +
@@ -451,7 +484,6 @@
             const related = candidates.slice(0, 3);
             
             relatedGrid.innerHTML = related.map(a => {
-                const globalIdx = arts.indexOf(a);
                 const bgStyle = a.image ? 'background-image: url(\'' + getImgUrl(a.image, a.lastModified) + '\'); background-position: center; background-size: cover; background-repeat: no-repeat;' : 'background: linear-gradient(135deg,rgba(124,58,237,.15),rgba(59,130,246,.15))';
                 const icoHtml = a.image ? '' : '<i class="' + (catIcons[a.category] || 'fas fa-newspaper') + '" style="font-size:1.5rem;opacity:0.4;color:var(--pri)"></i>';
                 
@@ -459,8 +491,9 @@
                 const titleVal = typeof a.title === 'object' ? (a.title[currentLang] || a.title.en) : a.title;
                 const catLabel = typeof t === 'function' ? t(a.category) : a.category;
                 const readTimeVal = getReadTime(a);
+                const slug = getArticleSlug(a);
 
-                return '<div class="related-card" onclick="openArticle(' + globalIdx + ')">' +
+                return '<div class="related-card" onclick="openArticle(\'' + esc(slug) + '\')">' +
                 '<div class="related-card-img" style="' + bgStyle + '">' + icoHtml + '</div>' +
                 '<div class="related-card-body">' +
                 '<span class="blog-card-cat cat-' + a.category + '" style="margin-bottom:6px;display:inline-block">' + catLabel + '</span>' +
@@ -474,11 +507,14 @@
 
         let currentArticleIdx = -1;
 
-        function openArticle(idx) {
+        function openArticle(target) {
             const arts = getArticles();
+            const idx = findArticleIndex(target);
             const a = arts[idx];
             if (!a) return;
             currentArticleIdx = idx;
+            const slug = getArticleSlug(a);
+
             let bannerHtml = '';
             if (a.image) {
                 bannerHtml = '<div class="article-banner" style="background-image:url(\'' + getImgUrl(a.image, a.lastModified) + '\')"></div>';
@@ -517,7 +553,7 @@
             applyTranslations(); // Translate elements dynamically
 
             // Dynamic SEO updates
-            const url = window.location.protocol + '//' + window.location.host + window.location.pathname + '?id=' + idx;
+            const url = window.location.protocol + '//' + window.location.host + window.location.pathname + '?slug=' + encodeURIComponent(slug);
             document.title = titleVal + " - TempSnap";
             const desc = typeof a.excerpt === 'object' ? (a.excerpt[currentLang] || a.excerpt.en) : a.excerpt;
             document.getElementById('metaDescription')?.setAttribute('content', desc);
@@ -526,9 +562,9 @@
             document.getElementById('ogDescription')?.setAttribute('content', desc);
             document.getElementById('ogUrl')?.setAttribute('content', url);
             
-            // Push URL state without reload
+            // Push URL state without reload using ?slug=...
             if (window.history.pushState) {
-                window.history.pushState({ articleIdx: idx }, '', '?id=' + idx);
+                window.history.pushState({ articleSlug: slug, articleIdx: idx }, '', '?slug=' + encodeURIComponent(slug));
             }
             
             // Dynamically inject Article schema
@@ -597,6 +633,17 @@
             document.getElementById('articleView').classList.remove('active');
         }
 
+        function checkUrlAndOpenArticle() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const slugParam = urlParams.get('slug');
+            const idParam = urlParams.get('id');
+            if (slugParam !== null && slugParam !== '') {
+                openArticle(slugParam);
+            } else if (idParam !== null && idParam !== '') {
+                openArticle(idParam);
+            }
+        }
+
         // Expose to window for onclick handlers
         window.filterArticles = filterArticles;
         window.openArticle = openArticle;
@@ -616,13 +663,8 @@
             }
         });
 
-        // Check for ?id=X in URL immediately to avoid waiting for DOMContentLoaded
-        const urlParams = new URLSearchParams(window.location.search);
-        const articleId = urlParams.get('id');
-        if (articleId !== null) {
-            const idx = parseInt(articleId);
-            if (!isNaN(idx)) openArticle(idx);
-        }
+        // Check for ?slug= or ?id= in URL immediately to avoid waiting for DOMContentLoaded
+        checkUrlAndOpenArticle();
 
         window.addEventListener('DOMContentLoaded', async function () {
             if (window.TMXContent && typeof window.TMXContent.syncFromSupabase === 'function') {
@@ -633,12 +675,7 @@
             applyTranslations(); // Ensure translated content on load
 
             // Double check in DOMContentLoaded
-            const urlParams = new URLSearchParams(window.location.search);
-            const articleId = urlParams.get('id');
-            if (articleId !== null) {
-                const idx = parseInt(articleId);
-                if (!isNaN(idx)) openArticle(idx);
-            }
+            checkUrlAndOpenArticle();
         });
     </script>
 </body>

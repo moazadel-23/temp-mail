@@ -276,7 +276,8 @@
         const articles = window.TMXContent.getArticles();
         if (!articles.length) { list.innerHTML = '<div class="mini-note">No articles yet. Reset default real articles or add your own.</div>'; return; }
         list.innerHTML = articles.map(function (article, index) {
-            return '<div class="item-row"><div><h3>' + window.TMXContent.esc(textValue(article.title)) + '</h3><p>' + window.TMXContent.esc(article.category || 'privacy') + ' · ' + window.TMXContent.esc(textValue(article.readTime) || '5 min read') + '</p></div><div class="item-actions"><a class="admin-btn small" href="blog.html?id=' + index + '"><i class="fas fa-arrow-up-right-from-square"></i> Open</a><button class="admin-btn small" data-edit-article="' + index + '"><i class="fas fa-pen"></i> Edit</button><button class="admin-btn small danger" data-delete-article="' + index + '"><i class="fas fa-trash"></i> Delete</button></div></div>';
+            const slug = article.slug || window.TMXContent.slugify(textValue(article.title) || index);
+            return '<div class="item-row"><div><h3>' + window.TMXContent.esc(textValue(article.title)) + '</h3><p>' + window.TMXContent.esc(article.category || 'privacy') + ' · ' + window.TMXContent.esc(textValue(article.readTime) || '5 min read') + '</p></div><div class="item-actions"><a class="admin-btn small" href="blog.html?slug=' + encodeURIComponent(slug) + '"><i class="fas fa-arrow-up-right-from-square"></i> Open</a><button class="admin-btn small" data-edit-article="' + index + '"><i class="fas fa-pen"></i> Edit</button><button class="admin-btn small danger" data-delete-article="' + index + '"><i class="fas fa-trash"></i> Delete</button></div></div>';
         }).join('');
     }
 
@@ -345,6 +346,9 @@
         currentEditingArticle.author = $('#articleAuthor').value.trim() || 'TempSnap Team';
         currentEditingArticle.date = $('#articleDate').value || new Date().toISOString().slice(0, 10);
         currentEditingArticle.lastModified = Date.now();
+        if (!currentEditingArticle.slug) {
+            currentEditingArticle.slug = window.TMXContent.slugify(titleEn || titleAr || 'article');
+        }
 
         // Calculate dynamic read time if fields are empty
         const customEn = currentEditingArticle.readTime.en ? currentEditingArticle.readTime.en.trim() : '';

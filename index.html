@@ -429,8 +429,9 @@
             const bgStyle = art.image
                 ? 'background-image:url(' + resolvedImg + ')'
                 : 'background:linear-gradient(135deg, ' + badge.bg + ')';
+            const slug = art.slug || (window.TMXContent && typeof window.TMXContent.slugify === 'function' ? window.TMXContent.slugify(typeof art.title === 'object' ? art.title.en || art.title.ar : art.title) : index);
 
-            grid.innerHTML += '<a href="blog.html?id=' + index + '" class="blog-card" id="blog-card-' + index + '" data-testid="blog-card-' + index + '">' +
+            grid.innerHTML += '<a href="blog.html?slug=' + encodeURIComponent(slug) + '" class="blog-card" id="blog-card-' + index + '" data-testid="blog-card-' + index + '">' +
                 '<div class="blog-card-img" style="' + bgStyle + '">' + (art.image ? '' : '<div style="color:' + badge.color + ';font-size:2rem;opacity:.4"><i class="fas ' + badge.icon + '"></i></div>') + '</div>' +
                 '<div class="blog-card-body">' +
                 '<span style="display:inline-block;padding:3px 10px;border-radius:50px;font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;background:' + badge.bg + ';color:' + badge.color + '">' + badge.label + '</span>' +

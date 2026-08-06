@@ -7,6 +7,7 @@ function getDefaultArticles() {
     return [
         {
             // Article 1
+            slug: "what-is-a-temporary-email-and-why-should-you-use-one-in-2026",
             category: "privacy",
             image: "img/articles/art1.jpg",
             date: "2026-07-15",
@@ -186,6 +187,7 @@ function getDefaultArticles() {
         },
         {
             // Article 2
+            slug: "how-to-receive-otp-and-verification-codes-securely",
             category: "guide",
             image: "img/articles/art2.jpg",
             date: "2026-07-12",
@@ -298,6 +300,7 @@ function getDefaultArticles() {
         },
         {
             // Article 3
+            slug: "10-tips-to-keep-your-inbox-clean-and-organized",
             category: "tips",
             image: "img/articles/art3.jpg",
             date: "2026-07-10",
@@ -428,6 +431,7 @@ function getDefaultArticles() {
         },
         {
             // Article 4
+            slug: "why-you-should-never-use-your-real-email-for-signups",
             category: "security",
             image: "img/articles/art4.jpg",
             date: "2026-07-08",
@@ -533,6 +537,7 @@ function getDefaultArticles() {
         },
         {
             // Article 6
+            slug: "build-a-smart-privacy-routine-with-temporary-email",
             category: "tips",
             image: "img/articles/art5.jpg",
             date: "2026-07-16",
@@ -639,6 +644,7 @@ function getDefaultArticles() {
         },
         {
             // Article 5
+            slug: "the-complete-guide-to-email-privacy-and-spam-protection-in-2026",
             category: "security",
             image: "img/articles/art6.jpg",
             date: "2026-07-18",
@@ -989,10 +995,10 @@ function getDefaultArticles() {
 <div class="internal-links" style="margin-top: 32px; padding: 20px; background: var(--bg2); border: 1px solid var(--brd); border-radius: 12px;">
     <h4 style="margin-top: 0; margin-bottom: 12px;">Recommended Reading:</h4>
     <ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
-        <li><a href="blog.html?id=1">Temporary Email vs Gmail: Which One Should You Use?</a></li>
-        <li><a href="blog.html?id=2">Is Temporary Email Safe? Everything You Need to Know</a></li>
-        <li><a href="blog.html?id=3">Why You Should Never Use Your Real Email for Every Signup</a></li>
-        <li><a href="blog.html?id=5">How to Stop Spam Emails Before They Reach Your Inbox</a></li>
+        <li><a href="blog.html?slug=temporary-email-vs-gmail-which-one-should-you-use">Temporary Email vs Gmail: Which One Should You Use?</a></li>
+        <li><a href="blog.html?slug=is-temporary-email-safe-everything-you-need-to-know">Is Temporary Email Safe? Everything You Need to Know</a></li>
+        <li><a href="blog.html?slug=why-you-should-never-use-your-real-email-for-every-signup">Why You Should Never Use Your Real Email for Every Signup</a></li>
+        <li><a href="blog.html?slug=the-complete-guide-to-email-privacy-and-spam-protection-in-2026">How to Stop Spam Emails Before They Reach Your Inbox</a></li>
     </ul>
 </div>
 `,
@@ -1122,10 +1128,10 @@ function getDefaultArticles() {
 <div class="internal-links" style="margin-top: 32px; padding: 20px; background: var(--bg2); border: 1px solid var(--brd); border-radius: 12px;" dir="rtl">
     <h4 style="margin-top: 0; margin-bottom: 12px;">مقالات نوصي بقراءتها:</h4>
     <ul style="margin: 0; padding-right: 20px; line-height: 1.6;">
-        <li><a href="blog.html?id=1">البريد المؤقت مقابل Gmail: أيهما يجب أن تستخدم؟</a></li>
-        <li><a href="blog.html?id=2">هل البريد الإلكتروني المؤقت آمن؟ كل ما تحتاج لمعرفته</a></li>
-        <li><a href="blog.html?id=3">لماذا لا يجب عليك استخدام بريدك الإلكتروني الحقيقي في كل التسجيلات؟</a></li>
-        <li><a href="blog.html?id=5">كيف توقف الرسائل المزعجة (Spam) قبل أن تصل إلى صندوق الوارد الخاص بك؟</a></li>
+        <li><a href="blog.html?slug=temporary-email-vs-gmail-which-one-should-you-use">البريد المؤقت مقابل Gmail: أيهما يجب أن تستخدم؟</a></li>
+        <li><a href="blog.html?slug=is-temporary-email-safe-everything-you-need-to-know">هل البريد الإلكتروني المؤقت آمن؟ كل ما تحتاج لمعرفته</a></li>
+        <li><a href="blog.html?slug=why-you-should-never-use-your-real-email-for-every-signup">لماذا لا يجب عليك استخدام بريدك الإلكتروني الحقيقي في كل التسجيلات؟</a></li>
+        <li><a href="blog.html?slug=the-complete-guide-to-email-privacy-and-spam-protection-in-2026">كيف توقف الرسائل المزعجة (Spam) قبل أن تصل إلى صندوق الوارد الخاص بك؟</a></li>
     </ul>
 </div>
 `
@@ -1255,10 +1261,10 @@ function getDefaultArticles() {
 <div class="internal-links" style="margin-top: 32px; padding: 20px; background: var(--bg2); border: 1px solid var(--brd); border-radius: 12px;">
     <h4 style="margin-top: 0; margin-bottom: 12px;">Recommended Reading:</h4>
     <ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
-        <li><a href="blog.html?id=0">What Is a Temporary Email and How Does It Work?</a></li>
-        <li><a href="blog.html?id=2">Is Temporary Email Safe? Everything You Need to Know</a></li>
-        <li><a href="blog.html?id=3">Why You Should Never Use Your Real Email for Every Signup</a></li>
-        <li><a href="blog.html?id=5">How to Stop Spam Emails Before They Reach Your Inbox</a></li>
+        <li><a href="blog.html?slug=what-is-a-temporary-email-and-why-should-you-use-one-in-2026">What Is a Temporary Email and How Does It Work?</a></li>
+        <li><a href="blog.html?slug=is-temporary-email-safe-everything-you-need-to-know">Is Temporary Email Safe? Everything You Need to Know</a></li>
+        <li><a href="blog.html?slug=why-you-should-never-use-your-real-email-for-every-signup">Why You Should Never Use Your Real Email for Every Signup</a></li>
+        <li><a href="blog.html?slug=the-complete-guide-to-email-privacy-and-spam-protection-in-2026">How to Stop Spam Emails Before They Reach Your Inbox</a></li>
     </ul>
 </div>
 `,
@@ -1368,10 +1374,10 @@ function getDefaultArticles() {
 <div class="internal-links" style="margin-top: 32px; padding: 20px; background: var(--bg2); border: 1px solid var(--brd); border-radius: 12px;" dir="rtl">
     <h4 style="margin-top: 0; margin-bottom: 12px;">مقالات نوصي بقراءتها:</h4>
     <ul style="margin: 0; padding-right: 20px; line-height: 1.6;">
-        <li><a href="blog.html?id=0">ما هو البريد الإلكتروني المؤقت وكيف يعمل؟</a></li>
-        <li><a href="blog.html?id=2">هل البريد الإلكتروني المؤقت آمن؟ كل ما تحتاج لمعرفته</a></li>
-        <li><a href="blog.html?id=3">لماذا لا يجب عليك استخدام بريدك الإلكتروني الحقيقي في كل التسجيلات؟</a></li>
-        <li><a href="blog.html?id=5">كيف توقف الرسائل المزعجة (Spam) قبل أن تصل إلى صندوق الوارد الخاص بك؟</a></li>
+        <li><a href="blog.html?slug=what-is-a-temporary-email-and-why-should-you-use-one-in-2026">ما هو البريد الإلكتروني المؤقت وكيف يعمل؟</a></li>
+        <li><a href="blog.html?slug=is-temporary-email-safe-everything-you-need-to-know">هل البريد الإلكتروني المؤقت آمن؟ كل ما تحتاج لمعرفته</a></li>
+        <li><a href="blog.html?slug=why-you-should-never-use-your-real-email-for-every-signup">لماذا لا يجب عليك استخدام بريدك الإلكتروني الحقيقي في كل التسجيلات؟</a></li>
+        <li><a href="blog.html?slug=the-complete-guide-to-email-privacy-and-spam-protection-in-2026">كيف توقف الرسائل المزعجة (Spam) قبل أن تصل إلى صندوق الوارد الخاص بك؟</a></li>
     </ul>
 </div>
 `
@@ -1506,10 +1512,10 @@ function getDefaultArticles() {
 <div class="internal-links" style="margin-top: 32px; padding: 20px; background: var(--bg2); border: 1px solid var(--brd); border-radius: 12px;">
     <h4 style="margin-top: 0; margin-bottom: 12px;">Recommended Reading:</h4>
     <ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
-        <li><a href="blog.html?id=0">What Is a Temporary Email and How Does It Work?</a></li>
-        <li><a href="blog.html?id=1">Temporary Email vs Gmail: Which One Should You Use?</a></li>
-        <li><a href="blog.html?id=3">Why You Should Never Use Your Real Email for Every Signup</a></li>
-        <li><a href="blog.html?id=5">How to Stop Spam Emails Before They Reach Your Inbox</a></li>
+        <li><a href="blog.html?slug=what-is-a-temporary-email-and-why-should-you-use-one-in-2026">What Is a Temporary Email and How Does It Work?</a></li>
+        <li><a href="blog.html?slug=temporary-email-vs-gmail-which-one-should-you-use">Temporary Email vs Gmail: Which One Should You Use?</a></li>
+        <li><a href="blog.html?slug=why-you-should-never-use-your-real-email-for-every-signup">Why You Should Never Use Your Real Email for Every Signup</a></li>
+        <li><a href="blog.html?slug=the-complete-guide-to-email-privacy-and-spam-protection-in-2026">How to Stop Spam Emails Before They Reach Your Inbox</a></li>
     </ul>
 </div>
 `,
@@ -1624,10 +1630,10 @@ function getDefaultArticles() {
 <div class="internal-links" style="margin-top: 32px; padding: 20px; background: var(--bg2); border: 1px solid var(--brd); border-radius: 12px;" dir="rtl">
     <h4 style="margin-top: 0; margin-bottom: 12px;">مقالات نوصي بقراءتها:</h4>
     <ul style="margin: 0; padding-right: 20px; line-height: 1.6;">
-        <li><a href="blog.html?id=0">ما هو البريد الإلكتروني المؤقت وكيف يعمل؟</a></li>
-        <li><a href="blog.html?id=1">البريد المؤقت مقابل Gmail: أيهما يجب أن تستخدم؟</a></li>
-        <li><a href="blog.html?id=3">لماذا لا يجب عليك استخدام بريدك الإلكتروني الحقيقي في كل التسجيلات؟</a></li>
-        <li><a href="blog.html?id=5">كيف توقف الرسائل المزعجة (Spam) قبل أن تصل إلى صندوق الوارد الخاص بك؟</a></li>
+        <li><a href="blog.html?slug=what-is-a-temporary-email-and-why-should-you-use-one-in-2026">ما هو البريد الإلكتروني المؤقت وكيف يعمل؟</a></li>
+        <li><a href="blog.html?slug=temporary-email-vs-gmail-which-one-should-you-use">البريد المؤقت مقابل Gmail: أيهما يجب أن تستخدم؟</a></li>
+        <li><a href="blog.html?slug=why-you-should-never-use-your-real-email-for-every-signup">لماذا لا يجب عليك استخدام بريدك الإلكتروني الحقيقي في كل التسجيلات؟</a></li>
+        <li><a href="blog.html?slug=the-complete-guide-to-email-privacy-and-spam-protection-in-2026">كيف توقف الرسائل المزعجة (Spam) قبل أن تصل إلى صندوق الوارد الخاص بك؟</a></li>
     </ul>
 </div>
 `
@@ -1738,10 +1744,10 @@ function getDefaultArticles() {
 <div class="internal-links" style="margin-top: 32px; padding: 20px; background: var(--bg2); border: 1px solid var(--brd); border-radius: 12px;">
     <h4 style="margin-top: 0; margin-bottom: 12px;">Recommended Reading:</h4>
     <ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
-        <li><a href="blog.html?id=0">What Is a Temporary Email and How Does It Work?</a></li>
-        <li><a href="blog.html?id=1">Temporary Email vs Gmail: Which One Should You Use?</a></li>
-        <li><a href="blog.html?id=2">Is Temporary Email Safe? Everything You Need to Know</a></li>
-        <li><a href="blog.html?id=5">How to Stop Spam Emails Before They Reach Your Inbox</a></li>
+        <li><a href="blog.html?slug=what-is-a-temporary-email-and-why-should-you-use-one-in-2026">What Is a Temporary Email and How Does It Work?</a></li>
+        <li><a href="blog.html?slug=temporary-email-vs-gmail-which-one-should-you-use">Temporary Email vs Gmail: Which One Should You Use?</a></li>
+        <li><a href="blog.html?slug=is-temporary-email-safe-everything-you-need-to-know">Is Temporary Email Safe? Everything You Need to Know</a></li>
+        <li><a href="blog.html?slug=the-complete-guide-to-email-privacy-and-spam-protection-in-2026">How to Stop Spam Emails Before They Reach Your Inbox</a></li>
     </ul>
 </div>
 `,
@@ -1832,10 +1838,10 @@ function getDefaultArticles() {
 <div class="internal-links" style="margin-top: 32px; padding: 20px; background: var(--bg2); border: 1px solid var(--brd); border-radius: 12px;" dir="rtl">
     <h4 style="margin-top: 0; margin-bottom: 12px;">مقالات نوصي بقراءتها:</h4>
     <ul style="margin: 0; padding-right: 20px; line-height: 1.6;">
-        <li><a href="blog.html?id=0">ما هو البريد الإلكتروني المؤقت وكيف يعمل؟</a></li>
-        <li><a href="blog.html?id=1">البريد المؤقت مقابل Gmail: أيهما يجب أن تستخدم؟</a></li>
-        <li><a href="blog.html?id=2">هل البريد الإلكتروني المؤقت آمن؟ كل ما تحتاج لمعرفته</a></li>
-        <li><a href="blog.html?id=5">كيف توقف الرسائل المزعجة (Spam) قبل أن تصل إلى صندوق الوارد الخاص بك؟</a></li>
+        <li><a href="blog.html?slug=what-is-a-temporary-email-and-why-should-you-use-one-in-2026">ما هو البريد الإلكتروني المؤقت وكيف يعمل؟</a></li>
+        <li><a href="blog.html?slug=temporary-email-vs-gmail-which-one-should-you-use">البريد المؤقت مقابل Gmail: أيهما يجب أن تستخدم؟</a></li>
+        <li><a href="blog.html?slug=is-temporary-email-safe-everything-you-need-to-know">هل البريد الإلكتروني المؤقت آمن؟ كل ما تحتاج لمعرفته</a></li>
+        <li><a href="blog.html?slug=the-complete-guide-to-email-privacy-and-spam-protection-in-2026">كيف توقف الرسائل المزعجة (Spam) قبل أن تصل إلى صندوق الوارد الخاص بك؟</a></li>
     </ul>
 </div>
 `
@@ -1994,10 +2000,10 @@ function getDefaultArticles() {
 <div class="internal-links" style="margin-top: 32px; padding: 20px; background: var(--bg2); border: 1px solid var(--brd); border-radius: 12px;">
     <h4 style="margin-top: 0; margin-bottom: 12px;">Recommended Reading:</h4>
     <ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
-        <li><a href="blog.html?id=6">What Is a Temporary Email and How Does It Work?</a></li>
-        <li><a href="blog.html?id=7">Temporary Email vs Gmail: Which One Should You Use?</a></li>
-        <li><a href="blog.html?id=8">Is Temporary Email Safe? Everything You Need to Know</a></li>
-        <li><a href="blog.html?id=9">Why You Should Never Use Your Real Email for Every Signup</a></li>
+        <li><a href="blog.html?slug=what-is-temporary-email-how-does-it-work">What Is a Temporary Email and How Does It Work?</a></li>
+        <li><a href="blog.html?slug=temporary-email-vs-gmail-which-one-should-you-use">Temporary Email vs Gmail: Which One Should You Use?</a></li>
+        <li><a href="blog.html?slug=is-temporary-email-safe-everything-you-need-to-know">Is Temporary Email Safe? Everything You Need to Know</a></li>
+        <li><a href="blog.html?slug=why-you-should-never-use-your-real-email-for-every-signup">Why You Should Never Use Your Real Email for Every Signup</a></li>
     </ul>
 </div>
 `,
@@ -2136,10 +2142,10 @@ function getDefaultArticles() {
 <div class="internal-links" style="margin-top: 32px; padding: 20px; background: var(--bg2); border: 1px solid var(--brd); border-radius: 12px;" dir="rtl">
     <h4 style="margin-top: 0; margin-bottom: 12px;">مقالات نوصي بقراءتها:</h4>
     <ul style="margin: 0; padding-right: 20px; line-height: 1.6;">
-        <li><a href="blog.html?id=6">ما هو البريد الإلكتروني المؤقت وكيف يعمل؟</a></li>
-        <li><a href="blog.html?id=7">البريد المؤقت مقابل Gmail: أيهما يجب أن تستخدم؟</a></li>
-        <li><a href="blog.html?id=8">هل البريد الإلكتروني المؤقت آمن؟ كل ما تحتاج لمعرفته</a></li>
-        <li><a href="blog.html?id=9">لماذا لا يجب عليك أبداً استخدام بريدك الإلكتروني الحقيقي في كل التسجيلات؟</a></li>
+        <li><a href="blog.html?slug=what-is-temporary-email-how-does-it-work">ما هو البريد الإلكتروني المؤقت وكيف يعمل؟</a></li>
+        <li><a href="blog.html?slug=temporary-email-vs-gmail-which-one-should-you-use">البريد المؤقت مقابل Gmail: أيهما يجب أن تستخدم؟</a></li>
+        <li><a href="blog.html?slug=is-temporary-email-safe-everything-you-need-to-know">هل البريد الإلكتروني المؤقت آمن؟ كل ما تحتاج لمعرفته</a></li>
+        <li><a href="blog.html?slug=why-you-should-never-use-your-real-email-for-every-signup">لماذا لا يجب عليك أبداً استخدام بريدك الإلكتروني الحقيقي في كل التسجيلات؟</a></li>
     </ul>
 </div>
 `
