@@ -111,9 +111,45 @@ async function getDomains() {
 // ========================================
 // Create Account + Get Token
 // ========================================
+const FIRST_NAMES = [
+    'moaz', 'ahmed', 'mohamed', 'ali', 'omar', 'hassan', 'youssef', 'khaled', 'mahmoud', 'tarek',
+    'kareem', 'amr', 'hazem', 'mostafa', 'sami', 'zack', 'john', 'david', 'alex', 'michael',
+    'sarah', 'mona', 'noha', 'layla', 'dina', 'emma', 'olivia', 'sophia', 'hannah', 'maya',
+    'adam', 'noah', 'liam', 'ryan', 'sam', 'luke', 'leo', 'ben', 'jack', 'daniel'
+];
+
+const LAST_NAMES = [
+    'adel', 'hassan', 'salem', 'fawzy', 'saad', 'ibrahim', 'kamal', 'ramzy', 'farouk', 'nabil',
+    'smith', 'johnson', 'williams', 'brown', 'jones', 'miller', 'davis', 'wilson', 'taylor', 'clark',
+    'white', 'harris', 'martin', 'thompson', 'garcia', 'martinez', 'robinson', 'lee', 'walker', 'hall'
+];
+
+function generateRealisticUsername() {
+    const fname = FIRST_NAMES[Math.floor(Math.random() * FIRST_NAMES.length)];
+    const lname = LAST_NAMES[Math.floor(Math.random() * LAST_NAMES.length)];
+    
+    // Patterns:
+    // 0: [firstname][lastname] (اسمين مثل moazadel)
+    // 1: [firstname][1-3 أرقام] (اسم ومعه 1 أو 2 أو 3 أرقام مثل moaz23)
+    // 2: [firstname][lastname][1-3 أرقام] (اسمين ومعهما 1 أو 2 أو 3 أرقام مثل moazadel84)
+    const pattern = Math.floor(Math.random() * 3);
+    const numDigits = Math.floor(Math.random() * 3) + 1; // 1, 2, or 3 digits
+    let digits = '';
+    for (let i = 0; i < numDigits; i++) {
+        digits += Math.floor(Math.random() * 10);
+    }
+
+    if (pattern === 0) {
+        return fname + lname;
+    } else if (pattern === 1) {
+        return fname + digits;
+    } else {
+        return fname + lname + digits;
+    }
+}
+
 function randStr(len) {
-    const c = 'abcdefghijklmnopqrstuvwxyz0123456789';
-    return Array.from({ length: len }, () => c[Math.floor(Math.random() * c.length)]).join('');
+    return generateRealisticUsername();
 }
 
 async function createNewEmail(customUser) {
@@ -122,7 +158,7 @@ async function createNewEmail(customUser) {
         if (!S.domains.length) throw new Error('No domains available');
     }
 
-    const user = customUser || randStr(10);
+    const user = customUser || generateRealisticUsername();
     const domain = S.domains[0].domain;
     const address = user + '@' + domain;
     const password = PASS;
