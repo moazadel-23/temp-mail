@@ -2,62 +2,110 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://tempsnap.online/</loc>
-        <lastmod>2026-07-23</lastmod>
+        <lastmod>2026-08-06</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://tempsnap.online/blog.html</loc>
-        <lastmod>2026-07-23</lastmod>
+        <lastmod>2026-08-06</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://tempsnap.online/premium.html</loc>
-        <lastmod>2026-07-23</lastmod>
+        <lastmod>2026-08-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://tempsnap.online/privacy.html</loc>
-        <lastmod>2026-07-23</lastmod>
+        <lastmod>2026-08-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://tempsnap.online/terms.html</loc>
-        <lastmod>2026-07-23</lastmod>
+        <lastmod>2026-08-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://tempsnap.online/cookies.html</loc>
-        <lastmod>2026-07-23</lastmod>
+        <lastmod>2026-08-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://tempsnap.online/contact.html</loc>
-        <lastmod>2026-07-23</lastmod>
+        <lastmod>2026-08-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://tempsnap.online/about.html</loc>
-        <lastmod>2026-07-23</lastmod>
+        <lastmod>2026-08-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://tempsnap.online/disclaimer.html</loc>
-        <lastmod>2026-07-23</lastmod>
+        <lastmod>2026-08-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://tempsnap.online/faq.html</loc>
-        <lastmod>2026-07-23</lastmod>
+        <lastmod>2026-08-06</lastmod>
         <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tempsnap.online/article-what-is-temporary-email.html</loc>
+        <lastmod>2026-08-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tempsnap.online/article-receive-otp-securely.html</loc>
+        <lastmod>2026-08-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tempsnap.online/article-keep-inbox-clean.html</loc>
+        <lastmod>2026-08-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tempsnap.online/article-why-not-real-email.html</loc>
+        <lastmod>2026-08-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tempsnap.online/article-smart-privacy-routine.html</loc>
+        <lastmod>2026-08-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tempsnap.online/article-complete-privacy-guide.html</loc>
+        <lastmod>2026-08-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tempsnap.online/article-temp-mail-vs-gmail.html</loc>
+        <lastmod>2026-08-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tempsnap.online/article-is-temp-mail-safe.html</loc>
+        <lastmod>2026-08-06</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 </urlset>

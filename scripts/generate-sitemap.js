@@ -12,7 +12,15 @@ const pages = [
   { path: 'contact.html', priority: '0.7', changefreq: 'monthly' },
   { path: 'about.html', priority: '0.7', changefreq: 'monthly' },
   { path: 'disclaimer.html', priority: '0.5', changefreq: 'monthly' },
-  { path: 'faq.html', priority: '0.8', changefreq: 'weekly' }
+  { path: 'faq.html', priority: '0.8', changefreq: 'weekly' },
+  { path: 'article-what-is-temporary-email.html', priority: '0.8', changefreq: 'monthly' },
+  { path: 'article-receive-otp-securely.html', priority: '0.8', changefreq: 'monthly' },
+  { path: 'article-keep-inbox-clean.html', priority: '0.8', changefreq: 'monthly' },
+  { path: 'article-why-not-real-email.html', priority: '0.8', changefreq: 'monthly' },
+  { path: 'article-smart-privacy-routine.html', priority: '0.8', changefreq: 'monthly' },
+  { path: 'article-complete-privacy-guide.html', priority: '0.8', changefreq: 'monthly' },
+  { path: 'article-temp-mail-vs-gmail.html', priority: '0.8', changefreq: 'monthly' },
+  { path: 'article-is-temp-mail-safe.html', priority: '0.8', changefreq: 'monthly' }
 ];
 
 const today = new Date().toISOString().split('T')[0];
