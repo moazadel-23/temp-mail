@@ -30,6 +30,10 @@ export default defineConfig({
         art6: resolve(__dirname, 'article-complete-privacy-guide.html'),
         art7: resolve(__dirname, 'article-temp-mail-vs-gmail.html'),
         art8: resolve(__dirname, 'article-is-temp-mail-safe.html'),
+        art9: resolve(__dirname, 'article-how-it-works.html'),
+        art10: resolve(__dirname, 'article-never-use-real-email.html'),
+        art11: resolve(__dirname, 'article-protect-email-privacy.html'),
+        art12: resolve(__dirname, 'article-10-smart-ways.html'),
       }
     }
   }

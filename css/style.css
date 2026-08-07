@@ -565,7 +565,7 @@ kbd{display:inline-block;padding:2px 7px;background:var(--bg3);border:1px solid 
 /* ===== HOME ARTICLES GRID ===== */
 #homeArticleGrid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: 20px;
     margin-top: 32px;
 }
@@ -592,7 +592,7 @@ kbd{display:inline-block;padding:2px 7px;background:var(--bg3);border:1px solid 
 
 @media(max-width:768px){
     #homeArticleGrid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
         gap: 16px;
     }
 }

@@ -20,7 +20,11 @@ const pages = [
   { path: 'article-smart-privacy-routine.html', priority: '0.8', changefreq: 'monthly' },
   { path: 'article-complete-privacy-guide.html', priority: '0.8', changefreq: 'monthly' },
   { path: 'article-temp-mail-vs-gmail.html', priority: '0.8', changefreq: 'monthly' },
-  { path: 'article-is-temp-mail-safe.html', priority: '0.8', changefreq: 'monthly' }
+  { path: 'article-is-temp-mail-safe.html', priority: '0.8', changefreq: 'monthly' },
+  { path: 'article-how-it-works.html', priority: '0.8', changefreq: 'monthly' },
+  { path: 'article-never-use-real-email.html', priority: '0.8', changefreq: 'monthly' },
+  { path: 'article-protect-email-privacy.html', priority: '0.8', changefreq: 'monthly' },
+  { path: 'article-10-smart-ways.html', priority: '0.8', changefreq: 'monthly' }
 ];
 
 const today = new Date().toISOString().split('T')[0];

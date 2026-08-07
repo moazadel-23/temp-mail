@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('tmx_theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Is a Temporary Email and How Does It Work? - TempSnap</title>
+    <meta name="description" content="Learn what a temporary email address is, how disposable mail works under the hood, and how it protects your primary inbox from spam, trackers, and data breaches.">
+    <meta name="keywords" content="what is temporary email, how temp mail works, disposable email architecture, email privacy 2026">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tempsnap.online/article-how-it-works.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="What Is a Temporary Email and How Does It Work?">
+    <meta property="og:description" content="Learn what a temporary email address is, how disposable mail works under the hood, and how it protects your primary inbox from spam, trackers, and data breaches.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://tempsnap.online/article-how-it-works.html">
+    <meta property="og:image" content="https://tempsnap.online/img/articles/temp-mail-security-barrier.jpg">
+    <meta property="og:site_name" content="TempSnap">
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8582971734546900"
+     crossorigin="anonymous"></script>
+
+    <!-- Schema.org JSON-LD Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "What Is a Temporary Email and How Does It Work?",
+      "description": "Learn what a temporary email address is, how disposable mail works under the hood, and how it protects your primary inbox from spam, trackers, and data breaches.",
+      "image": "https://tempsnap.online/img/articles/temp-mail-security-barrier.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "TempSnap"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "TempSnap",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tempsnap.online/img/logo.png"
+        }
+      },
+      "datePublished": "2026-07-19",
+      "mainEntityOfPage": "https://tempsnap.online/article-how-it-works.html"
+    }
+    </script>
+    <style>
+        .article-container { max-width: 800px; margin: 0 auto; padding: 100px 20px 80px; }
+        .article-back { display: inline-flex; align-items: center; gap: 6px; color: var(--pri); font-size: .88rem; font-weight: 600; text-decoration: none; margin-bottom: 24px; }
+        .article-back:hover { text-decoration: underline; }
+        .article-title { font-size: 2.2rem; font-weight: 900; margin-bottom: 16px; line-height: 1.25; color: var(--tx); }
+        .article-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; color: var(--tx3); font-size: .85rem; flex-wrap: wrap; }
+        .article-content { color: var(--tx2); font-size: 1rem; line-height: 1.85; }
+        .article-content h3 { color: var(--tx); font-size: 1.3rem; font-weight: 700; margin: 32px 0 14px; }
+        .article-content h4 { color: var(--tx); font-size: 1.1rem; font-weight: 700; margin: 24px 0 10px; }
+        .article-content p { margin-bottom: 18px; }
+        .article-content ul, .article-content ol { margin: 16px 0 20px 24px; }
+        .article-content li { margin-bottom: 10px; }
+        .article-content blockquote { border-left: 4px solid var(--pri); padding: 12px 20px; margin: 24px 0; background: var(--bg2); border-radius: 0 8px 8px 0; font-style: italic; }
+        [dir="rtl"] .article-content ul, [dir="rtl"] .article-content ol { margin: 16px 24px 20px 0; }
+        [dir="rtl"] .article-content blockquote { border-left: none; border-right: 4px solid var(--pri); border-radius: 8px 0 0 8px; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="wrap header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-ico"><i class="fas fa-envelope"></i></div>
+                <span>Temp<span class="logo-p">Snap</span></span>
+            </a>
+            <nav id="mainNav" style="display:none"></nav>
+            <div class="header-right">
+                <a href="premium.html" class="gold-btn" data-i18n="nav_premium"><i class="fas fa-crown"></i> Premium</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="article-container">
+        <a href="blog.html" class="article-back"><i class="fas fa-arrow-left"></i> <span data-i18n="back_to_blog">Back to Blog</span></a>
+        
+        <article class="article-content">
+            <h1 class="article-title" id="artTitle">What Is a Temporary Email and How Does It Work?</h1>
+            
+            <div class="article-meta">
+                <span><i class="fas fa-folder"></i> Privacy</span>
+                <span><i class="fas fa-calendar-alt"></i> 2026-07-19</span>
+                <span><i class="fas fa-clock"></i> 12 min read</span>
+            </div>
+
+            <!-- English Static Content -->
+            <div id="contentEn">
+                <p>In today's hyper-connected digital world, email has become the cornerstone of our online identity. From booking flights and shopping online to connecting with friends and managing business operations, almost every activity requires us to provide an email address. But every time you hand out your primary email, you are opening a door into your personal life. Have you ever paused to consider the true cost of sharing your real email address with every single website or app you visit?</p>
+
+                <p>Your primary email address is more than just a communication channel; it is your digital passport. Data brokers, marketing firms, and advertising networks use your email as a unique identifier to track your behavior across different platforms, building a detailed profile of your online habits, location, and preferences. When databases are inevitably breached, this identifier becomes a prime target for cybercriminals, leading to sophisticated phishing attempts, credential stuffing, and a constant influx of spam.</p>
+
+                <p>This is where a <strong>temporary email</strong> (also known as a disposable email address, throwaway email, or temp mail) comes into play. It acts as a digital buffer, allowing you to access online resources without sacrificing your privacy or exposing your personal information.</p>
+
+                <div class="article-image-container" style="text-align: center; margin: 28px 0;">
+                    <img src="img/articles/temp-mail-security-barrier.jpg" alt="A digital padlock protecting a user's inbox from incoming spam and tracking bots" style="max-width: 100%; border-radius: 12px; border: 1px solid var(--brd); box-shadow: var(--sh2);">
+                    <p class="image-caption" style="font-size: 0.85rem; color: var(--tx3); margin-top: 8px;">A temporary email address acts as a security barrier, routing verification messages without exposing your identity.</p>
+                </div>
+
+                <h3>What Is a Temporary Email?</h3>
+                <p>A temporary email is a fully functional, short-lived email address that is generated instantly and requires no registration or personal details. Unlike traditional email accounts provided by Google, Microsoft, or Yahoo, which are designed for long-term use and tied to your identity via phone numbers or backup emails, a temporary mailbox exists only to serve a short-term purpose and then self-destructs.</p>
+
+                <p>With a disposable email address, you can receive incoming messages, view attachments, and complete verification processes. However, once the mailbox expires or is manually deleted by the user, the address and all of its associated data are permanently purged from the hosting servers. This ensures that no digital footprint is left behind, leaving zero opportunity for trackers to target you.</p>
+
+                <h3>How Does a Temporary Email Work Under the Hood?</h3>
+                <p>To understand how a temporary inbox operates, we must look at the technical architecture that powers it. The process is incredibly swift and seamless for the user, but it relies on a sophisticated system of mail servers, database management, and web communication protocols.</p>
+
+                <h4>1. Instant Address Generation</h4>
+                <p>When you visit a temporary email service like TempSnap, the platform's backend automatically generates a random, unique alphanumeric string. This string is combined with one of the service's active domain names (for example, <code>usr9823f@tempsnap.online</code>). Because these domains are controlled by the provider, the system is immediately ready to handle mail routed to this new address.</p>
+
+                <h4>2. Mail Transfer Agents (MTAs) and MX Records</h4>
+                <p>Every domain has Mail Exchanger (MX) records stored in its Domain Name System (DNS) configurations. These records point incoming mail servers to the correct destination where messages should be delivered. When a website sends a verification email to your temporary address, the sender's mail server looks up the domain's MX records and establishes a connection with the temporary mail server via the Simple Mail Transfer Protocol (SMTP).</p>
+                <p>The temporary mail server runs a custom Mail Transfer Agent (MTA). Unlike traditional MTAs that store mail in a permanent user directory, this custom MTA is optimized for speed. It receives the incoming message, parses its headers, text content, and attachments, and immediately writes this data to an ephemeral database.</p>
+
+                <h4>3. Real-Time Frontend Updates</h4>
+                <p>Once the database receives the email, it must be displayed to the user instantly. To achieve this without requiring the user to manually refresh their browser, modern temp mail services use real-time communication technologies such as WebSockets or server-sent events (SSE). When the server receives an email, it pushes a notification directly to the open browser tab, rendering the message in the inbox in a fraction of a second. If WebSockets are not available, the client-side JavaScript falls back to fast API polling, checking the server for updates every few seconds.</p>
+
+                <h4>4. Ephemeral Storage and Automatic Purging</h4>
+                <p>Security is the core feature of a throwaway email. To maintain absolute privacy, the database is configured to use strict Time-to-Live (TTL) values. When the expiration limit is reached—whether it is 10 minutes, 2 hours, or a custom duration—a cron job or background database trigger executes a complete purge. The record containing the email contents, logs, attachments, and the address itself is deleted from the server disk. This data is not moved to a trash folder; it is permanently overwritten, ensuring that it can never be recovered.</p>
+
+                <h3>A Direct Comparison: Temporary Mail vs. Traditional Email</h3>
+                <table style="width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.9rem; text-align: left;">
+                    <thead>
+                        <tr style="border-bottom: 2px solid var(--brd); color: var(--tx);">
+                            <th style="padding: 10px;">Feature</th>
+                            <th style="padding: 10px;">Traditional Mail (e.g., Gmail)</th>
+                            <th style="padding: 10px;">Temporary Mail (e.g., TempSnap)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid var(--brd);">
+                            <td style="padding: 10px; font-weight: 700;">Registration Process</td>
+                            <td style="padding: 10px; color: var(--tx2);">Required (Name, Phone number, Backup email)</td>
+                            <td style="padding: 10px; color: var(--tx2);">None (One-click instant generation)</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--brd);">
+                            <td style="padding: 10px; font-weight: 700;">Anonymity & Privacy</td>
+                            <td style="padding: 10px; color: var(--tx2);">Low (Tied to IP, location, and phone recovery)</td>
+                            <td style="padding: 10px; color: var(--tx2);">High (No personal identifiers or logs retained)</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--brd);">
+                            <td style="padding: 10px; font-weight: 700;">Data Longevity</td>
+                            <td style="padding: 10px; color: var(--tx2);">Permanent (Stored on servers indefinitely)</td>
+                            <td style="padding: 10px; color: var(--tx2);">Temporary (Automatically deleted after expiry)</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--brd);">
+                            <td style="padding: 10px; font-weight: 700;">Purpose</td>
+                            <td style="padding: 10px; color: var(--tx2);">Primary communication, finance, official work</td>
+                            <td style="padding: 10px; color: var(--tx2);">One-time signups, testing, spam prevention</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--brd);">
+                            <td style="padding: 10px; font-weight: 700;">Susceptibility to Spam</td>
+                            <td style="padding: 10px; color: var(--tx2);">High (Leads to cluttered folders and promo ads)</td>
+                            <td style="padding: 10px; color: var(--tx2);">Zero (The inbox disappears after use)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Practical Scenarios: When to Use a Temporary Inbox</h3>
+                <ul>
+                    <li><strong>Downloading Gated Resources:</strong> Blogs often request your email to send a free guide or template. A temporary address lets you fetch the download link without receiving follow-up pitches.</li>
+                    <li><strong>Testing Software and Forms:</strong> Web developers constantly need to test user registration flows. Disposable inboxes simplify the QA workflow without filling your real inbox with test messages.</li>
+                    <li><strong>Connecting to Public Wi-Fi:</strong> Airport and coffee shop Wi-Fi networks force users to enter an email address. Safeguard your privacy by submitting a throwaway email instead.</li>
+                    <li><strong>Claiming One-Time Discounts:</strong> E-commerce stores often give first-time visitors a discount code. A temporary address lets you claim the code without subscribing forever.</li>
+                </ul>
+
+                <h3>Conclusion</h3>
+                <p>A temporary email is a simple yet powerful utility that puts you back in control of your digital footprint. By routing verification links and trial registrations through a throwaway mailbox, you keep your primary inbox clean, secure, and private.</p>
+            </div>
+
+            <!-- Arabic Static Content -->
+            <div id="contentAr" style="display:none" dir="rtl">
+                <p>في عالم رقمي متصل بشكل مفرط، أصبح البريد الإلكتروني هو حجر الأساس لهويتنا عبر الإنترنت. من حجز الرحلات والتسوق الإلكتروني إلى التواصل مع الأصدقاء وإدارة الأعمال، يتطلب منا كل نشاط تقريباً تقديم عنوان بريد إلكتروني. ولكن في كل مرة تشارك فيها بريدك الإلكتروني الأساسي، فإنك تفتح باباً لحياتك الشخصية. هل فكرت يوماً في التكلفة الحقيقية لمشاركة عنوان بريدك الإلكتروني الحقيقي مع كل موقع أو تطبيق تزوره؟</p>
+
+                <p>إن بريدك الإلكتروني الأساسي ليس مجرد وسيلة للتواصل، بل هو بمثابة جواز سفرك الرقمي. تستخدم شركات الإعلانات ومروجو البيانات هذا البريد كمعرف فريد لتتبع سلوكك عبر المنصات المختلفة، وبناء ملف تعريف دائم لاهتماماتك وموقعك وتفضيلاتك. وعندما تتعرض قواعد البيانات للاختراق، يصبح هذا البريد هدفاً رئيسياً لمجرمي الإنترنت، مما يؤدي إلى وصول رسائل التصيد الاحتيالي المستهدفة ومحاولات سرقة الحسابات، فضلاً عن سيل لا ينتهي من الرسائل المزعجة (Spam).</p>
+
+                <p>هنا يأتي دور <strong>البريد الإلكتروني المؤقت</strong> (Disposable Email) ليعمل كمخمد ومصد رقمي، يتيح لك الوصول للموارد والخدمات دون التضحية بخصوصيتك أو الكشف عن هويتك الحقيقية.</p>
+
+                <div class="article-image-container" style="text-align: center; margin: 28px 0;">
+                    <img src="img/articles/temp-mail-security-barrier.jpg" alt="درع الأمان الخاص بالبريد المؤقت" style="max-width: 100%; border-radius: 12px; border: 1px solid var(--brd); box-shadow: var(--sh2);">
+                    <p class="image-caption" style="font-size: 0.85rem; color: var(--tx3); margin-top: 8px;">يعمل البريد الإلكتروني المؤقت كحاجز حماية، حيث يوجه رسائل التحقق دون الكشف عن هويتك الحقيقية.</p>
+                </div>
+
+                <h3>ما هو البريد الإلكتروني المؤقت؟</h3>
+                <p>البريد الإلكتروني المؤقت هو عنوان بريد إلكتروني مجهول وصالح للاستخدام الفوري، يتم إنشاؤه بضغطة زر واحدة دون الحاجة إلى ملء استمارات تسجيل أو تقديم أي بيانات شخصية. وعلى عكس الحسابات الدائمة التي تقدمها شركات مثل جوجل أو مايكروسوفت، والتي تتطلب ربط حسابك برقم هاتف أو بريد بديل، فإن البريد المؤقت يتواجد لفترة قصيرة فقط ثم يدمر نفسه ذاتياً.</p>
+
+                <p>باستخدام هذا البريد، يمكنك استقبال الرسائل وتأكيد التفعيل وقراءة المحتويات بشكل طبيعي تماماً. وبمجرد انتهاء الوقت المخصص للصندوق أو حذفه يدوياً، يتم مسح العنوان ورسائله نهائياً وبشكل آمن من خوادم الخدمة، مما يضمن عدم ترك أي أثر رقمي خلفك.</p>
+
+                <h3>كيف يعمل البريد الإلكتروني المؤقت تحت الغطاء؟</h3>
+                <p>لفهم كيفية عمل هذا النظام، يجب إلقاء نظرة على البنية التحتية للخوادم وقواعد البيانات التي تعمل خلف الكواليس لتوفير تجربة فورية وآمنة بالكامل.</p>
+
+                <h4>١. التوليد الفوري للعنوان</h4>
+                <p>عندما تفتح موقع TempSnap، يقوم النظام في الخلفية بتوليد سلسلة نصية عشوائية فريدة ودمجها مع أحد النطاقات النشطة لديه (مثل: <code>usr9823f@tempsnap.online</code>). وبما أن هذه النطاقات تخضع بالكامل لتحكم مزود الخدمة، فإن النظام يكون مستعداً على الفور للتعامل مع البريد الوارد إلى هذا العنوان.</p>
+
+                <h4>٢. خوادم البريد (MTAs) وسجلات MX</h4>
+                <p>يحتوي كل نطاق (Domain) على سجلات MX مخزنة في إعدادات الـ DNS الخاصة به، وهي السجلات التي تخبر خوادم البريد الإلكتروني الأخرى عبر الإنترنت بالجهة الصحيحة لإرسال الرسائل إليها. عندما يرسل موقع ما رسالة إلى بريدك المؤقت، يبحث خادم إرسال الرسائل عن سجلات MX للنطاق ويقوم بإنشاء اتصال مع خادم البريد المؤقت باستخدام بروتوكول (SMTP).</p>
+
+                <h4>٣. التحديث المباشر للمتصفح</h4>
+                <p>لعرض الرسالة الواردة للمستخدم فوراً دون الحاجة لتحديث الصفحة يدوياً، تستخدم خدمات البريد المؤقت تقنيات اتصال حية مثل WebSockets. بمجرد تسجيل الرسالة في قاعدة البيانات، يرسل الخادم إشعاراً فورياً للمتصفح المفتوح لتعرض الرسالة في الصندوق خلال جزء من الثانية.</p>
+
+                <h4>٤. التخزين المؤقت والحذف الآمن</h4>
+                <p>تعتمد خصوصية البريد المؤقت على الحذف الصارم للبيانات. يتم ضبط قاعدة البيانات بوقت صلاحية محدد (TTL)، وبمجرد انتهائه، يتم تشغيل عملية حذف تلقائية تمحو محتويات الرسالة، المرفقات، والبيانات التعريفية من الخادم نهائياً ودون إمكانية لاسترجاعها.</p>
+
+                <h3>مقارنة مباشرة: البريد المؤقت مقابل البريد التقليدي</h3>
+                <table style="width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.9rem; text-align: right;" dir="rtl">
+                    <thead>
+                        <tr style="border-bottom: 2px solid var(--brd); color: var(--tx);">
+                            <th style="padding: 10px;">الميزة</th>
+                            <th style="padding: 10px;">البريد التقليدي (مثل Gmail)</th>
+                            <th style="padding: 10px;">البريد المؤقت (مثل TempSnap)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid var(--brd);">
+                            <td style="padding: 10px; font-weight: 700;">عملية التسجيل</td>
+                            <td style="padding: 10px; color: var(--tx2);">إلزامية (الاسم، رقم الهاتف، بريد استرداد)</td>
+                            <td style="padding: 10px; color: var(--tx2);">فورية (بضغطة زر واحدة دون أي بيانات)</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--brd);">
+                            <td style="padding: 10px; font-weight: 700;">مستوى الخصوصية</td>
+                            <td style="padding: 10px; color: var(--tx2);">منخفض (مرتبط بعنوان الـ IP والموقع الجغرافي)</td>
+                            <td style="padding: 10px; color: var(--tx2);">عالٍ جداً (لا يتم الاحتفاظ بأي سجلات)</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--brd);">
+                            <td style="padding: 10px; font-weight: 700;">فترة بقاء البيانات</td>
+                            <td style="padding: 10px; color: var(--tx2);">دائمة (تخزن الرسائل والبيانات لسنوات طويلة)</td>
+                            <td style="padding: 10px; color: var(--tx2);">مؤقتة (تُحذف بالكامل بعد انتهاء الصلاحية)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>الخلاصة</h3>
+                <p>يمثل البريد الإلكتروني المؤقت أداة بالغة الأهمية والبساطة تمنحك السيطرة الكاملة مجدداً على خصوصيتك الرقمية وأثرك على الإنترنت. من خلال جعل البريد المهمل خيارك التلقائي للتسجيلات غير الضرورية، ستحافظ على بريدك الأساسي آمناً ونظيفاً وخالياً تماماً من الفوضى والرسائل الإعلانية المزعجة.</p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="wrap">
+            <div class="foot-grid">
+                <div>
+                    <a href="index.html" class="logo" style="margin-bottom:14px">
+                        <div class="logo-ico"><i class="fas fa-envelope"></i></div>
+                        <span>Temp<span class="logo-p">Snap</span></span>
+                    </a>
+                    <p style="color:var(--tx3);font-size:.85rem;line-height:1.7;max-width:280px">Free temporary email service. Protect your privacy, avoid spam, and keep your real inbox clean.</p>
+                </div>
+                <div>
+                    <h4 style="font-size:.85rem;font-weight:700;margin-bottom:16px">Product</h4>
+                    <div style="display:flex;flex-direction:column;gap:10px">
+                        <a href="index.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Home</a>
+                        <a href="premium.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Premium</a>
+                        <a href="blog.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Blog</a>
+                        <a href="faq.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">FAQ</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="font-size:.85rem;font-weight:700;margin-bottom:16px">Legal</h4>
+                    <div style="display:flex;flex-direction:column;gap:10px">
+                        <a href="privacy.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Privacy Policy</a>
+                        <a href="terms.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Terms of Service</a>
+                        <a href="cookies.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Cookie Policy</a>
+                        <a href="contact.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">Contact</a>
+                        <a href="about.html" style="color:var(--tx3);font-size:.85rem;text-decoration:none">About Us</a>
+                    </div>
+                </div>
+            </div>
+            <div class="foot-bottom">
+                <span>&copy; 2026 TempSnap. All rights reserved.</span>
+                <div class="footer-controls" style="display:flex;align-items:center;gap:12px">
+                    <div class="lang-switcher" id="langSwitcher"></div>
+                    <button class="theme-btn" id="themeBtn" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+    <script type="module">
+        initLang();
+        document.getElementById('langSwitcher').replaceWith(createLangSwitcher());
+        
+        function updateArticleLang(lang) {
+            const isAr = lang === 'ar';
+            document.getElementById('contentEn').style.display = isAr ? 'none' : 'block';
+            document.getElementById('contentAr').style.display = isAr ? 'block' : 'none';
+            document.getElementById('artTitle').textContent = isAr ? 
+                "ما هو البريد الإلكتروني المؤقت وكيف يعمل بالتفصيل؟" : 
+                "What Is a Temporary Email and How Does It Work?";
+        }
+        updateArticleLang(currentLang);
+        window.onLangChange = updateArticleLang;
+    </script>
+</body>
+</html>

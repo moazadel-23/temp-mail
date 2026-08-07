@@ -112,7 +112,7 @@
             return (Array.isArray(articles) ? articles : []).filter(a => a.category !== 'hidden' && a.category !== 'archive');
         }
         const version = localStorage.getItem(KEYS.articleVersion);
-        if (!Array.isArray(articles) || !articles.length || version !== '9') {
+        if (!Array.isArray(articles) || !articles.length || version !== '10') {
             articles = typeof window.getDefaultArticles === 'function' ? window.getDefaultArticles() : [];
             saveArticles(articles);
         }
@@ -121,7 +121,7 @@
 
     function saveArticles(articles) {
         writeJson(KEYS.articles, Array.isArray(articles) ? articles : []);
-        localStorage.setItem(KEYS.articleVersion, '9');
+        localStorage.setItem(KEYS.articleVersion, '10');
     }
     async function syncFromSupabase() {
         if (!window.TMXSupabase || !window.TMXSupabase.isEnabled()) return false;
